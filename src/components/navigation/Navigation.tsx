@@ -27,6 +27,7 @@ const Navigation: React.FC = () => {
   }, []);
 
   const navItems: NavItem[] = [
+    { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Experience', href: '/experience' },
     { name: 'Education', href: '/education' },
