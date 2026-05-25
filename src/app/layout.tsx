@@ -8,6 +8,7 @@ import { TooltipProvider } from '@/components/ui/tooltip';
 import { publicUrl } from "@/constants";
 import personalInfo from "@/data/personal-info.json";
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const myUrl = process.env.NEXT_PUBLIC_SITE_URL || publicUrl;
 
@@ -125,6 +126,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
           </QueryProvider>
         </ThemeProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
