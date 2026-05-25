@@ -1,0 +1,340 @@
+{
+  "personal": {
+    "name": "Sujeeth Sundarajan Rajkumar",
+    "nickname": "sujeethsr",
+    "title": "AI Engineer",
+    "company": "TechMentee, Inc",
+    "email": "work.sujeeth@gmail.com",
+    "tagline": "AI Engineer | Building LLM, RAG & Agentic AI Solutions",
+    "bio": "I build AI systems that turn complex business problems into scalable, production-ready solutions. My work focuses on LLM applications, RAG pipelines, AI agents, and intelligent automation—combining strong engineering foundations with practical AI innovation.",
+    "closingBio": "Open to opportunities in AI Engineering, Generative AI, and intelligent product development. If you're working on LLM applications, agentic systems, or scaling AI into production — I'd love to connect and build something impactful together.",
+    "story": [
+      "As an AI Engineer with 3+ years of professional experience spanning software engineering and applied AI, I focus on building production-grade systems powered by Large Language Models, Retrieval-Augmented Generation, and Agentic AI. My work centers on the often-overlooked middle layer — the orchestration, prompt engineering, vector retrieval, and infrastructure that turn raw model capabilities into reliable, scalable products.",
+      "My path into AI started in traditional software engineering. I built backend systems, optimized SQL queries, and automated cloud deployments at AJR Info Systems in India before pursuing my Master's in Computer Science at the University of Texas at Arlington. Internships at Growith and an AI & Data Analyst role at UTA pulled me deeper into intelligent systems, and I eventually joined TechMentee as an AI Engineer — where I now design end-to-end LLM architectures and AI-driven workflows.",
+      "Outside of building, I write about AI engineering on Medium, follow emerging research in agentic systems and LLM orchestration closely, and explore how new model capabilities can be turned into real products. I'm a strong believer that the most valuable AI isn't the most sophisticated — it's the kind that actually ships, scales, and solves a real problem someone has."
+    ],
+    "profileImage": "/sujeeth-profile.png"
+  },
+  "stats": {
+    "projects": "3+",
+    "yearsExperience": "3+"
+  },
+  "social": {
+    "linkedin": {
+      "url": "https://www.linkedin.com/in/sujeethsr",
+      "username": "sujeethsr"
+    },
+    "github": {
+      "url": "https://github.com/sujeethsr",
+      "username": "sujeethsr"
+    },
+    "medium": {
+      "url": "https://medium.com/@sujeethsr",
+      "username": "sujeethsr"
+    },
+      "instagram": {
+      "url": "https://www.instagram.com/sujeethsr",
+      "username": "sujeethsr"
+    },
+    "youtube": {
+  "url": "https://www.youtube.com/@sujeethsr",
+  "username": "sujeethsr"
+},
+    "email": "mailto:work.sujeeth@gmail.com"
+
+  },
+  "experience": [
+  {
+    "id": 1,
+    "title": "AI Engineer",
+    "company": "TechMentee, Inc.",
+    "location": "Alpharetta, GA · Remote",
+    "logo": "/professional-experience-logos/TechMentee.png",
+    "duration": "May 2026 – Present",
+    "description": "Building production-grade AI systems leveraging machine learning, deep learning, and Generative AI — from end-to-end ML pipelines to LLM-powered applications integrated into production through APIs and microservices.",
+    "achievements": [
+      "Designing and deploying machine learning and deep learning models for real-world applications with a focus on scalability and production reliability",
+      "Developing end-to-end ML pipelines covering data preprocessing, model training, evaluation, and deployment using modern MLOps practices",
+      "Working across NLP, computer vision, and Generative AI to solve diverse business problems",
+      "Integrating AI models into production systems via REST APIs, microservices, and modern deployment frameworks",
+      "Collaborating with data scientists, engineers, and product teams to translate business requirements into AI-driven solutions",
+      "Implementing responsible AI practices including bias mitigation, data privacy, model governance, and continuous performance monitoring"
+    ],
+    "technologies": ["Python", "Machine Learning", "Deep Learning", "NLP", "Generative AI", "LLMs", "REST APIs", "Microservices"]
+  },
+  {
+    "id": 2,
+    "title": "AI & Data Analytics",
+    "company": "The University of Texas at Arlington",
+    "location": "Arlington, TX, USA",
+    "logo": "/professional-experience-logos/uta.png",
+    "duration": "Sep 2025 – Apr 2026",
+    "description": "Applied AI and data analytics techniques to academic and research projects at UTA, supporting data-driven decision making and operational insights.",
+    "achievements": [
+      "Applied machine learning and data analysis techniques to support academic research initiatives",
+      "Built data pipelines and analytical tools to process and visualize research datasets",
+      "Collaborated with faculty and research teams to deliver data-driven insights"
+    ],
+    "technologies": ["Python", "SQL", "Data Analysis", "Machine Learning", "Pandas"]
+  },
+  {
+    "id": 3,
+    "title": "Software Engineer Intern",
+    "company": "Growith, Inc",
+    "location": "Irving, TX, USA · Hybrid",
+    "logo": "/professional-experience-logos/growith.png",
+    "duration": "Dec 2024 – May 2025",
+    "description": "Full-stack development of scalable web applications with modern authentication, automated testing, and database optimization in an Agile environment.",
+    "achievements": [
+      "Developed and deployed full-stack web applications using React.js, Node.js, and MongoDB, improving end-user response times by 25%",
+      "Implemented secure authentication and authorization using OAuth 2.0 and JWT",
+      "Conducted unit testing and API debugging with Jest and Postman, increasing system stability by 15%",
+      "Worked in Agile/Scrum teams, optimizing sprint planning and backlog refinement, boosting team efficiency by 30%",
+      "Optimized database indexing and query structures, improving data retrieval speed by 40%",
+      "Collaborated with UI/UX designers to enhance user experience and increase engagement by 25%"
+    ],
+    "technologies": ["React.js", "Node.js", "MongoDB", "OAuth 2.0", "JWT", "Jest", "Postman", "Agile/Scrum"]
+  },
+  {
+    "id": 4,
+    "title": "Software Engineer",
+    "company": "AJR Info Systems Pvt. Ltd",
+    "location": "Hyderabad, India",
+    "logo": "/professional-experience-logos/ajr.png",
+    "duration": "Aug 2022 – May 2023",
+    "description": "Built and optimized backend systems and cloud-deployed applications, focusing on database performance, API integration, and automated deployments.",
+    "achievements": [
+      "Led user research initiatives to improve UX, increasing website usability by 30%",
+      "Integrated REST APIs to enhance data communication between systems, improving operational efficiency by 40%",
+      "Refactored SQL queries in PostgreSQL and MySQL, reducing response times by 30%",
+      "Automated cloud deployments on AWS and Google Cloud Platform, increasing system uptime by 35%",
+      "Authored 75+ pages of technical documentation, reducing new-hire onboarding time by two weeks"
+    ],
+    "technologies": ["REST APIs", "PostgreSQL", "MySQL", "AWS", "Google Cloud Platform"]
+  }
+],
+"education": [
+  {
+    "id": 1,
+    "degree": "Master of Science in Computer Science",
+    "institution": "The University of Texas at Arlington",
+    "location": "Arlington, TX, USA",
+    "duration": "Aug 2023 – May 2025",
+    "gpa": "3.63",
+    "logo": "/professional-experience-logos/uta.png",
+    "coursework": [
+      "Machine Learning",
+      "Web Data Management",
+      "Cloud Computing",
+      "Database Management Systems",
+      "Software Engineering"
+    ]
+  },
+  {
+    "id": 2,
+    "degree": "Bachelor of Engineering in Computer Science",
+    "institution": "Sathyabama Institute of Science and Technology",
+    "location": "Chennai, India",
+    "duration": "Jun 2019 – May 2023",
+    "gpa": "3.23",
+    "logo": "/professional-experience-logos/sathyabama.png",
+    "coursework": [
+      "Data Structures",
+      "Database Management Systems",
+      "Software Engineering",
+      "Java Programming",
+      "Artificial Intelligence",
+      "Machine Learning",
+      "Big Data Analytics",
+      "Operating Systems",
+      "Computer Networks",
+      "Cloud Computing",
+      "Data Science",
+      "Compiler Design"
+    ]
+  }
+],
+  "projects": [
+    {
+    "id": 1,
+    "title": "FundHive",
+    "subtitle": "Crowdfunding Platform",
+    "description": "A dynamic crowdfunding platform empowering users to raise funds for personal, creative, and startup projects — connecting campaign creators with a community of backers.",
+    "longDescription": "FundHive is a full-stack crowdfunding platform built with React and Vite, featuring campaign creation, donor management, and real-time funding tracking. Directly inspired by the blockchain fundraising research published at IEEE ICCMC 2023, FundHive translates that research into a production-ready web application.",
+    "technologies": [
+      "React",
+      "JavaScript",
+      "Vite",
+      "Tailwind CSS",
+      "Shadcn UI"
+    ],
+    "github": "https://github.com/sujeethsr/FundHive",
+    "liveUrl": "https://fund-hive.vercel.app",
+    "featured": true,
+    "categories": ["Fullstack Development", "Fintech"],
+    "image": "",
+    "status": "In Development",
+    "priority": 1
+  }
+
+  ],
+  "publications": [
+  {
+    "title": "Blockchain Fundraising and Charity Platform",
+    "venue": "IEEE",
+    "doi": "10.1109/ICCMC56507.2023.10157146",
+    "url": "https://ieeexplore.ieee.org/document/10157146",
+    "date": "May 2023",
+    "description": "Co-authored research on a blockchain-based fundraising and charity platform designed to improve transparency, trust, and accountability in donation tracking and fund distribution.",
+    "category": "research"
+  },
+  {
+    "title": "Stop Asking 'Which AI Model Is Best?' — The Real Question Is: Who Owns the Rails",
+    "venue": "Medium",
+    "doi": "",
+    "url": "https://medium.com/@sujeethsr/stop-asking-which-model-is-best-the-real-question-is-who-owns-the-rails-af46adc4e71b",
+    "date": "May 2026",
+    "description": "Reflections on AI infrastructure, model evaluation, and where real defensibility lives in the AI stack.",
+    "category": "blog",
+    "status": "Published"
+  },
+  {
+    "title": "My Journey From Software Engineer to AI Engineer",
+    "venue": "Medium",
+    "doi": "",
+    "url": "https://medium.com/@sujeethsr/my-journey-from-software-engineer-to-ai-engineer-394ca2a5843f",
+    "date": "May 2026",
+    "description": "A personal account of transitioning from traditional software engineering into the world of Generative AI.",
+    "category": "blog",
+    "status": "Published"
+  }
+
+  ],
+  "achievements": [
+  ],
+  "achievements_archived": [
+  {
+    "title": "",
+    "organization": "",
+    "year": "",
+    "description": "",
+    "category": "corporate"
+  }
+],
+  "certifications": [
+      {
+    "id": 1,
+    "title": "Crash Course on Python",
+    "provider": "Coursera",
+    "year": "2022",
+    "description": "Foundational Python programming course covering core concepts, data structures, and automation scripting.",
+    "certificates": [
+      {
+        "url": "https://coursera.org/verify/9V7H46SCK6FL",
+        "title": "Crash Course on Python",
+        "year": "2022",
+        "credentialId": "9V7H46SCK6FL"
+      }
+    ],
+    "skills": [
+      "Python",
+      "Programming Fundamentals",
+      "Automation",
+      "Scripting"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "HTML5 & CSS3 Complete Course: Build Websites like a Pro",
+    "provider": "Udemy",
+    "year": "2022",
+    "description": "Comprehensive HTML5 and CSS3 course covering modern web design, responsive layouts, and professional website development.",
+    "certificates": [
+      {
+        "url": "https://www.udemy.com/certificate/UC-6a1c99bb-331d-4406-86ce-a57fc52f4471",
+        "title": "HTML5 & CSS3 Complete Course: Build Websites like a Pro",
+        "year": "2022",
+        "credentialId": "UC-6a1c99bb-331d-4406-86ce-a57fc52f4471"
+      }
+    ],
+    "skills": [
+      "HTML5",
+      "CSS3",
+      "Responsive Design",
+      "Web Development"
+    ]
+  },
+  {
+  "id": 3,
+  "title": "Foundations: Data, Data, Everywhere",
+  "provider": "Coursera",
+  "year": "2022",
+  "description": "Google Data Analytics certificate covering data analysis foundations, data-driven decision making, and analytical thinking.",
+  "certificates": [
+    {
+      "url": "https://coursera.org/verify/X33DQ95VLT33",
+      "title": "Foundations: Data, Data, Everywhere",
+      "year": "2022",
+      "credentialId": "X33DQ95VLT33"
+    }
+  ],
+  "skills": [
+    "Data Analysis",
+    "Analytical Thinking",
+    "Data-Driven Decision Making",
+    "Google Analytics"
+  ]
+},
+{
+  "id": 4,
+  "title": "Introduction to Git and GitHub",
+  "provider": "Coursera",
+  "year": "2022",
+  "description": "Google-backed course covering version control fundamentals, Git workflows, and collaborative development using GitHub.",
+  "certificates": [
+    {
+      "url": "https://coursera.org/verify/JU655EH7FXEE",
+      "title": "Introduction to Git and GitHub",
+      "year": "2022",
+      "credentialId": "JU655EH7FXEE"
+    }
+  ],
+  "skills": [
+    "Git",
+    "GitHub",
+    "Version Control",
+    "Collaborative Development"
+  ]
+}
+  ],
+"seo": {
+  "title": "Sujeeth S R - AI Engineer",
+  "description": "AI Engineer specializing in Large Language Models, RAG, Agentic AI, and production-grade AI systems. Based in Dallas-Fort Worth, TX.",
+  "keywords": [
+    "Sujeeth S R",
+    "Sujeeth Sundarajan Rajkumar",
+    "AI Engineer",
+    "Generative AI Engineer",
+    "LLM Engineer",
+    "RAG",
+    "Agentic AI",
+    "Prompt Engineering",
+    "Python",
+    "FastAPI",
+    "Machine Learning",
+    "Deep Learning",
+    "NLP",
+    "Dallas Fort Worth",
+    "Texas",
+    "UT Arlington",
+    "Sathyabama",
+    "TechMentee"
+  ],
+    "ogImage": "/sujeeth-profile.png",
+    "googleSiteVerification": "",
+    "icon": {
+      "icon": "/web-app-manifest.png",
+      "appleTouchIcon": "/apple-touch-icon.png"
+    }
+  }
+}
