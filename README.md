@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="https://sujeethsr.vercel.app/sujeeth-profile.png" width="120" style="border-radius: 16px; margin-bottom: 16px;" />
-
 # Hey, I'm Sujeeth Sundarajan Rajkumar 👋
 
 ### AI Engineer · Building with LLMs, RAG & Agentic AI
