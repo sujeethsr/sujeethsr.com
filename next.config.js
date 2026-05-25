@@ -3,9 +3,6 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: false,
   },
-  eslint: {
-    ignoreDuringBuilds: false,
-  },
   images: {
     remotePatterns: [
       {
@@ -17,13 +14,22 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react'],
   },
-  // Fix for ChunkLoadError during development
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Accept-Ranges',
+            value: 'none',
+          },
+        ],
+      },
+    ];
+  },
   webpack: (config, { dev, isServer }) => {
     if (dev && !isServer) {
-      // Increase chunk loading timeout for development
-      config.output.chunkLoadTimeout = 120000; // 2 minutes
-      
-      // Optimize chunk splitting for development
+      config.output.chunkLoadTimeout = 120000;
       config.optimization = {
         ...config.optimization,
         splitChunks: {
@@ -48,12 +54,10 @@ const nextConfig = {
     }
     return config;
   },
-  // Development server configuration
   ...(process.env.NODE_ENV === 'development' && {
     devIndicators: false,
-    // Reduce memory usage during development
     onDemandEntries: {
-      maxInactiveAge: 60 * 1000, // 1 minute
+      maxInactiveAge: 60 * 1000,
       pagesBufferLength: 2,
     },
   }),
