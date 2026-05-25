@@ -8,8 +8,8 @@ const BottomBar: React.FC = () => {
   return (
     <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-border/30 flex justify-center items-center">
       <div className="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-1 text-center text-muted-foreground text-xs md:text-sm max-w-[320px] md:max-w-none">
-        <span>© {currentYear}</span>
-        <span className="text-primary font-semibold">Sujeeth S R</span>
+<span>© {currentYear} · </span>
+<span className="text-primary font-semibold">Sujeeth S R</span>
         <span>· Powered by</span>
         <Cpu size={13} className="text-primary animate-pulse" />
         <span>AI &</span>
