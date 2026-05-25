@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 
@@ -26,7 +25,6 @@ const PublicationCategoryFilter: React.FC<PublicationCategoryFilterProps> = ({ p
   useEffect(() => {
     const grid = document.getElementById('publications-grid');
     const emptyState = document.getElementById('blog-empty-state');
-
     if (!grid || !emptyState) return;
 
     const cards = grid.querySelectorAll('[data-category]');
@@ -35,9 +33,8 @@ const PublicationCategoryFilter: React.FC<PublicationCategoryFilterProps> = ({ p
     cards.forEach((card) => {
       const cardElement = card as HTMLElement;
       const category = cardElement.getAttribute('data-category');
-
       if (activeCategory === 'all' || category === activeCategory) {
-        cardElement.style.display = 'block';
+        cardElement.style.display = '';
         visibleCount++;
       } else {
         cardElement.style.display = 'none';
@@ -73,7 +70,6 @@ const PublicationCategoryFilter: React.FC<PublicationCategoryFilterProps> = ({ p
               </option>
             ))}
           </select>
-
           <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted-foreground pointer-events-none" />
         </div>
       </div>
