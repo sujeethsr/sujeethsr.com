@@ -1,1 +1,1 @@
-export const publicUrl = "https://RajkumarSujeeth.com";
+export const publicUrl = "https://sujeethsr.vercel.app";
