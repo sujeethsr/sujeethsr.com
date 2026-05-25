@@ -29,8 +29,13 @@ export const metadata: Metadata = {
   creator: personalInfo.personal.name,
   publisher: personalInfo.personal.name,
   icons: {
-    icon: personalInfo.seo.icon.icon,
-    apple: personalInfo.seo.icon.appleTouchIcon
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
+    shortcut: '/favicon.ico',
   },
   verification: {
     google: personalInfo.seo.googleSiteVerification,
@@ -62,7 +67,6 @@ export const metadata: Metadata = {
     description: personalInfo.seo.description,
     images: [personalInfo.seo.ogImage],
   },
-
 };
 
 interface RootLayoutProps {
@@ -89,18 +93,19 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
               "email": personalInfo.personal.email,
               "url": myUrl,
               "sameAs": [
-                personalInfo.social.linkedin,
-                personalInfo.social.github,
-                personalInfo.social.instagram
+                personalInfo.social.linkedin.url,
+                personalInfo.social.github.url,
+                personalInfo.social.medium.url
               ],
               "knowsAbout": [
                 "Artificial Intelligence",
                 "Machine Learning",
-                "Full Stack Development",
+                "Large Language Models",
+                "Retrieval-Augmented Generation",
+                "Agentic AI",
                 "Python",
-                "React.js",
-                "Cloud Computing",
-                "Accessibility Technology"
+                "FastAPI",
+                "Cloud Computing"
               ],
               "keywords": personalInfo.seo.keywords,
             })
