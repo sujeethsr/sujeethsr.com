@@ -9,6 +9,7 @@ const QuickLinks: React.FC = () => {
     { name: 'Experience', href: 'experience', type: 'scroll' },
     { name: 'Education', href: 'education', type: 'scroll' },
     { name: 'Publications', href: 'publications', type: 'scroll' },
+    { name: 'Blog', href: '/blog', type: 'link' },
   ];
 
   return (

@@ -112,12 +112,12 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
             })
           }}
         />
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+<ThemeProvider
+  attribute="class"
+  defaultTheme="dark"
+  enableSystem={false}
+  disableTransitionOnChange
+>
           <QueryProvider>
             <TooltipProvider>
               {children}

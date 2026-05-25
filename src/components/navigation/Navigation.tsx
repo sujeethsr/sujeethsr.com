@@ -1,11 +1,11 @@
 'use client';
-
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Logo from './Logo';
 import DesktopNavigation from './DesktopNavigation';
 import MobileMenuButton from './MobileMenuButton';
 import MobileNavigation from './MobileNavigation';
+import ThemeToggle from './ThemeToggle';
 
 interface NavItem {
   readonly name: string;
@@ -19,10 +19,8 @@ const Navigation: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
-
     handleScroll();
     window.addEventListener('scroll', handleScroll);
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -33,17 +31,15 @@ const Navigation: React.FC = () => {
     { name: 'Education', href: '/education' },
     { name: 'Publications', href: '/publications' },
     { name: 'Certifications', href: '/certifications' },
-    { name: 'Contact', href: '/contact' }
+    { name: 'Contact', href: '/contact' },
   ];
 
   const scrollToSection = (href: string) => {
     setIsOpen(false);
-
     if (href.startsWith('/')) {
       router.push(href);
       return;
     }
-
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -57,17 +53,28 @@ const Navigation: React.FC = () => {
       }`}
     >
       <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <Logo scrollToSection={scrollToSection} />
+        <div className="grid grid-cols-3 items-center h-16">
 
-          <DesktopNavigation
-            navItems={navItems}
-            scrollToSection={scrollToSection}
-          />
+          {/* Left — Logo */}
+          <div className="flex items-center">
+            <Logo scrollToSection={scrollToSection} />
+          </div>
 
-          <MobileMenuButton isOpen={isOpen} setIsOpen={setIsOpen} />
+          {/* Center — Nav links */}
+          <div className="flex justify-center">
+            <DesktopNavigation
+              navItems={navItems}
+              scrollToSection={scrollToSection}
+            />
+          </div>
+
+          {/* Right — Theme toggle + Mobile menu */}
+          <div className="flex items-center justify-end gap-2">
+            <ThemeToggle />
+            <MobileMenuButton isOpen={isOpen} setIsOpen={setIsOpen} />
+          </div>
+
         </div>
-
         <MobileNavigation
           navItems={navItems}
           isOpen={isOpen}

@@ -1,18 +1,19 @@
 'use client';
 
 import React, { useEffect, useRef } from "react";
-import { Github, Linkedin, Instagram, Youtube, Mail, ArrowDown, BadgeCheck} from "lucide-react";
+import { Github, Linkedin, Instagram, Youtube, Mail, ArrowDown, BadgeCheck } from "lucide-react";
+import { useTheme } from "next-themes";
 import ScrollButton from "../ScrollButton";
 import personalInfo from "@/data/personal-info.json";
 import Image from "next/image";
 
 const ParticleBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
@@ -20,16 +21,11 @@ const ParticleBackground: React.FC = () => {
     canvas.height = window.innerHeight;
 
     const particles: {
-      x: number;
-      y: number;
-      radius: number;
-      speedX: number;
-      speedY: number;
-      opacity: number;
+      x: number; y: number; radius: number;
+      speedX: number; speedY: number; opacity: number;
     }[] = [];
 
     const count = 80;
-
     for (let i = 0; i < count; i++) {
       particles.push({
         x: Math.random() * canvas.width,
@@ -45,11 +41,17 @@ const ParticleBackground: React.FC = () => {
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const isDark = document.documentElement.classList.contains('dark');
+      const particleColor = isDark
+        ? `hsla(220, 90%, 85%, `
+        : `hsla(220, 80%, 45%, `;
+      const lineColor = isDark
+        ? `hsla(220, 90%, 85%, `
+        : `hsla(220, 80%, 45%, `;
 
       particles.forEach((p, i) => {
         p.x += p.speedX;
         p.y += p.speedY;
-
         if (p.x < 0) p.x = canvas.width;
         if (p.x > canvas.width) p.x = 0;
         if (p.y < 0) p.y = canvas.height;
@@ -57,21 +59,22 @@ const ParticleBackground: React.FC = () => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(220, 90%, 85%, ${p.opacity + 0.3})`;
+        ctx.fillStyle = `${particleColor}${isDark ? p.opacity + 0.3 : p.opacity * 0.6})`;
         ctx.fill();
 
         particles.forEach((p2, j) => {
           if (i === j) return;
-
           const dx = p.x - p2.x;
           const dy = p.y - p2.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-
           if (dist < 100) {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `hsla(220, 90%, 85%, ${0.15 * (1 - dist / 100)})`;
+            ctx.strokeStyle = `${lineColor}${isDark ? 0.15 : 0.08} * (1 - dist / 100))`;
+            ctx.strokeStyle = isDark
+              ? `hsla(220, 90%, 85%, ${0.15 * (1 - dist / 100)})`
+              : `hsla(220, 80%, 45%, ${0.08 * (1 - dist / 100)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -87,14 +90,12 @@ const ParticleBackground: React.FC = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
-
     window.addEventListener('resize', handleResize);
-
     return () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [theme]);
 
   return (
     <canvas
@@ -111,12 +112,38 @@ const Hero: React.FC = () => {
       id="hero"
       className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-4"
     >
+      {/* Particle background */}
       <ParticleBackground />
 
-      <div className="absolute inset-0 pointer-events-none">
+      {/* Light mode — dot grid + blue blobs */}
+      <div className="absolute inset-0 pointer-events-none dark:hidden">
+        <div
+          className="absolute inset-0 opacity-[0.12]"
+          style={{
+            backgroundImage: 'radial-gradient(circle, #3b82f6 1px, transparent 1px)',
+            backgroundSize: '28px 28px',
+          }}
+        />
+        <div
+          className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl opacity-20"
+          style={{ background: 'radial-gradient(circle, #93c5fd, transparent)' }}
+        />
+        <div
+          className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full blur-3xl opacity-15"
+          style={{ background: 'radial-gradient(circle, #bfdbfe, transparent)' }}
+        />
+        <div
+          className="absolute top-1/2 right-1/3 w-64 h-64 rounded-full blur-3xl opacity-10"
+          style={{ background: 'radial-gradient(circle, #60a5fa, transparent)' }}
+        />
+      </div>
+
+      {/* Dark mode — center glow */}
+      <div className="absolute inset-0 pointer-events-none hidden dark:block">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-3xl" />
       </div>
 
+      {/* Content */}
       <div className="flex flex-col items-center text-center space-y-6 z-10">
         <div className="w-40 h-52 sm:w-48 sm:h-64 rounded-2xl overflow-hidden border-2 border-primary/30 shadow-[0_0_40px_rgba(59,130,246,0.3)]">
           <Image
@@ -132,15 +159,10 @@ const Hero: React.FC = () => {
         <div className="space-y-2">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold flex items-center justify-center gap-2 sm:gap-3">
             <span className="gradient-text">{personalInfo.personal.name}</span>
-
             <span className="inline-flex items-center justify-center w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-green-500/15 border border-green-500/40 shadow-[0_0_18px_rgba(34,197,94,0.45)] flex-shrink-0">
-              <BadgeCheck
-                size={18}
-                className="sm:w-6 sm:h-6 text-green-500 stroke-[2.8]"
-              />
+              <BadgeCheck size={18} className="sm:w-6 sm:h-6 text-green-500 stroke-[2.8]" />
             </span>
           </h1>
-
           <p className="text-lg sm:text-xl text-muted-foreground font-medium">
             {personalInfo.personal.tagline}
           </p>
@@ -151,50 +173,19 @@ const Hero: React.FC = () => {
         </p>
 
         <div className="flex items-center gap-5">
-          <a
-            href={personalInfo.social.linkedin.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110"
-            aria-label="LinkedIn"
-          >
+          <a href={personalInfo.social.linkedin.url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110" aria-label="LinkedIn">
             <Linkedin size={22} />
           </a>
-          <a
-  href={personalInfo.social.youtube.url}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110"
-  aria-label="YouTube"
->
-  <Youtube size={22} />
-</a>
-
-          <a
-            href={personalInfo.social.github.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110"
-            aria-label="GitHub"
-          >
+          <a href={personalInfo.social.youtube.url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110" aria-label="YouTube">
+            <Youtube size={22} />
+          </a>
+          <a href={personalInfo.social.github.url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110" aria-label="GitHub">
             <Github size={22} />
           </a>
-
-          <a
-            href={personalInfo.social.instagram.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110"
-            aria-label="Instagram"
-          >
+          <a href={personalInfo.social.instagram.url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110" aria-label="Instagram">
             <Instagram size={22} />
           </a>
-
-          <a
-            href={personalInfo.social.email}
-            className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110"
-            aria-label="Email"
-          >
+          <a href={personalInfo.social.email} className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110" aria-label="Email">
             <Mail size={22} />
           </a>
         </div>
