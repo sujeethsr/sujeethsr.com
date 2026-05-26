@@ -1,4 +1,5 @@
 'use client';
+
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Logo from './Logo';
@@ -36,10 +37,12 @@ const Navigation: React.FC = () => {
 
   const scrollToSection = (href: string) => {
     setIsOpen(false);
+
     if (href.startsWith('/')) {
       router.push(href);
       return;
     }
+
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -54,13 +57,10 @@ const Navigation: React.FC = () => {
     >
       <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-3 items-center h-16">
-
-          {/* Left — Logo */}
           <div className="flex items-center">
-            <Logo scrollToSection={scrollToSection} />
+            <Logo />
           </div>
 
-          {/* Center — Nav links */}
           <div className="flex justify-center">
             <DesktopNavigation
               navItems={navItems}
@@ -68,13 +68,12 @@ const Navigation: React.FC = () => {
             />
           </div>
 
-          {/* Right — Theme toggle + Mobile menu */}
           <div className="flex items-center justify-end gap-2">
             <ThemeToggle />
             <MobileMenuButton isOpen={isOpen} setIsOpen={setIsOpen} />
           </div>
-
         </div>
+
         <MobileNavigation
           navItems={navItems}
           isOpen={isOpen}
