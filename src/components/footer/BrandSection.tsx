@@ -8,7 +8,7 @@ import {
   Mail,
   type LucideIcon,
 } from 'lucide-react';
-import { SiMedium } from 'react-icons/si';
+import { SiDevdotto, SiMedium } from 'react-icons/si';
 import ScrollButton from '@/components/ScrollButton';
 import personalInfo from '@/data/personal-info.json';
 
@@ -22,10 +22,12 @@ const BrandSection: React.FC = () => {
   const socialLinks: SocialLink[] = [
     { icon: Github, href: personalInfo.social.github.url, label: 'GitHub' },
     { icon: Linkedin, href: personalInfo.social.linkedin.url, label: 'LinkedIn' },
+    { icon: SiDevdotto, href: personalInfo.social.devto.url, label: 'Dev.to' },
     { icon: Instagram, href: personalInfo.social.instagram.url, label: 'Instagram' },
     { icon: Youtube, href: personalInfo.social.youtube.url, label: 'YouTube' },
     { icon: Mail, href: personalInfo.social.email, label: 'Email' },
     { icon: SiMedium, href: personalInfo.social.medium.url, label: 'Medium' },
+    
   ];
 
   return (
