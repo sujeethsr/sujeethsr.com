@@ -192,16 +192,16 @@
     "description": "Co-authored research on a blockchain-based fundraising and charity platform designed to improve transparency, trust, and accountability in donation tracking and fund distribution.",
     "category": "research"
   },
-  {
-    "title": "Stop Asking 'Which AI Model Is Best?' — The Real Question Is: Who Owns the Rails",
-    "venue": "Medium",
-    "doi": "",
-    "url": "https://medium.com/@sujeethsr/stop-asking-which-model-is-best-the-real-question-is-who-owns-the-rails-af46adc4e71b",
-    "date": "May 2026",
-    "description": "Reflections on AI infrastructure, model evaluation, and where real defensibility lives in the AI stack.",
-    "category": "blog",
-    "status": "Published"
-  },
+{
+  "title": "I Let AI Replace Me for a Week As a AI Engineer",
+  "venue": "DEV Community",
+  "doi": "",
+  "url": "https://dev.to/sujeethsr/i-let-ai-replace-me-for-a-week-as-a-kinda-junior-ai-engineer-77f",
+  "date": "May 2026",
+  "description": "An experiment where I let AI handle parts of my work for a week as a junior AI Engineer, exploring what AI could replace, where it struggled, and what I learned from the experience.",
+  "category": "blog",
+  "status": "Published"
+},
   {
     "title": "My Journey From Software Engineer to AI Engineer",
     "venue": "Medium",

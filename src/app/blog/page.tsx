@@ -60,13 +60,32 @@ export default function BlogPage() {
             ))}
           </div>
 
-          {/* Medium link — stays fixed at bottom */}
-          <div className="text-center pt-6 flex-shrink-0">
-            <a href="https://medium.com/@sujeethsr" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-primary/40 text-primary hover:bg-primary/10 transition-all duration-300 text-sm font-medium">
-              View all articles on Medium
-              <ExternalLink size={14} />
-            </a>
-          </div>
+
+<div className="text-center pt-6 flex-shrink-0 flex flex-wrap justify-center gap-4">
+  
+  {/* Medium */}
+  <a
+    href="https://medium.com/@sujeethsr"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-primary/40 text-primary hover:bg-primary/10 transition-all duration-300 text-sm font-medium"
+  >
+    View all articles on Medium
+    <ExternalLink size={14} />
+  </a>
+
+  {/* DEV.to */}
+  <a
+    href="https://dev.to/sujeethsr"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-primary/40 text-primary hover:bg-primary/10 transition-all duration-300 text-sm font-medium"
+  >
+    View all articles on DEV.to
+    <ExternalLink size={14} />
+  </a>
+
+</div>
 
         </div>
       </div>
