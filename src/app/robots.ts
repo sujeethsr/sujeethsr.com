@@ -2,8 +2,10 @@ import { MetadataRoute } from 'next';
 import { publicUrl } from "@/constants";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || publicUrl;
-  
+  const baseUrl = (
+    process.env.NEXT_PUBLIC_SITE_URL || publicUrl
+  ).replace(/\/$/, '');
+
   return {
     rules: [
       {
