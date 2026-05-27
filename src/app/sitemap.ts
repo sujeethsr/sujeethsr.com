@@ -1,63 +1,34 @@
-import { MetadataRoute } from 'next';
+export async function GET() {
+  const baseUrl = 'https://sujeethsr.vercel.app';
 
-export const dynamic = 'force-static';
-
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = (
-    process.env.NEXT_PUBLIC_SITE_URL ||
-    'https://sujeethsr.vercel.app'
-  ).replace(/\/$/, '');
-
-  const lastModified = new Date();
-
-  return [
-    {
-      url: baseUrl,
-      lastModified,
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/experience`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/education`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/publications`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/certifications`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified,
-      changeFrequency: 'yearly',
-      priority: 0.5,
-    },
+  const urls = [
+    '',
+    '/about',
+    '/experience',
+    '/education',
+    '/publications',
+    '/blog',
+    '/certifications',
+    '/contact',
   ];
+
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls
+  .map(
+    (url) => `
+  <url>
+    <loc>${baseUrl}${url}</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`
+  )
+  .join('')}
+</urlset>`;
+
+  return new Response(sitemap, {
+    headers: {
+      'Content-Type': 'application/xml',
+    },
+  });
 }
