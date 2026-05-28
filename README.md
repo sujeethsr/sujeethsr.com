@@ -4,7 +4,7 @@
 
 ### AI Engineer · Building with LLMs, RAG & Agentic AI
 
-[![Portfolio](https://img.shields.io/badge/🌐_Portfolio-sujeethsr.vercel.app-7C3AED?style=for-the-badge)](https://sujeethsr.vercel.app)
+[![Portfolio](https://img.shields.io/badge/🌐_Portfolio-https://sujeethsr.com-7C3AED?style=for-the-badge)](https://https://sujeethsr.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/sujeethsr)
 [![Medium](https://img.shields.io/badge/Medium-000000?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@sujeethsr)
 [![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:work.sujeeth@gmail.com)
@@ -24,7 +24,7 @@ My work focuses on the often-overlooked middle layer — the orchestration, prom
 - 🔭 Currently building **LLM applications & AI agents** at TechMentee, Inc.
 - 🎓 MS in Computer Science — **University of Texas at Arlington**
 - ✍️ Writing about AI engineering on **[Medium](https://medium.com/@sujeethsr)**
-- 🌐 Portfolio → **[sujeethsr.vercel.app](https://sujeethsr.vercel.app)**
+- 🌐 Portfolio → **[https://sujeethsr.com](https://https://sujeethsr.com)**
 - 💬 Ask me about **LLMs, RAG pipelines, Agentic AI, Python, FastAPI**
 
 ---
@@ -65,15 +65,16 @@ My work focuses on the often-overlooked middle layer — the orchestration, prom
 
 ## 📌 Featured Projects
 
-| Project | Description | Tech |
-|---|---|---|
-| [🌐 Portfolio](https://sujeethsr.vercel.app) | Personal portfolio with particle animations, dark purple theme, auto-updating Medium blog | Next.js, TypeScript, Tailwind |
+| Project                                       | Description                                                                               | Tech                          |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------- |
+| [🌐 Portfolio](https://https://sujeethsr.com) | Personal portfolio with particle animations, dark purple theme, auto-updating Medium blog | Next.js, TypeScript, Tailwind |
 
 ---
 
 ## 📝 Latest Articles
 
 <!-- These update when I publish on Medium -->
+
 - [My Journey From Software Engineer to AI Engineer](https://medium.com/@sujeethsr/my-journey-from-software-engineer-to-ai-engineer-394ca2a5843f)
 
 ---
@@ -81,7 +82,6 @@ My work focuses on the often-overlooked middle layer — the orchestration, prom
 ## 📊 GitHub Stats
 
 <div align="center">
-
 
 ![GitHub Streak](https://streak-stats.demolab.com?user=sujeethsr&theme=tokyonight&hide_border=true&background=0D1117&ring=7C3AED&fire=7C3AED&currStreakLabel=7C3AED)
 
@@ -95,7 +95,7 @@ I'm open to opportunities in **AI Engineering, Generative AI, and intelligent pr
 
 <div align="center">
 
-[![Portfolio](https://img.shields.io/badge/Visit_My_Portfolio-7C3AED?style=for-the-badge&logo=vercel&logoColor=white)](https://sujeethsr.vercel.app)
+[![Portfolio](https://img.shields.io/badge/Visit_My_Portfolio-7C3AED?style=for-the-badge&logo=vercel&logoColor=white)](https://https://sujeethsr.com)
 
 </div>
 
@@ -103,7 +103,6 @@ I'm open to opportunities in **AI Engineering, Generative AI, and intelligent pr
 
 <div align="center">
 
-*"The most valuable AI isn't the most sophisticated — it's the kind that actually ships, scales, and solves a real problem someone has."*
-
+_"The most valuable AI isn't the most sophisticated — it's the kind that actually ships, scales, and solves a real problem someone has."_
 
 </div>
