@@ -85,19 +85,37 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
+              "@id": `${myUrl}/#person`,
               "name": personalInfo.personal.name,
+              "alternateName": [
+                "Sujeeth S R",
+                "Sujeeth Rajkumar",
+                "Sujeeth Sundarajan Rajkumar",
+                "sujeethsr",
+                "Sujeeth",
+                "Sujeeth SR",
+                "Sujeeth Sundarajan"
+              ],
               "jobTitle": personalInfo.personal.title,
               "worksFor": {
                 "@type": "Organization",
                 "name": personalInfo.personal.company
               },
+              "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "University of Texas at Arlington"
+              },
               "email": personalInfo.personal.email,
               "url": myUrl,
+              "image": `${myUrl}${personalInfo.seo.ogImage}`,
               "sameAs": [
                 personalInfo.social.linkedin.url,
                 personalInfo.social.github.url,
-                personalInfo.social.medium.url
-              ],
+                personalInfo.social.medium.url,
+                personalInfo.social.instagram.url,
+                personalInfo.social.youtube.url,
+                personalInfo.social.devto.url
+              ].filter(Boolean),
               "knowsAbout": [
                 "Artificial Intelligence",
                 "Machine Learning",
@@ -112,12 +130,12 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
             })
           }}
         />
-<ThemeProvider
-  attribute="class"
-  defaultTheme="dark"
-  enableSystem={false}
-  disableTransitionOnChange
->
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
           <QueryProvider>
             <TooltipProvider>
               {children}
