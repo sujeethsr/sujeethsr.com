@@ -1,8 +1,10 @@
 import { MetadataRoute } from 'next';
-import { publicUrl } from '@/constants';
+import { publicUrl } from "@/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || publicUrl).replace(/\/$/, '');
+  const baseUrl = (
+    process.env.NEXT_PUBLIC_SITE_URL || publicUrl
+  ).replace(/\/$/, '');
 
   const routes = [
     '',
