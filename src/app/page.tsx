@@ -3,13 +3,14 @@ import Hero from '@/components/hero';
 import About from '@/components/about';
 import Experience from '@/components/experience';
 import Education from '@/components/education/Education';
-//import Projects from '@/components/projects';
 import Publications from '@/components/publications';
 import Certifications from '@/components/certifications';
-
-//  import Awards from '@/components/awards';
 import Contact from '@/components/contact';
 import Footer from '@/components/footer';
+
+export const metadata = {
+  alternates: { canonical: "https://sujeethsr.com" },
+};
 
 const HomePage: React.FC = () => {
   return (
@@ -19,10 +20,8 @@ const HomePage: React.FC = () => {
       <About />
       <Experience />
       <Education />
-      {/*<Projects />*/}
       <Publications />
       <Certifications />
-{/* <Awards /> */}
       <Contact />
       <Footer />
     </div>

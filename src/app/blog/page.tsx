@@ -2,6 +2,10 @@ import Navigation from '@/components/navigation';
 import personalInfo from '@/data/personal-info.json';
 import { ExternalLink, Calendar, BookOpen } from 'lucide-react';
 
+export const metadata = {
+  alternates: { canonical: "https://sujeethsr.com/blog" },
+};
+
 export default function BlogPage() {
   const blogPosts = personalInfo.publications.filter(
     (pub) => pub.category === 'blog'
@@ -10,12 +14,8 @@ export default function BlogPage() {
   return (
     <div className="h-screen flex flex-col overflow-hidden pt-16">
       <Navigation />
-
-      {/* Fixed height content area — no page scroll */}
       <div className="flex-1 overflow-hidden flex flex-col">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 flex flex-col h-full">
-
-          {/* Header — stays fixed */}
           <div className="text-center mb-10 flex-shrink-0">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 mb-4">
               <BookOpen size={14} className="text-primary" />
@@ -31,8 +31,6 @@ export default function BlogPage() {
               production-grade intelligent systems.
             </p>
           </div>
-
-          {/* Articles — scrolls internally */}
           <div className="flex-1 overflow-y-auto scrollbar-custom pr-2 space-y-4">
             {blogPosts.map((post) => (
               <a key={post.title} href={post.url} target="_blank" rel="noopener noreferrer" className="block glass-card p-6 rounded-xl group hover:border-primary/40 transition-all duration-300">
@@ -59,34 +57,16 @@ export default function BlogPage() {
               </a>
             ))}
           </div>
-
-
-<div className="text-center pt-6 flex-shrink-0 flex flex-wrap justify-center gap-4">
-  
-  {/* Medium */}
-  <a
-    href="https://medium.com/@sujeethsr"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-primary/40 text-primary hover:bg-primary/10 transition-all duration-300 text-sm font-medium"
-  >
-    View all articles on Medium
-    <ExternalLink size={14} />
-  </a>
-
-  {/* DEV.to */}
-  <a
-    href="https://dev.to/sujeethsr"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-primary/40 text-primary hover:bg-primary/10 transition-all duration-300 text-sm font-medium"
-  >
-    View all articles on DEV.to
-    <ExternalLink size={14} />
-  </a>
-
-</div>
-
+          <div className="text-center pt-6 flex-shrink-0 flex flex-wrap justify-center gap-4">
+            <a href="https://medium.com/@sujeethsr" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-primary/40 text-primary hover:bg-primary/10 transition-all duration-300 text-sm font-medium">
+              View all articles on Medium
+              <ExternalLink size={14} />
+            </a>
+            <a href="https://dev.to/sujeethsr" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-primary/40 text-primary hover:bg-primary/10 transition-all duration-300 text-sm font-medium">
+              View all articles on DEV.to
+              <ExternalLink size={14} />
+            </a>
+          </div>
         </div>
       </div>
     </div>
