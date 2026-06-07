@@ -1,9 +1,18 @@
 import Navigation from '@/components/navigation';
 import personalInfo from '@/data/personal-info.json';
 import { ExternalLink, Calendar, BookOpen } from 'lucide-react';
+import type { Metadata } from 'next';
 
-export const metadata = {
+export const metadata: Metadata = {
+  title: "Blog | Sujeeth Sundarajan Rajkumar",
+  description: "Articles and insights on AI Engineering, LLMs, RAG pipelines, and Agentic AI by Sujeeth Sundarajan Rajkumar. Published on Medium and DEV Community.",
   alternates: { canonical: "https://sujeethsr.com/blog" },
+  openGraph: {
+    title: "Blog | Sujeeth Sundarajan Rajkumar",
+    description: "Articles and insights on AI Engineering, LLMs, RAG pipelines, and Agentic AI by Sujeeth Sundarajan Rajkumar.",
+    url: "https://sujeethsr.com/blog",
+    type: "website",
+  },
 };
 
 export default function BlogPage() {
