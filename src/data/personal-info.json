@@ -226,8 +226,33 @@
   }
 ],
   "certifications": [
+    {
+  "id": 1,
+  "title": "AI Fluency: Framework & Foundations",
+  "provider": "Anthropic Education",
+  "year": "2026",
+  "description": "Comprehensive AI fluency course covering AI collaboration frameworks, responsible AI usage, prompt design, critical evaluation of AI outputs, and practical applications of generative AI in professional workflows." ,
+  "certificates": [
+    {
+      "url": "https://verify.skilljar.com/c/ymcwj5gnb9db",
+      "title": "AI Fluency: Framework & Foundations",
+      "year": "2026",
+      "credentialId": "ymcwj5gnb9db"
+    }
+  ],
+  "skills": [
+    "Generative AI",
+    "Prompt Engineering",
+    "AI Collaboration",
+    "Responsible AI",
+    "AI Literacy",
+    "Critical Evaluation",
+    "Claude AI",
+    "AI Workflows"
+  ]
+},
       {
-    "id": 1,
+    "id": 2,
     "title": "Crash Course on Python",
     "provider": "Coursera",
     "year": "2022",
@@ -248,7 +273,7 @@
     ]
   },
   {
-    "id": 2,
+    "id": 3,
     "title": "HTML5 & CSS3 Complete Course: Build Websites like a Pro",
     "provider": "Udemy",
     "year": "2022",
@@ -269,7 +294,7 @@
     ]
   },
   {
-  "id": 3,
+  "id": 4,
   "title": "Foundations: Data, Data, Everywhere",
   "provider": "Coursera",
   "year": "2022",
@@ -290,7 +315,7 @@
   ]
 },
 {
-  "id": 4,
+  "id": 5,
   "title": "Introduction to Git and GitHub",
   "provider": "Coursera",
   "year": "2022",
