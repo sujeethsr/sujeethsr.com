@@ -1,7 +1,7 @@
 import Navigation from '@/components/navigation';
 import Hero from '@/components/hero';
 import About from '@/components/about';
-import Experience from '@/components/experience';
+import ExperiencePreview from "@/components/experience/ExperiencePreview";
 import Education from '@/components/education/Education';
 import Publications from '@/components/publications';
 import Certifications from '@/components/certifications';
@@ -18,7 +18,7 @@ const HomePage: React.FC = () => {
       <Navigation />
       <Hero />
       <About />
-      <Experience />
+      <ExperiencePreview />
       <Education />
       <Publications />
       <Certifications />
