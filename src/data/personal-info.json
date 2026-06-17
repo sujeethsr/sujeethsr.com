@@ -9,7 +9,7 @@
     "bio": "I build AI systems that turn complex business problems into scalable, production-ready solutions. My work focuses on LLM applications, RAG pipelines, AI agents, and intelligent automation—combining strong engineering foundations with practical AI innovation.",
     "closingBio": "Open to opportunities in AI Engineering, Generative AI, and intelligent product development. If you're working on LLM applications, agentic systems, or scaling AI into production — I'd love to connect and build something impactful together.",
     "story": [
-      "As an AI Engineer with 3+ years of professional experience spanning software engineering and applied AI, I focus on building production-grade systems powered by Large Language Models, Retrieval-Augmented Generation, and Agentic AI. My work centers on the often-overlooked middle layer — the orchestration, prompt engineering, vector retrieval, and infrastructure that turn raw model capabilities into reliable, scalable products.",
+      "As an AI Engineer with hands-on professional experience spanning software engineering and applied AI, I focus on building production-grade systems powered by Large Language Models, Retrieval-Augmented Generation, and Agentic AI. My work centers on the often-overlooked middle layer — the orchestration, prompt engineering, vector retrieval, and infrastructure that turn raw model capabilities into reliable, scalable products.",
       "My path into AI started in traditional software engineering. I built backend systems, optimized SQL queries, and automated cloud deployments at AJR Info Systems in India before pursuing my Master's in Computer Science at the University of Texas at Arlington. Internships at Growith and an AI & Data Analyst role at UTA pulled me deeper into intelligent systems, and I eventually joined TechMentee as an AI Engineer — where I now design end-to-end LLM architectures and AI-driven workflows.",
       "Outside of building, I write about AI engineering on Medium, follow emerging research in agentic systems and LLM orchestration closely, and explore how new model capabilities can be turned into real products. I'm a strong believer that the most valuable AI isn't the most sophisticated — it's the kind that actually ships, scales, and solves a real problem someone has."
     ],
@@ -251,8 +251,33 @@
     "AI Workflows"
   ]
 },
+{
+  "id": 2,
+  "title": "Claude 101",
+  "provider": "Anthropic Education",
+  "year": "2026",
+  "description": "Introductory Claude AI course covering Claude fundamentals, effective prompting, responsible AI usage, AI-assisted workflows, and practical applications of Claude in professional and productivity tasks.",
+  "certificates": [
+    {
+      "url": "https://verify.skilljar.com/c/p23yx2fywdmp",
+      "title": "Claude 101",
+      "year": "2026",
+      "credentialId": "p23yx2fywdmp"
+    }
+  ],
+  "skills": [
+    "Claude AI",
+    "Generative AI",
+    "Prompt Engineering",
+    "AI Productivity",
+    "Responsible AI",
+    "AI Workflows",
+    "AI Collaboration",
+    "Anthropic Claude"
+  ]
+},
       {
-    "id": 2,
+    "id": 3,
     "title": "Crash Course on Python",
     "provider": "Coursera",
     "year": "2022",
@@ -273,7 +298,7 @@
     ]
   },
   {
-    "id": 3,
+    "id": 4,
     "title": "HTML5 & CSS3 Complete Course: Build Websites like a Pro",
     "provider": "Udemy",
     "year": "2022",
@@ -294,7 +319,7 @@
     ]
   },
   {
-  "id": 4,
+  "id": 5,
   "title": "Foundations: Data, Data, Everywhere",
   "provider": "Coursera",
   "year": "2022",
@@ -315,7 +340,7 @@
   ]
 },
 {
-  "id": 5,
+  "id": 6,
   "title": "Introduction to Git and GitHub",
   "provider": "Coursera",
   "year": "2022",
