@@ -1,7 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
+import React, { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 
 interface ProjectFilterProps {
@@ -19,14 +18,13 @@ const ProjectFilter: React.FC<ProjectFilterProps> = ({ categories, onCategoryCha
     }
   };
 
-  // Use CSS to control the visibility of project cards
-  React.useEffect(() => {
+  useEffect(() => {
     const projectCards = document.querySelectorAll('[data-project-categories]');
     projectCards.forEach((card) => {
       const cardElement = card as HTMLElement;
       const cardCategories = cardElement.getAttribute('data-project-categories');
       const categoriesArray = cardCategories ? cardCategories.split(',') : [];
-      
+
       if (selectedCategory === 'All' || categoriesArray.includes(selectedCategory)) {
         cardElement.style.display = 'block';
       } else {
@@ -37,9 +35,9 @@ const ProjectFilter: React.FC<ProjectFilterProps> = ({ categories, onCategoryCha
 
   return (
     <div className="mb-12">
-      {/* Mobile: Compact Dropdown */}
+      {/* Mobile: dropdown, unchanged */}
       <div className="md:hidden">
-        <div className="relative">
+        <div className="relative max-w-xs mx-auto">
           <select
             value={selectedCategory}
             onChange={(e) => handleCategoryChange(e.target.value)}
@@ -55,19 +53,23 @@ const ProjectFilter: React.FC<ProjectFilterProps> = ({ categories, onCategoryCha
         </div>
       </div>
 
-      {/* Desktop: Button Layout */}
-      <div className="hidden md:flex flex-wrap justify-center gap-3">
-        {categories.map((category) => (
-          <Button
-            key={category}
-            variant={selectedCategory === category ? 'default' : 'outline'}
-            size="sm"
-            onClick={() => handleCategoryChange(category)}
-            className="transition-all duration-200 hover:scale-105"
-          >
-            {category === 'All' ? 'All Projects' : category}
-          </Button>
-        ))}
+      {/* Desktop: pill selector, now matching Publications' style */}
+      <div className="hidden md:flex justify-center">
+        <div className="inline-flex bg-secondary/30 rounded-full p-1 backdrop-blur-sm border border-border/50">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => handleCategoryChange(category)}
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                selectedCategory === category
+                  ? 'bg-primary text-primary-foreground shadow-sm'
+                  : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
+              }`}
+            >
+              {category === 'All' ? 'All Projects' : category}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );

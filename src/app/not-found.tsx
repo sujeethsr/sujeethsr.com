@@ -79,12 +79,11 @@ export default function NotFound() {
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { name: 'About', href: '/about' },
               { name: 'Experience', href: '/experience' },
               { name: 'Education', href: '/education' },
               { name: 'Publications', href: '/publications' },
               { name: 'Certifications', href: '/certifications' },
-              // { name: 'Projects', href: '/projects' },
+              { name: 'Projects', href: '/projects' },
               { name: 'Contact', href: '/contact' }
             ].map((link) => (
               <Link

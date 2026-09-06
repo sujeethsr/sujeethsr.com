@@ -11,7 +11,6 @@ interface ProjectContentProps {
     description: string;
     technologies: readonly string[];
     github: string;
-    featured: boolean;
     status: string;
   };
 }
@@ -19,15 +18,29 @@ interface ProjectContentProps {
 const ProjectContent: React.FC<ProjectContentProps> = ({ project }) => {
   return (
     <div className="p-6">
-      <div className="flex items-center justify-between mb-3">
-        <Badge variant="secondary" className="text-xs">
+      <div className="mb-3">
+        <span
+          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border ${
+            project.status.toLowerCase() === 'live' ||
+            project.status.toLowerCase() === 'completed'
+              ? 'bg-green-500/10 text-green-400 border-green-500/30'
+              : project.status.toLowerCase() === 'in development'
+                ? 'bg-yellow-500/10 text-yellow-400 border-yellow-500/30'
+                : 'bg-red-500/10 text-red-400 border-red-500/30'
+          }`}
+        >
+          <span
+            className={`w-1.5 h-1.5 rounded-full ${
+              project.status.toLowerCase() === 'live' ||
+              project.status.toLowerCase() === 'completed'
+                ? 'bg-green-400'
+                : project.status.toLowerCase() === 'in development'
+                  ? 'bg-yellow-400'
+                  : 'bg-red-400'
+            }`}
+          />
           {project.status}
-        </Badge>
-        {project.featured && (
-          <Badge variant="default" className="text-xs">
-            Featured
-          </Badge>
-        )}
+        </span>
       </div>
 
       <h3 className="text-xl font-bold text-foreground mb-2">

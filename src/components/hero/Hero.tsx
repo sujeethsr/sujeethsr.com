@@ -213,9 +213,9 @@ const Hero: React.FC = () => {
       {/* Scroll arrow */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
         <ScrollButton
-          targetId="about"
+          targetId="projects"
           className="text-muted-foreground hover:text-primary transition-colors duration-300"
-          ariaLabel="Scroll to about section"
+          ariaLabel="Scroll to projects section"
         >
           <ArrowDown size={35} />
         </ScrollButton>

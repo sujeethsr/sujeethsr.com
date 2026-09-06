@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Github } from 'lucide-react';
+import { Github, ImageOff } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface ProjectImageProps {
@@ -17,13 +17,22 @@ const ProjectImage: React.FC<ProjectImageProps> = ({ project }) => {
   return (
     <div className="relative overflow-hidden">
       <div className="aspect-video relative bg-gradient-to-br from-primary/20 to-accent/20">
-        <Image
-          src={project.image}
-          alt={`${project.title} - ${project.subtitle}`}
-          fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
+        {project.image ? (
+          <Image
+            src={project.image}
+            alt={`${project.title} - ${project.subtitle}`}
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        ) : (
+          <div className="w-full h-full flex flex-col items-center justify-center gap-2 text-muted-foreground">
+            <ImageOff size={32} className="opacity-50" />
+            <span className="text-xs font-mono uppercase tracking-wider opacity-60">
+              Preview Not Available
+            </span>
+          </div>
+        )}
       </div>
       <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
         <div className="flex space-x-4">

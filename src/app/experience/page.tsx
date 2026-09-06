@@ -1,30 +1,25 @@
 import Navigation from '@/components/navigation';
 import Footer from '@/components/footer';
-import Experience from '@/components/experience';
+import Experience from '@/components/experience/Experience';
 import type { Metadata } from 'next';
 
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
   title: "Experience | Sujeeth Sundarajan Rajkumar",
-  description: "Professional experience of Sujeeth Sundarajan Rajkumar — AI Engineer at TechMentee, Inc. building production-grade LLM applications, RAG pipelines, and Agentic AI systems.",
+  description: "Professional experience and career journey of Sujeeth Sundarajan Rajkumar — AI Engineer specializing in LLM applications, RAG pipelines, and Agentic AI.",
   keywords: [
     "Sujeeth Sundarajan Rajkumar",
     "AI Engineer experience",
-    "TechMentee",
-    "LLM Engineer",
-    "RAG pipelines",
-    "Agentic AI",
-    "Machine Learning Engineer",
-    "Software Engineer",
-    "University of Texas Arlington",
+    "career",
+    "professional journey",
   ],
   alternates: {
     canonical: "https://sujeethsr.com/experience",
   },
   openGraph: {
     title: "Experience | Sujeeth Sundarajan Rajkumar",
-    description: "Professional experience of Sujeeth Sundarajan Rajkumar — AI Engineer at TechMentee, Inc. building production-grade LLM applications, RAG pipelines, and Agentic AI systems.",
+    description: "Professional experience and career journey of Sujeeth Sundarajan Rajkumar.",
     url: "https://sujeethsr.com/experience",
     type: "website",
   },

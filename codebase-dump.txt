@@ -1,0 +1,5418 @@
+=== src/app/about/page.tsx ===
+import Navigation from '@/components/navigation';
+import Footer from '@/components/footer';
+import About from '@/components/about';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "About | Sujeeth Sundarajan Rajkumar",
+  description: "Learn about Sujeeth Sundarajan Rajkumar — AI Engineer specializing in LLMs, RAG pipelines, and Agentic AI. Based in Dallas-Fort Worth, TX.",
+  alternates: { canonical: "https://sujeethsr.com/about" },
+  openGraph: {
+    title: "About | Sujeeth Sundarajan Rajkumar",
+    description: "Learn about Sujeeth Sundarajan Rajkumar — AI Engineer specializing in LLMs, RAG pipelines, and Agentic AI. Based in Dallas-Fort Worth, TX.",
+    url: "https://sujeethsr.com/about",
+    type: "website",
+  },
+};
+
+export default function AboutPage() {
+  return (
+    <div className="min-h-screen pt-16">
+      <Navigation />
+      <About />
+      <Footer />
+    </div>
+  );
+}
+=== src/app/blog/page.tsx ===
+import Navigation from '@/components/navigation';
+import personalInfo from '@/data/personal-info.json';
+import { ExternalLink, Calendar, BookOpen } from 'lucide-react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Blog | Sujeeth Sundarajan Rajkumar",
+  description: "Articles and insights on AI Engineering, LLMs, RAG pipelines, and Agentic AI by Sujeeth Sundarajan Rajkumar. Published on Medium and DEV Community.",
+  alternates: { canonical: "https://sujeethsr.com/blog" },
+  openGraph: {
+    title: "Blog | Sujeeth Sundarajan Rajkumar",
+    description: "Articles and insights on AI Engineering, LLMs, RAG pipelines, and Agentic AI by Sujeeth Sundarajan Rajkumar.",
+    url: "https://sujeethsr.com/blog",
+    type: "website",
+  },
+};
+
+export default function BlogPage() {
+  const blogPosts = personalInfo.publications.filter(
+    (pub) => pub.category === 'blog'
+  );
+
+  return (
+    <div className="h-screen flex flex-col overflow-hidden pt-16">
+      <Navigation />
+      <div className="flex-1 overflow-hidden flex flex-col">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 flex flex-col h-full">
+          <div className="text-center mb-10 flex-shrink-0">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 mb-4">
+              <BookOpen size={14} className="text-primary" />
+              <span className="text-xs font-mono uppercase tracking-widest text-primary">
+                Blog
+              </span>
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-3">
+              Latest <span className="gradient-text">Articles</span>
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Thoughts on AI engineering, LLMs, and building
+              production-grade intelligent systems.
+            </p>
+          </div>
+          <div className="flex-1 overflow-y-auto scrollbar-custom pr-2 space-y-4">
+            {blogPosts.map((post) => (
+              <a key={post.title} href={post.url} target="_blank" rel="noopener noreferrer" className="block glass-card p-6 rounded-xl group hover:border-primary/40 transition-all duration-300">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="px-2 py-0.5 rounded-md text-xs font-mono uppercase tracking-wider bg-primary/10 text-primary border border-primary/20">
+                        {post.venue}
+                      </span>
+                      <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                        <Calendar size={11} className="text-primary/70" />
+                        <span>{post.date}</span>
+                      </div>
+                    </div>
+                    <h2 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-200 leading-snug">
+                      {post.title}
+                    </h2>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {post.description}
+                    </p>
+                  </div>
+                  <ExternalLink size={18} className="text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0 mt-1" />
+                </div>
+              </a>
+            ))}
+          </div>
+          <div className="text-center pt-6 flex-shrink-0 flex flex-wrap justify-center gap-4">
+            <a href="https://medium.com/@sujeethsr" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-primary/40 text-primary hover:bg-primary/10 transition-all duration-300 text-sm font-medium">
+              View all articles on Medium
+              <ExternalLink size={14} />
+            </a>
+            <a href="https://dev.to/sujeethsr" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-primary/40 text-primary hover:bg-primary/10 transition-all duration-300 text-sm font-medium">
+              View all articles on DEV.to
+              <ExternalLink size={14} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+=== src/app/certifications/page.tsx ===
+import Navigation from '@/components/navigation';
+import Footer from '@/components/footer';
+import Certifications from '@/components/certifications';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Certifications | Sujeeth Sundarajan Rajkumar",
+  description: "Professional certifications of Sujeeth Sundarajan Rajkumar — Coursera, Udemy, and Google certifications in Python, Data Analytics, and more.",
+  alternates: { canonical: "https://sujeethsr.com/certifications" },
+  openGraph: {
+    title: "Certifications | Sujeeth Sundarajan Rajkumar",
+    description: "Professional certifications of Sujeeth Sundarajan Rajkumar — Coursera, Udemy, and Google certifications in Python, Data Analytics, and more.",
+    url: "https://sujeethsr.com/certifications",
+    type: "website",
+  },
+};
+
+export default function CertificationsPage() {
+  return (
+    <div className="min-h-screen pt-16">
+      <Navigation />
+      <Certifications />
+      <Footer />
+    </div>
+  );
+}
+=== src/app/contact/page.tsx ===
+import Navigation from '@/components/navigation';
+import Footer from '@/components/footer';
+import Contact from '@/components/contact';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Contact | Sujeeth Sundarajan Rajkumar",
+  description: "Get in touch with Sujeeth Sundarajan Rajkumar — open to AI Engineering, Generative AI, and intelligent product development opportunities.",
+  alternates: { canonical: "https://sujeethsr.com/contact" },
+  openGraph: {
+    title: "Contact | Sujeeth Sundarajan Rajkumar",
+    description: "Get in touch with Sujeeth Sundarajan Rajkumar — open to AI Engineering, Generative AI, and intelligent product development opportunities.",
+    url: "https://sujeethsr.com/contact",
+    type: "website",
+  },
+};
+
+export default function ContactPage() {
+  return (
+    <div className="min-h-screen pt-16">
+      <Navigation />
+      <Contact />
+      <Footer />
+    </div>
+  );
+}
+=== src/app/education/page.tsx ===
+import Navigation from '@/components/navigation';
+import Footer from '@/components/footer';
+import Education from '@/components/education/Education';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Education | Sujeeth Sundarajan Rajkumar",
+  description: "Educational background of Sujeeth Sundarajan Rajkumar — MS in Computer Science from University of Texas at Arlington.",
+  alternates: { canonical: "https://sujeethsr.com/education" },
+  openGraph: {
+    title: "Education | Sujeeth Sundarajan Rajkumar",
+    description: "Educational background of Sujeeth Sundarajan Rajkumar — MS in Computer Science from University of Texas at Arlington.",
+    url: "https://sujeethsr.com/education",
+    type: "website",
+  },
+};
+
+export default function EducationPage() {
+  return (
+    <div className="min-h-screen pt-16">
+      <Navigation />
+      <Education />
+      <Footer />
+    </div>
+  );
+}
+=== src/app/error.tsx ===
+'use client';
+
+// Custom error page for Next.js 15 App Router
+import React, { useEffect } from 'react';
+import { AlertTriangle, RefreshCw, Home, Bug } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+
+interface ErrorProps {
+  error: Error & { digest?: string };
+  reset: () => void;
+}
+
+export default function Error({ error, reset }: ErrorProps) {
+  useEffect(() => {
+    // Log the error to an error reporting service
+    console.error('Application Error:', error);
+  }, [error]);
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-background via-secondary/10 to-background flex items-center justify-center relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/6 w-32 h-32 border border-destructive/10 rotate-45 float-animation animate-delay-2000"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-24 h-24 border border-destructive/10 rotate-12 float-animation animate-delay-4000"></div>
+        <div className="absolute top-2/3 left-1/3 w-16 h-16 border border-destructive/5 -rotate-12 float-animation animate-delay-1000"></div>
+        <div className="absolute top-1/2 right-1/6 w-20 h-20 border border-destructive/5 rotate-45 float-animation animate-delay-3000"></div>
+      </div>
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        {/* Error Icon */}
+        <div className="mb-8">
+          <div className="relative inline-block">
+            <div className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-6 rounded-full bg-destructive/10 border-2 border-destructive/20 flex items-center justify-center">
+              <AlertTriangle size={48} className="text-destructive animate-pulse" />
+            </div>
+          </div>
+        </div>
+
+        {/* Error Message */}
+        <div className="mb-8 space-y-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Something Went <span className="text-destructive">Wrong</span>
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Oops! We encountered an unexpected error in the matrix. Our digital gremlins are 
+            working hard to fix this glitch in the system.
+          </p>
+        </div>
+
+        {/* Error Details */}
+        <div className="mb-8">
+          <div className="glass-card p-6 rounded-xl max-w-2xl mx-auto">
+            <div className="flex items-center gap-2 mb-4">
+              <Bug size={18} className="text-destructive" />
+              <h3 className="text-lg font-semibold text-foreground">Error Details</h3>
+            </div>
+            <div className="bg-destructive/5 border border-destructive/20 rounded-lg p-4">
+              <p className="font-mono text-sm text-destructive break-all">
+                {error.message || 'An unexpected error occurred'}
+              </p>
+              {error.digest && (
+                <p className="font-mono text-xs text-muted-foreground mt-2">
+                  Error ID: {error.digest}
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+          <Button 
+            onClick={reset}
+            className="group flex items-center gap-2"
+          >
+            <RefreshCw size={18} className="group-hover:rotate-180 transition-transform duration-300" />
+            Try Again
+          </Button>
+          
+          <Button 
+            variant="outline" 
+            onClick={() => window.location.href = '/'}
+            className="group flex items-center gap-2"
+          >
+            <Home size={18} className="group-hover:scale-110 transition-transform duration-200" />
+            Go Home
+          </Button>
+        </div>
+
+        {/* Helpful Information */}
+        <div className="glass-card p-6 rounded-xl max-w-2xl mx-auto">
+          <h3 className="text-lg font-semibold text-foreground mb-4">
+            What can you do?
+          </h3>
+          <div className="space-y-3 text-left">
+            <div className="flex items-start gap-3">
+              <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+              <p className="text-sm text-muted-foreground">
+                <strong className="text-foreground">Refresh the page:</strong> Sometimes a simple reload fixes temporary glitches
+              </p>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+              <p className="text-sm text-muted-foreground">
+                <strong className="text-foreground">Check your connection:</strong> Ensure you have a stable internet connection
+              </p>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+              <p className="text-sm text-muted-foreground">
+                <strong className="text-foreground">Try again later:</strong> The issue might be temporary and resolve itself
+              </p>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+              <p className="text-sm text-muted-foreground">
+                <strong className="text-foreground">Contact support:</strong> If the problem persists, reach out for help
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer Message */}
+        <div className="mt-8 text-sm text-muted-foreground">
+          <p>
+            Don&apos;t worry, even the most robust systems encounter errors sometimes. 
+            <br className="hidden sm:inline" />
+            We&apos;re constantly improving to provide you with the best experience! 
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+=== src/app/experience/page.tsx ===
+import Navigation from '@/components/navigation';
+import Footer from '@/components/footer';
+import Experience from '@/components/experience';
+import type { Metadata } from 'next';
+
+export const dynamic = 'force-static';
+
+export const metadata: Metadata = {
+  title: "Experience | Sujeeth Sundarajan Rajkumar",
+  description: "Professional experience of Sujeeth Sundarajan Rajkumar — AI Engineer at TechMentee, Inc. building production-grade LLM applications, RAG pipelines, and Agentic AI systems.",
+  keywords: [
+    "Sujeeth Sundarajan Rajkumar",
+    "AI Engineer experience",
+    "TechMentee",
+    "LLM Engineer",
+    "RAG pipelines",
+    "Agentic AI",
+    "Machine Learning Engineer",
+    "Software Engineer",
+    "University of Texas Arlington",
+  ],
+  alternates: {
+    canonical: "https://sujeethsr.com/experience",
+  },
+  openGraph: {
+    title: "Experience | Sujeeth Sundarajan Rajkumar",
+    description: "Professional experience of Sujeeth Sundarajan Rajkumar — AI Engineer at TechMentee, Inc. building production-grade LLM applications, RAG pipelines, and Agentic AI systems.",
+    url: "https://sujeethsr.com/experience",
+    type: "website",
+  },
+};
+
+export default function ExperiencePage() {
+  return (
+    <div className="min-h-screen pt-16">
+      <Navigation />
+      <Experience />
+      <Footer />
+    </div>
+  );
+}
+=== src/app/globals.css ===
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom breakpoint for both width and height */
+@media (min-width: 400px) or (min-height: 750px) {
+  .xs-tall\:block {
+    display: block;
+  }
+  .xs-tall\:hidden {
+    display: none;
+  }
+  .xs-tall\:flex {
+    display: flex;
+  }
+  .xs-tall\:inline {
+    display: inline;
+  }
+  .xs-tall\:inline-block {
+    display: inline-block;
+  }
+}
+
+/* Portfolio Design System - Black + Royal Blue Theme */
+
+@layer base {
+  /* LIGHT MODE */
+  :root {
+    --background: 0 0% 97%;
+    --foreground: 220 22% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 22% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 22% 8%;
+    --primary: 220 90% 55%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 220 16% 92%;
+    --secondary-foreground: 220 22% 8%;
+    --muted: 220 16% 90%;
+    --muted-foreground: 220 10% 40%;
+    --accent: 210 85% 60%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 16% 85%;
+    --input: 220 16% 90%;
+    --ring: 220 90% 55%;
+    --hero-gradient: linear-gradient(135deg, hsl(0, 0%, 97%) 0%, hsl(220, 40%, 94%) 100%);
+    --hero-radial-gradient: radial-gradient(circle at 50% 50%, hsla(220, 90%, 55%, 0.06) 0%, hsla(0, 0%, 97%, 0) 70%);
+    --hero-glow: 0 0 80px 20px hsla(220, 90%, 55%, 0.08);
+    --card-gradient: linear-gradient(145deg, hsl(0, 0%, 100%) 0%, hsl(220, 16%, 96%) 100%);
+    --accent-gradient: linear-gradient(135deg, hsl(220, 90%, 55%) 0%, hsl(210, 85%, 62%) 100%);
+    --glass-bg: hsla(0, 0%, 97%, 0.9);
+    --glass-border: hsla(220, 90%, 55%, 0.15);
+    --grid-color: hsla(220, 90%, 55%, 0.06);
+    --shadow-glow: 0 0 40px hsla(220, 90%, 55%, 0.15);
+    --shadow-card: 0 8px 32px hsla(220, 22%, 8%, 0.08);
+    --shadow-intense: 0 0 60px hsla(220, 90%, 55%, 0.25);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 22% 8%;
+    --sidebar-primary: 220 90% 55%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 220 16% 90%;
+    --sidebar-accent-foreground: 220 22% 8%;
+    --sidebar-border: 220 16% 85%;
+    --sidebar-ring: 220 90% 55%;
+  }
+
+  /* DARK MODE */
+  .dark {
+    --background: 220 22% 4%;
+    --foreground: 0 0% 96%;
+    --card: 220 18% 7%;
+    --card-foreground: 0 0% 96%;
+    --popover: 220 18% 7%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 220 90% 65%;
+    --primary-foreground: 220 22% 4%;
+    --secondary: 220 16% 10%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 220 16% 13%;
+    --muted-foreground: 220 10% 68%;
+    --accent: 210 85% 72%;
+    --accent-foreground: 220 22% 4%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 16% 16%;
+    --input: 220 16% 11%;
+    --ring: 220 90% 65%;
+    --hero-gradient: linear-gradient(135deg, hsl(220, 22%, 4%) 0%, hsl(220, 40%, 10%) 100%);
+    --hero-radial-gradient: radial-gradient(circle at 50% 50%, hsla(220, 90%, 45%, 0.18) 0%, hsla(220, 22%, 4%, 0) 70%);
+    --hero-glow: 0 0 80px 20px hsla(220, 90%, 65%, 0.18);
+    --card-gradient: linear-gradient(145deg, hsl(220, 18%, 7%) 0%, hsl(220, 16%, 10%) 100%);
+    --accent-gradient: linear-gradient(135deg, hsl(220, 90%, 65%) 0%, hsl(210, 85%, 72%) 100%);
+    --glass-bg: hsla(220, 22%, 4%, 0.9);
+    --glass-border: hsla(220, 90%, 65%, 0.2);
+    --grid-color: hsla(220, 90%, 65%, 0.05);
+    --shadow-glow: 0 0 40px hsla(220, 90%, 65%, 0.3);
+    --shadow-card: 0 8px 32px hsla(0, 0%, 0%, 0.8);
+    --shadow-intense: 0 0 60px hsla(220, 90%, 65%, 0.45);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --radius: 0.5rem;
+    --sidebar-background: 220 18% 7%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 220 90% 65%;
+    --sidebar-primary-foreground: 220 22% 4%;
+    --sidebar-accent: 220 16% 13%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 220 16% 16%;
+    --sidebar-ring: 220 90% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    background-color: hsl(var(--background));
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--hero-gradient);
+    background-attachment: fixed;
+    background-color: hsl(var(--background));
+    overflow-x: hidden;
+    min-height: 100%;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .dark body {
+    color-scheme: dark;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(0 0% 5%);
+    border: none;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--accent-gradient);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary));
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: hsl(var(--card) / 0.7);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-smooth);
+  }
+
+  .glass-card:hover {
+    border-color: hsl(var(--primary) / 0.3);
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-6px);
+  }
+
+  .glass-card svg {
+    @apply stroke-2 opacity-100 block;
+    fill: none;
+  }
+
+  .dark .glass-card svg {
+    @apply text-white;
+    stroke: white;
+  }
+
+  .grid-pattern {
+    background-image:
+      linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-position: center center;
+    position: relative;
+  }
+
+  .grid-pattern > div > div[class*="border"][class*="absolute"] {
+    animation: float 10s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .hero-background {
+    position: relative;
+    background: var(--hero-gradient);
+    overflow: hidden;
+  }
+
+  .hero-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--hero-radial-gradient);
+    z-index: 0;
+  }
+
+  .hero-background::after {
+    content: '';
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: var(--hero-glow);
+    z-index: 0;
+    animation: pulse 8s ease-in-out infinite alternate;
+  }
+
+  .glow-button {
+    background: var(--accent-gradient);
+    color: hsl(var(--background));
+    box-shadow: var(--shadow-glow);
+    transition: var(--transition-bounce);
+  }
+
+  .glow-button:hover {
+    box-shadow: var(--shadow-intense);
+    transform: scale(1.05);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+    text-shadow: none;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
+  }
+
+  .iconic {
+    background: var(--accent-gradient);
+    color: black;
+    svg {
+      stroke: black;
+      fill: none;
+    }
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .text-shadow-glow {
+    text-shadow: 0 0 20px hsla(220, 90%, 65%, 0.8);
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+  }
+
+  .float-animation {
+    animation: float 10s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .animate-delay-1000 { animation-delay: 1s; }
+  .animate-delay-1500 { animation-delay: 1.5s; }
+  .animate-delay-2000 { animation-delay: 2s; }
+  .animate-delay-2500 { animation-delay: 2.5s; }
+  .animate-delay-3000 { animation-delay: 3s; }
+  .animate-delay-3500 { animation-delay: 3.5s; }
+  .animate-delay-4000 { animation-delay: 4s; }
+  .animate-delay-5000 { animation-delay: 5s; }
+
+  @keyframes pulse {
+    0% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.8); }
+    50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.2); }
+    100% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.8); }
+  }
+
+  .electric-border {
+    position: relative;
+    border: 1px solid transparent;
+    background:
+      linear-gradient(hsl(var(--background)), hsl(var(--background))) padding-box,
+      var(--accent-gradient) border-box;
+  }
+
+  .neon-text {
+    color: hsl(var(--primary));
+    text-shadow:
+      0 0 5px hsl(var(--primary)),
+      0 0 10px hsl(var(--primary)),
+      0 0 15px hsl(var(--primary)),
+      0 0 20px hsl(var(--primary));
+  }
+}
+
+@layer utilities {
+  .scrollbar-custom {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground)) hsl(var(--secondary));
+  }
+
+  .scrollbar-custom::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-track {
+    background: hsl(var(--secondary));
+    border-radius: 3px;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground));
+    border-radius: 3px;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--foreground) / 0.8);
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .certificates-tooltip-container .certificates-dropdown {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  }
+
+  .certificates-tooltip-container:hover .certificates-dropdown {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.focus-visible:focus-visible {
+  @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+}
+
+@keyframes dunkMove {
+  0%, 100% { transform: translate(0, 70px) scale(0.92); opacity: 0.45; }
+  35% { transform: translate(90px, -30px) scale(1); opacity: 0.9; }
+  55% { transform: translate(130px, -85px) scale(1.05); opacity: 1; }
+  72% { transform: translate(120px, -45px) scale(1); opacity: 0.8; }
+}
+
+@keyframes ballDunk {
+  0%, 35% { transform: translate(-85px, 90px) rotate(0deg); }
+  55% { transform: translate(8px, 38px) rotate(180deg); }
+  70% { transform: translate(10px, 92px) rotate(260deg); }
+  100% { transform: translate(-85px, 90px) rotate(360deg); }
+}
+
+@keyframes rimShake {
+  0%, 45%, 100% { transform: translateX(0); }
+  55% { transform: translateX(4px); }
+  60% { transform: translateX(-4px); }
+  65% { transform: translateX(2px); }
+}
+
+@keyframes writingPulse {
+  0%, 100% { transform: translateY(0); letter-spacing: 0; text-shadow: 0 0 18px rgba(59, 130, 246, 0.45); }
+  50% { transform: translateY(-3px); letter-spacing: 1.5px; text-shadow: 0 0 30px rgba(59, 130, 246, 0.8); }
+}
+
+.animate-writingPulse { animation: writingPulse 2.4s ease-in-out infinite; }
+
+@keyframes floatWriting {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+@keyframes writePen {
+  0%, 100% { transform: translate(0, 0) rotate(-10deg); }
+  50% { transform: translate(-8px, -6px) rotate(8deg); }
+}
+
+.animate-floatWriting { animation: floatWriting 3s ease-in-out infinite; }
+.animate-writePen { animation: writePen 1.4s ease-in-out infinite; }
+
+@keyframes certFloat {
+  0%, 100% { transform: translateY(0px) rotate(-1deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+@keyframes certPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 12px rgba(34,197,94,0.3); }
+  50% { transform: scale(1.12); box-shadow: 0 0 25px rgba(34,197,94,0.65); }
+}
+
+@keyframes trophySpin {
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(8deg); }
+}
+
+.animate-certFloat { animation: certFloat 3s ease-in-out infinite; }
+.animate-certPulse { animation: certPulse 2s ease-in-out infinite; }
+.animate-trophySpin { animation: trophySpin 2.5s ease-in-out infinite; }
+
+@keyframes researchFloat {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+@keyframes typingBar {
+  0%, 100% { height: 10px; opacity: 0.45; }
+  50% { height: 22px; opacity: 1; }
+}
+
+@keyframes orbitOne {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-14px, 12px); }
+}
+
+@keyframes orbitTwo {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(16px, -10px); }
+}
+
+@keyframes orbitThree {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-12px, -14px); }
+}
+
+@keyframes ideaPop {
+  0%, 100% { transform: scale(0.9) rotate(-8deg); }
+  50% { transform: scale(1.15) rotate(8deg); }
+}
+
+.animate-researchFloat { animation: researchFloat 3.2s ease-in-out infinite; }
+.animate-typingBar { animation: typingBar 1.1s ease-in-out infinite; }
+.animate-orbitOne { animation: orbitOne 2.6s ease-in-out infinite; }
+.animate-orbitTwo { animation: orbitTwo 2.9s ease-in-out infinite; }
+.animate-orbitThree { animation: orbitThree 2.4s ease-in-out infinite; }
+.animate-ideaPop { animation: ideaPop 2s ease-in-out infinite; }
+
+@keyframes capFloat {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+@keyframes tasselSwing {
+  0%, 100% { transform: rotate(-12deg); }
+  50% { transform: rotate(16deg); }
+}
+
+@keyframes tasselPulse {
+  0%, 100% { transform: scale(0.9); opacity: 0.75; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+@keyframes starPop {
+  0%, 100% { transform: scale(0.85) rotate(-8deg); opacity: 0.65; }
+  50% { transform: scale(1.2) rotate(8deg); opacity: 1; }
+}
+
+@keyframes eduFloat {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+@keyframes eduTassel {
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(12deg); }
+}
+
+@keyframes eduSeal {
+  0%, 100% { transform: scale(0.95); opacity: 0.75; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+.animate-eduFloat { animation: eduFloat 3s ease-in-out infinite; }
+
+=== src/app/json/route.ts ===
+import personalInfo from '@/data/personal-info.json';
+
+export type PersonalInfo = typeof personalInfo;
+export type PublicPersonalInfo = Omit<PersonalInfo, 'seo'>;
+
+export async function GET(): Promise<Response> {
+  const { seo, ...publicData } = personalInfo;
+
+  return Response.json(publicData as PublicPersonalInfo, {
+    headers: {
+      // Cache for 5 minutes at the edge/CDN and allow SWR for 10 minutes
+      'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600',
+    },
+  });
+}
+
+=== src/app/layout.tsx ===
+import type { Metadata } from "next";
+import { Inter, JetBrains_Mono } from "next/font/google";
+import "./globals.css";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { QueryProvider } from "@/components/providers/QueryProvider";
+import { ToastProvider } from "@/components/providers/ToastProvider";
+import { TooltipProvider } from '@/components/ui/tooltip';
+import { publicUrl } from "@/constants";
+import personalInfo from "@/data/personal-info.json";
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
+const myUrl = process.env.NEXT_PUBLIC_SITE_URL || publicUrl;
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-jetbrains-mono',
+});
+
+export const metadata: Metadata = {
+  title: personalInfo.seo.title,
+  description: personalInfo.seo.description,
+  keywords: personalInfo.seo.keywords,
+  authors: [{ name: personalInfo.personal.name, url: personalInfo.social.linkedin.url }],
+  creator: personalInfo.personal.name,
+  publisher: personalInfo.personal.name,
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
+    shortcut: '/favicon.ico',
+  },
+  verification: {
+    google: personalInfo.seo.googleSiteVerification,
+  },
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL(myUrl),
+  alternates: {
+    canonical: myUrl,
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: myUrl,
+    title: personalInfo.seo.title,
+    description: personalInfo.seo.description,
+    siteName: personalInfo.personal.name,
+    images: [{
+      url: personalInfo.seo.ogImage,
+      alt: personalInfo.seo.title,
+    }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: personalInfo.seo.title,
+    description: personalInfo.seo.description,
+    images: [personalInfo.seo.ogImage],
+  },
+};
+
+interface RootLayoutProps {
+  readonly children: React.ReactNode;
+}
+
+const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}>
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "@id": `${myUrl}/#person`,
+              "name": personalInfo.personal.name,
+              "alternateName": [
+                "Sujeeth S R",
+                "Sujeeth Rajkumar",
+                "Sujeeth Sundarajan Rajkumar",
+                "sujeethsr",
+                "Sujeeth",
+                "Sujeeth SR",
+                "Sujeeth Sundarajan"
+              ],
+              "jobTitle": personalInfo.personal.title,
+              "worksFor": {
+                "@type": "Organization",
+                "name": personalInfo.personal.company
+              },
+              "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "University of Texas at Arlington"
+              },
+              "email": personalInfo.personal.email,
+              "url": myUrl,
+              "image": `${myUrl}${personalInfo.seo.ogImage}`,
+              "sameAs": [
+                personalInfo.social.linkedin.url,
+                personalInfo.social.github.url,
+                personalInfo.social.medium.url,
+                personalInfo.social.instagram.url,
+                personalInfo.social.youtube.url,
+                personalInfo.social.devto.url
+              ].filter(Boolean),
+              "knowsAbout": [
+                "Artificial Intelligence",
+                "Machine Learning",
+                "Large Language Models",
+                "Retrieval-Augmented Generation",
+                "Agentic AI",
+                "Python",
+                "FastAPI",
+                "Cloud Computing"
+              ],
+              "keywords": personalInfo.seo.keywords,
+            })
+          }}
+        />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
+          <QueryProvider>
+            <TooltipProvider>
+              {children}
+              <ToastProvider />
+            </TooltipProvider>
+          </QueryProvider>
+        </ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
+      </body>
+    </html>
+  );
+};
+
+export default RootLayout;
+=== src/app/not-found.tsx ===
+'use client';
+
+// Custom 404 Not Found page for Next.js 15 App Router
+import React from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { Home, ArrowLeft, Search, Zap } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+
+export default function NotFound() {
+  const router = useRouter();
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-background via-secondary/10 to-background flex items-center justify-center relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/6 w-32 h-32 border border-primary/10 rotate-45 float-animation animate-delay-2000"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-24 h-24 border border-accent/10 rotate-12 float-animation animate-delay-4000"></div>
+        <div className="absolute top-2/3 left-1/3 w-16 h-16 border border-primary/5 -rotate-12 float-animation animate-delay-1000"></div>
+        <div className="absolute top-1/2 right-1/6 w-20 h-20 border border-accent/5 rotate-45 float-animation animate-delay-3000"></div>
+      </div>
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        {/* 404 Display */}
+        <div className="mb-8">
+          <div className="relative inline-block">
+            <h1 className="text-8xl md:text-9xl font-bold gradient-text font-mono leading-none">
+              404
+            </h1>
+            <div className="absolute inset-0 text-8xl md:text-9xl font-bold text-primary/10 font-mono leading-none animate-pulse">
+              404
+            </div>
+          </div>
+        </div>
+
+        {/* Error Message */}
+        <div className="mb-8 space-y-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+            Page <span className="gradient-text">Not Found</span>
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Looks like you&apos;ve ventured into uncharted digital territory. The page you&apos;re looking for doesn&apos;t exist in this digital realm.
+          </p>
+        </div>
+
+        {/* Glitch Effect */}
+        <div className="mb-8">
+          <div className="inline-block px-4 py-2 bg-destructive/10 border border-destructive/20 rounded-lg">
+            <div className="flex items-center gap-2 text-destructive">
+              <Zap size={16} className="animate-pulse" />
+              <span className="font-mono text-sm">ERROR: RESOURCE_NOT_FOUND</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+          <Button asChild className="group">
+            <Link href="/" className="flex items-center gap-2">
+              <Home size={18} className="group-hover:scale-110 transition-transform duration-200" />
+              Return Home
+            </Link>
+          </Button>
+          
+          <Button 
+            variant="outline" 
+            onClick={() => router.back()}
+            className="group flex items-center gap-2"
+          >
+            <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform duration-200" />
+            Go Back
+          </Button>
+        </div>
+
+        {/* Helpful Links */}
+        <div className="glass-card p-6 rounded-xl max-w-2xl mx-auto">
+          <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center justify-center gap-2">
+            <Search size={18} />
+            Explore Instead
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { name: 'About', href: '/about' },
+              { name: 'Experience', href: '/experience' },
+              { name: 'Education', href: '/education' },
+              { name: 'Publications', href: '/publications' },
+              { name: 'Certifications', href: '/certifications' },
+              // { name: 'Projects', href: '/projects' },
+              { name: 'Contact', href: '/contact' }
+            ].map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="p-3 rounded-lg bg-secondary/30 hover:bg-primary/10 transition-colors duration-200 text-center group"
+              >
+                <span className="text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors duration-200">
+                  {link.name}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Footer Message */}
+        <div className="mt-8 text-sm text-muted-foreground">
+          <p>
+            Lost in the matrix? No worries, even the best developers encounter 404s. 
+            <br className="hidden sm:inline" />
+            Let&apos;s get you back on track! 🚀
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+=== src/app/page.tsx ===
+import Navigation from '@/components/navigation';
+import Hero from '@/components/hero';
+import About from '@/components/about';
+import ExperiencePreview from "@/components/experience/ExperiencePreview";
+import Education from '@/components/education/Education';
+import Publications from '@/components/publications';
+import Certifications from '@/components/certifications';
+import Contact from '@/components/contact';
+import Footer from '@/components/footer';
+
+export const metadata = {
+  alternates: { canonical: "https://sujeethsr.com" },
+};
+
+const HomePage: React.FC = () => {
+  return (
+    <div className="min-h-screen">
+      <Navigation />
+      <Hero />
+      <About />
+      <ExperiencePreview />
+      <Education />
+      <Publications />
+      <Certifications />
+      <Contact />
+      <Footer />
+    </div>
+  );
+};
+
+export default HomePage;
+=== src/app/publications/page.tsx ===
+import Navigation from '@/components/navigation';
+import Footer from '@/components/footer';
+import Publications from '@/components/publications';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Publications | Sujeeth Sundarajan Rajkumar",
+  description: "Research publications and blog posts by Sujeeth Sundarajan Rajkumar — IEEE published researcher and AI engineering writer on Medium and DEV Community.",
+  alternates: { canonical: "https://sujeethsr.com/publications" },
+  openGraph: {
+    title: "Publications | Sujeeth Sundarajan Rajkumar",
+    description: "Research publications and blog posts by Sujeeth Sundarajan Rajkumar — IEEE published researcher and AI engineering writer on Medium and DEV Community.",
+    url: "https://sujeethsr.com/publications",
+    type: "website",
+  },
+};
+
+export default function PublicationsPage() {
+  return (
+    <div className="min-h-screen pt-16">
+      <Navigation />
+      <Publications />
+      <Footer />
+    </div>
+  );
+}
+=== src/app/robots.ts ===
+import { MetadataRoute } from 'next';
+import { publicUrl } from "@/constants";
+
+export default function robots(): MetadataRoute.Robots {
+  const baseUrl = (
+    process.env.NEXT_PUBLIC_SITE_URL || publicUrl
+  ).replace(/\/$/, '');
+
+  return {
+    rules: [
+      {
+        userAgent: 'Googlebot',
+        allow: '/',
+        disallow: ['/api/', '/_next/'],
+      },
+      {
+        userAgent: 'Bingbot',
+        allow: '/',
+        disallow: ['/api/', '/_next/'],
+      },
+      {
+        userAgent: 'Twitterbot',
+        allow: '/',
+      },
+      {
+        userAgent: 'facebookexternalhit',
+        allow: '/',
+      },
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: ['/api/', '/_next/'],
+      },
+    ],
+    sitemap: `${baseUrl}/sitemap.xml`,
+  };
+}
+=== src/app/sitemap.ts ===
+import { MetadataRoute } from 'next';
+import { publicUrl } from "@/constants";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = (
+    process.env.NEXT_PUBLIC_SITE_URL || publicUrl
+  ).replace(/\/$/, '');
+
+  const routes = [
+    '',
+    '/about',
+    '/experience',
+    '/education',
+    '/publications',
+    '/blog',
+    '/certifications',
+    '/contact',
+  ];
+
+  return routes.map((path) => ({
+    url: `${baseUrl}${path}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: path === '' ? 1 : 0.8,
+  }));
+}
+=== src/components/ScrollButton.tsx ===
+'use client';
+
+import React from 'react';
+
+interface ScrollButtonProps {
+  targetId: string;
+  children: React.ReactNode;
+  className?: string;
+  ariaLabel?: string;
+}
+
+const ScrollButton: React.FC<ScrollButtonProps> = ({ 
+  targetId, 
+  children, 
+  className = '',
+  ariaLabel 
+}) => {
+  const scrollToTarget = () => {
+    const element = document.querySelector(`#${targetId}`);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <button 
+      onClick={scrollToTarget}
+      className={className}
+      aria-label={ariaLabel}
+    >
+      {children}
+    </button>
+  );
+};
+
+export default ScrollButton;
+
+=== src/components/about/About.tsx ===
+import React from 'react';
+
+import MyJourney from './MyJourney';
+import HowIWork from './HowIWork';
+import Stats from './Stats';
+
+const About: React.FC = () => {
+  return (
+    <section id="about" className="py-20 bg-gradient-to-b from-background to-secondary/20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            About <span className="gradient-text">Me</span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Passionate about building transformative solutions that create real impact
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* My Journey Section */}
+          <MyJourney />
+
+          {/* How I Work Section */}
+          <HowIWork />
+        </div>
+
+        {/* Stats Section */}
+        <Stats />
+      </div>
+    </section>
+  );
+};
+
+export default About;
+
+=== src/components/about/HowIWork.tsx ===
+import React from 'react';
+import { Code2, Lightbulb, Users, Zap } from 'lucide-react';
+
+interface Principle {
+  readonly icon: React.ReactElement;
+  readonly title: string;
+  readonly description: string;
+}
+
+const HowIWork: React.FC = () => {
+  const principles: Principle[] = [
+    {
+      icon: <Code2 size={24} className="text-black stroke-2" />,
+      title: "Clean Code",
+      description: "Writing maintainable, scalable code that stands the test of time"
+    },
+    {
+      icon: <Lightbulb size={24} className="text-black stroke-2" />,
+      title: "Innovation",
+      description: "Staying ahead of technology trends and implementing cutting-edge solutions"
+    },
+    {
+      icon: <Users size={24} className="text-black stroke-2" />,
+      title: "Collaboration",
+      description: "Working effectively with cross-functional teams to deliver exceptional results"
+    },
+    {
+      icon: <Zap size={24} className="text-black stroke-2" />,
+      title: "Performance",
+      description: "Optimizing applications for speed, accessibility, and user experience"
+    }
+  ];
+
+  return (
+    <div className="space-y-6">
+      <h3 className="text-2xl font-semibold text-foreground">How I Work</h3>
+      <div className="grid sm:grid-cols-2 gap-6">
+        {principles.map((principle, index) => (
+          <div key={principle.title} className="glass-card p-6 rounded-xl group">
+            <div className="flex items-center mb-4">
+              <div className="w-12 h-12 rounded-lg iconic mr-4 group-hover:scale-110 transition-transform duration-300 flex items-center justify-center flex-shrink-0">
+                {principle.icon}
+              </div>
+              <h4 className="font-semibold text-foreground">{principle.title}</h4>
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              {principle.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default HowIWork;
+
+=== src/components/about/MyJourney.tsx ===
+import React from 'react';
+import personalInfo from '@/data/personal-info.json';
+
+const MyJourney: React.FC = () => {
+  return (
+    <div className="space-y-6">
+      <h3 className="text-2xl font-semibold text-foreground">My Journey</h3>
+      <div className="space-y-4 text-muted-foreground leading-relaxed">
+        {personalInfo.personal.story.map((story, index) => (
+          <p key={story} className='text-sm md:text-base'>{story}</p>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default MyJourney;
+
+=== src/components/about/Stats.tsx ===
+import React from 'react';
+
+const Stats: React.FC = () => {
+  return null;
+};
+
+export default Stats;
+=== src/components/about/index.ts ===
+// About component exports
+export { default } from './About';
+export { default as MyJourney } from './MyJourney';
+export { default as HowIWork } from './HowIWork';
+export { default as Stats } from './Stats';
+
+=== src/components/awards/AwardCard.tsx ===
+// Server Component - No 'use client' directive for SEO benefits
+import React from 'react';
+import { Trophy, Star, Award, Calendar, ExternalLink } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+
+interface Award {
+  readonly id: number;
+  readonly title: string;
+  readonly organization: string;
+  readonly year: string;
+  readonly description: string;
+  readonly category: string;
+  readonly url?: string;
+}
+
+interface AwardCardProps {
+  award: Award;
+  index: number;
+}
+
+const getCategoryIcon = (category: string) => {
+  if (category === 'corporate') return Star;
+  if (category === 'competitive') return Trophy;
+  return Award;
+};
+
+const AwardCard: React.FC<AwardCardProps> = ({ award, index }) => {
+  const IconComponent = getCategoryIcon(award.category);
+  
+  return (
+    <div 
+      key={`award-${index}`} 
+      className="glass-card rounded-xl p-5 group hover:scale-105 transition-all duration-300"
+    >
+      <div className="flex items-start gap-4">
+        {/* Icon */}
+        <div className="w-12 h-12 rounded-lg iconic flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+          <IconComponent size={20} className="text-black stroke-2" />
+        </div>
+        
+        {/* Content */}
+        <div className="flex-1 min-w-0">
+          <h3 className="font-bold text-foreground text-sm leading-tight mb-1 group-hover:text-primary transition-colors duration-300">
+            {award.title}
+          </h3>
+          <p className="text-xs text-primary font-medium mb-2">
+            {award.organization}
+          </p>
+          <p className="text-xs text-muted-foreground leading-relaxed mb-3 line-clamp-2">
+            {award.description}
+          </p>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-md font-medium">
+                {award.category}
+              </span>
+              {award.url && (
+                <a
+                  href={award.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center"
+                >
+                  <Button size="sm" variant="ghost" className="h-6 px-2 text-xs hover:bg-primary/10 hover:text-primary">
+                    <ExternalLink size={12} className="mr-1" />
+                    View
+                  </Button>
+                </a>
+              )}
+            </div>
+            <div className="flex items-center text-xs text-muted-foreground">
+              <Calendar size={12} className="mr-1" />
+              {award.year}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default AwardCard;
+
+=== src/components/awards/Awards.tsx ===
+// Server Component - No 'use client' directive for SEO benefits
+import React from 'react';
+import AwardCard from './AwardCard';
+import personalInfo from '@/data/personal-info.json';
+
+interface Award {
+  readonly id: number;
+  readonly title: string;
+  readonly organization: string;
+  readonly year: string;
+  readonly description: string;
+  readonly category: string;
+  readonly url?: string;
+}
+
+const Awards: React.FC = () => {
+  const awards: readonly Award[] = (personalInfo as any).achievements || [];
+
+  if (!awards || awards.length === 0) {
+    return null;
+  }
+
+  return (
+    <section id="awards" className="py-16 bg-gradient-to-b from-background to-secondary/20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Awards & <span className="gradient-text">Achievements</span>
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Recognition for excellence in innovation and professional contributions
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {awards.map((award, index) => (
+            <AwardCard key={index} award={award} index={index} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Awards;
+
+=== src/components/awards/index.ts ===
+// Awards component exports
+export { default } from './Awards';
+export { default as AwardCard } from './AwardCard';
+
+=== src/components/certifications/CallToAction.tsx ===
+import React from 'react';
+
+const CallToAction: React.FC = () => {
+  return null;
+};
+
+export default CallToAction;
+=== src/components/certifications/CertificatesSection.tsx ===
+'use client';
+
+import React, { useState } from 'react';
+import { ExternalLink, CheckCircle } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+
+interface Certificate {
+  readonly url: string;
+  readonly title: string;
+  readonly year: string;
+  readonly credentialId: string;
+}
+
+interface CertificatesSectionProps {
+  certificates?: readonly Certificate[];
+}
+
+const CertificatesSection: React.FC<CertificatesSectionProps> = ({ certificates }) => {
+  const [showCertificatesTooltip, setShowCertificatesTooltip] = useState(false);
+
+  return (
+    <div className="pt-4 mt-2 border-t border-border/50">
+      {certificates && certificates.length > 0 ? (
+        <div className="flex items-center justify-between">
+          <div className="flex items-center text-xs text-muted-foreground">
+            <CheckCircle size={14} className="mr-1 text-primary" />
+            <span>
+              {certificates.length} certificates
+            </span>
+          </div>
+          <div className="relative">
+            <Button 
+              size="sm" 
+              variant="ghost" 
+              className="h-6 px-2 text-xs hover:bg-primary/10 hover:text-primary transition-colors"
+              aria-label="View all certificates"
+              onClick={() => setShowCertificatesTooltip(!showCertificatesTooltip)}
+              onBlur={(e) => {
+                // Only close if focus is moving outside the tooltip area
+                if (!e.currentTarget.parentElement?.contains(e.relatedTarget as Node)) {
+                  setShowCertificatesTooltip(false);
+                }
+              }}
+            >
+              <ExternalLink size={12} className="mr-1" />
+              View All
+            </Button>
+            {showCertificatesTooltip && (
+              <div className="absolute bottom-full right-0 mb-2 w-64 p-3 bg-popover border border-border rounded-md shadow-lg z-50">
+                <div className="space-y-2">
+                  <div className="text-xs font-medium text-foreground mb-2">Certificates:</div>
+                  {certificates.map((certificate) => (
+                    <div key={certificate.credentialId} className="flex items-center justify-between py-1">
+                      <span className="text-xs text-muted-foreground truncate max-w-[180px]" title={certificate.title}>
+                        {certificate.title}
+                      </span>
+                      <a
+                        href={certificate.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="ml-2 text-accent hover:text-accent/80 transition-colors"
+                      >
+                        <ExternalLink size={10} />
+                      </a>
+                    </div>
+                  ))}
+                </div>
+                {/* Close button for mobile */}
+                <button
+                  className="absolute top-1 right-1 w-4 h-4 text-muted-foreground hover:text-foreground"
+                  onClick={() => setShowCertificatesTooltip(false)}
+                  aria-label="Close"
+                >
+                  ×
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      ) : (
+        <div className="flex items-center justify-between">
+          <div className="flex items-center text-xs text-muted-foreground">
+            <CheckCircle size={14} className="mr-1 text-primary" />
+            Certificate available
+          </div>
+          <Button size="sm" variant="ghost" className="h-6 px-2 text-xs">
+            <ExternalLink size={12} className="mr-1" />
+            Verify
+          </Button>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default CertificatesSection;
+
+=== src/components/certifications/CertificationCard.tsx ===
+// Server Component - No 'use client' directive for SEO benefits
+import React from 'react';
+import { Award, Calendar } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import CertificatesSection from './CertificatesSection';
+
+interface Certificate {
+  readonly url: string;
+  readonly title: string;
+  readonly year: string;
+  readonly credentialId: string;
+}
+
+interface Certification {
+  readonly id: number;
+  readonly title: string;
+  readonly provider: string;
+  readonly year: string;
+  readonly description: string;
+  readonly certificates?: readonly Certificate[];
+  readonly skills: readonly string[];
+}
+
+interface CertificationCardProps {
+  cert: Certification;
+  index: number;
+}
+
+const CertificationCard: React.FC<CertificationCardProps> = ({ cert, index }) => {
+  return (
+    <div 
+      className="glass-card rounded-xl p-6 group animate-fade-in-up grid grid-rows-[auto_1fr_auto] h-full"
+      style={{ animationDelay: `${index * 0.1}s` }}
+    >
+      {/* Header */}
+      <div className="flex items-start justify-between mb-4">
+        <div className="w-12 h-12 iconic rounded-lg bg-primary flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+          <Award size={24} className="text-background stroke-2" />
+        </div>
+        <div className="flex items-center text-sm text-muted-foreground">
+          <Calendar size={16} className="mr-1" />
+          {cert.year}
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="space-y-4">
+        <div>
+          <h3 className="text-lg font-bold text-foreground mb-1">
+            {cert.title}
+          </h3>
+          <p className="text-accent text-sm font-medium mb-2">
+            {cert.provider}
+          </p>
+          <p className="text-muted-foreground text-sm leading-relaxed">
+            {cert.description}
+          </p>
+        </div>
+
+        {/* Skills */}
+        <div className="flex flex-wrap gap-2">
+          {cert.skills.slice(0, 3).map((skill, skillIndex) => (
+            <Badge key={skillIndex} variant="outline" className="text-xs bg-primary/10">
+              {skill}
+            </Badge>
+          ))}
+          {cert.skills.length > 3 && (
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Badge variant="outline" className="text-xs bg-primary/10 cursor-pointer">
+                +{cert.skills.length - 3} more
+                  </Badge>
+                </TooltipTrigger>
+                <TooltipContent side="top" align="start" className="w-48 p-3">
+                  <div className="space-y-2">
+                    <div className="text-xs font-medium text-foreground mb-2">Additional Skills:</div>
+                    <div className="flex flex-wrap gap-1">
+                      {cert.skills.slice(3).map((skill, skillIndex) => (
+                        <Badge key={skillIndex} variant="outline" className="text-xs bg-primary/5">
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          )}
+        </div>
+      </div>
+
+      {/* Certificates */}
+      <CertificatesSection certificates={cert.certificates} />
+    </div>
+  );
+};
+
+export default CertificationCard;
+
+=== src/components/certifications/Certifications.tsx ===
+// Server Component - No 'use client' directive for SEO benefits
+import React from 'react';
+import CertificationCard from './CertificationCard';
+import CallToAction from './CallToAction';
+import personalInfo from '@/data/personal-info.json';
+
+interface Certificate {
+  readonly url: string;
+  readonly title: string;
+  readonly year: string;
+  readonly credentialId: string;
+}
+
+interface Certification {
+  readonly id: number;
+  readonly title: string;
+  readonly provider: string;
+  readonly year: string;
+  readonly description: string;
+  readonly certificates?: readonly Certificate[];
+  readonly skills: readonly string[];
+}
+
+const Certifications: React.FC = () => {
+  const certifications: readonly Certification[] = personalInfo.certifications;
+
+  return (
+    <section
+      id="certifications"
+      className="py-20 bg-gradient-to-b from-background via-secondary/10 to-background"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-8 lg:mb-16">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 text-center">
+            {/* Floating certification animation */}
+            <div className="relative w-24 h-24 animate-certFloat flex-shrink-0">
+              <div className="absolute inset-0 rounded-2xl bg-background/60 border border-primary/30 shadow-[0_0_30px_rgba(59,130,246,0.25)] backdrop-blur-sm" />
+
+              <div className="absolute top-5 left-5 w-14 h-2 rounded-full bg-primary/70" />
+              <div className="absolute top-10 left-5 w-10 h-1.5 rounded-full bg-muted-foreground/50" />
+              <div className="absolute top-14 left-5 w-12 h-1.5 rounded-full bg-muted-foreground/40" />
+
+              <div className="absolute -right-2 -top-2 w-10 h-10 rounded-full bg-green-500/20 border border-green-400 flex items-center justify-center animate-certPulse shadow-[0_0_20px_rgba(34,197,94,0.4)]">
+                ✅
+              </div>
+
+              <div className="absolute -left-3 bottom-0 text-2xl animate-trophySpin">
+                🏆
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 lg:mb-6">
+                Professional <span className="gradient-text">Certifications</span>
+              </h2>
+
+              <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                Continuous learning and professional development in cutting-edge technologies
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 items-stretch">
+          {certifications.map((cert, index) => (
+            <CertificationCard key={cert.id} cert={cert} index={index} />
+          ))}
+        </div>
+
+        <CallToAction />
+      </div>
+    </section>
+  );
+};
+
+export default Certifications;
+=== src/components/certifications/index.ts ===
+// Certifications component exports
+export { default } from './Certifications';
+export { default as CertificationCard } from './CertificationCard';
+export { default as CallToAction } from './CallToAction';
+
+=== src/components/contact/Contact.tsx ===
+// Server Component - Static content rendered on server for SEO benefits
+import React from 'react';
+import ContactForm from './ContactForm';
+
+const Contact: React.FC = () => {
+  return (
+    <section
+      id="contact"
+      className="relative py-20 bg-gradient-to-b from-background/80 to-secondary overflow-hidden"
+    >
+      {/* Animated basketball dunk background */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-25">
+        <div className="absolute right-[6%] top-[18%] w-[420px] h-[420px] hidden md:block">
+          {/* Backboard */}
+          <div className="absolute right-6 top-8 w-28 h-20 border-4 border-primary/70 rounded-md shadow-[0_0_35px_rgba(59,130,246,0.45)]" />
+
+          {/* Rim */}
+          <div className="absolute right-12 top-[92px] w-20 h-4 border-4 border-primary rounded-full animate-[rimShake_2.6s_ease-in-out_infinite]" />
+
+          {/* Net */}
+          <div className="absolute right-[70px] top-[108px] w-10 h-16 border-l-2 border-r-2 border-primary/40 skew-x-[-12deg]" />
+          <div className="absolute right-[82px] top-[108px] w-10 h-16 border-l-2 border-r-2 border-primary/25 skew-x-[12deg]" />
+
+          {/* Dunking player group */}
+          <div className="absolute left-10 bottom-10 w-44 h-56 animate-[dunkMove_2.6s_ease-in-out_infinite]">
+            {/* Head */}
+            <div className="absolute left-[82px] top-5 w-10 h-10 rounded-full bg-primary shadow-[0_0_25px_rgba(59,130,246,0.65)]" />
+
+            {/* Body */}
+            <div className="absolute left-[84px] top-[50px] w-8 h-24 bg-primary/80 rounded-full rotate-[12deg]" />
+
+            {/* Arm to rim */}
+            <div className="absolute left-[104px] top-[58px] w-28 h-4 bg-primary/80 rounded-full rotate-[-32deg] origin-left" />
+
+            {/* Other arm */}
+            <div className="absolute left-[65px] top-[70px] w-24 h-4 bg-primary/50 rounded-full rotate-[28deg]" />
+
+            {/* Left leg */}
+            <div className="absolute left-[74px] top-[126px] w-5 h-28 bg-primary/70 rounded-full rotate-[32deg]" />
+
+            {/* Right leg */}
+            <div className="absolute left-[102px] top-[125px] w-5 h-28 bg-primary/60 rounded-full rotate-[-36deg]" />
+
+            {/* Ball */}
+            <div className="absolute left-[178px] top-[26px] w-10 h-10 rounded-full bg-primary border-2 border-primary-foreground/40 shadow-[0_0_28px_rgba(59,130,246,0.75)] animate-[ballDunk_2.6s_ease-in-out_infinite]">
+              <div className="absolute top-1/2 left-0 w-full h-[2px] bg-background/50" />
+              <div className="absolute left-1/2 top-0 h-full w-[2px] bg-background/50" />
+              <div className="absolute inset-2 rounded-full border border-background/40" />
+            </div>
+          </div>
+
+          {/* Court glow */}
+          <div className="absolute left-0 bottom-0 w-full h-1 bg-primary/50 blur-sm" />
+        </div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 lg:mb-6">
+            Get In <span className="gradient-text">Touch</span>
+          </h2>
+
+          <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Ready to bring your ideas to life? Let&apos;s discuss your next project
+          </p>
+        </div>
+
+        <div className="flex justify-center">
+          <div className="glass-card p-8 rounded-xl w-full max-w-2xl">
+            <ContactForm />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
+=== src/components/contact/ContactForm.tsx ===
+'use client';
+
+import React, { useState } from 'react';
+import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { useToast } from '@/hooks/use-toast';
+import { sendContactEmail, type ContactFormData } from '@/lib/actions/contact';
+
+interface FormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
+const ContactForm: React.FC = () => {
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const result = await sendContactEmail(formData as ContactFormData);
+
+      if (result.success) {
+        toast({
+          title: 'Message sent successfully!',
+          description: result.message,
+          action: <CheckCircle className="h-5 w-5 text-green-500" />,
+        });
+
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        toast({
+          title: 'Failed to send message',
+          description: result.message,
+          variant: 'destructive',
+          action: <AlertCircle className="h-5 w-5 text-red-500" />,
+        });
+      }
+    } catch (error) {
+      console.error('Contact form error:', error);
+
+      toast({
+        title: 'Error',
+        description: 'An unexpected error occurred. Please try again.',
+        variant: 'destructive',
+        action: <AlertCircle className="h-5 w-5 text-red-500" />,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const labelClass = 'block text-sm font-medium text-primary mb-2';
+  const requiredClass = 'text-orange-500';
+
+  return (
+    <div>
+      <h3 className="text-2xl font-semibold mb-6 text-foreground">
+        Send Message
+      </h3>
+
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="grid md:grid-cols-2 gap-6">
+          <div>
+            <label htmlFor="name" className={labelClass}>
+              Name <span className={requiredClass}>*</span>
+            </label>
+
+            <Input
+              id="name"
+              name="name"
+              type="text"
+              required
+              value={formData.name}
+              onChange={handleChange}
+              className="bg-background/50 border-border focus:border-primary"
+              placeholder="Your name"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="email" className={labelClass}>
+              Email <span className={requiredClass}>*</span>
+            </label>
+
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              required
+              value={formData.email}
+              onChange={handleChange}
+              className="bg-background/50 border-border focus:border-primary"
+              placeholder="your.email@example.com"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label htmlFor="subject" className={labelClass}>
+            Subject <span className={requiredClass}>*</span>
+          </label>
+
+          <Input
+            id="subject"
+            name="subject"
+            type="text"
+            required
+            value={formData.subject}
+            onChange={handleChange}
+            className="bg-background/50 border-border focus:border-primary"
+            placeholder="AI project, collaboration, or opportunity"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="message" className={labelClass}>
+            Message <span className={requiredClass}>*</span>
+          </label>
+
+          <Textarea
+            id="message"
+            name="message"
+            required
+            value={formData.message}
+            onChange={handleChange}
+            rows={6}
+            className="bg-background/50 border-border focus:border-primary resize-none"
+            placeholder="Share a brief note about your idea, role, timeline, or how we can collaborate..."
+          />
+        </div>
+
+        <Button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full glow-button iconic"
+        >
+          {isSubmitting ? (
+            <>
+              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+              Sending...
+            </>
+          ) : (
+            <>
+              <Send size={18} className="mr-2 stroke" />
+              Send Message
+            </>
+          )}
+        </Button>
+      </form>
+    </div>
+  );
+};
+
+export default ContactForm;
+=== src/components/contact/ContactInfo.tsx ===
+// Server Component - No 'use client' directive for SEO benefits
+import React from 'react';
+
+const ContactInfo: React.FC = () => {
+  return null;
+};
+
+export default ContactInfo;
+=== src/components/contact/SocialLinks.tsx ===
+import React from 'react';
+import { Github, Linkedin, Mail, Youtube, Instagram } from 'lucide-react';
+import personalInfo from '@/data/personal-info.json';
+
+const DevToIcon = () => (
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7.42 10.05c-.18-.16-.46-.23-.84-.23H6l.02 2.44.04 2.45.56-.02c.41 0 .63-.07.83-.26.24-.24.26-.36.26-2.2 0-1.91-.02-1.96-.29-2.18zM0 4.94v14.12h24V4.94H0zM8.56 15.3c-.44.58-1.06.77-2.53.77H4.71V8.53h1.4c1.67 0 2.16.18 2.6.9.27.43.29.6.32 2.57.05 2.23-.02 2.73-.47 3.3zm5.09-5.47h-2.47v1.77h1.52v1.28l-.72.04-.75.03v1.77l1.22.03 1.2.04v1.28h-1.6c-1.53 0-1.6-.01-1.87-.3l-.3-.28v-3.16c0-3.02.01-3.18.25-3.48.23-.31.25-.31 1.88-.31h1.64v1.29zm4.68 5.45c-.17.43-.64.79-1 .79-.18 0-.45-.15-.67-.39-.32-.32-.45-.63-.82-2.08l-.9-3.39-.45-1.67h.76c.4 0 .75.02.75.05 0 .06 1.16 4.54 1.26 4.83.04.15.32-.7.73-2.3l.66-2.52.74-.04c.4-.02.73 0 .73.04 0 .14-1.67 6.38-1.8 6.68z"/>
+  </svg>
+);
+
+const MediumIcon = () => (
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+  </svg>
+);
+
+const socialLinks = [
+  {
+    name: 'LinkedIn',
+    url: personalInfo.social.linkedin.url,
+    username: personalInfo.social.linkedin.username,
+    icon: <Linkedin size={20} />,
+    color: 'hover:text-blue-500',
+  },
+  {
+    name: 'GitHub',
+    url: personalInfo.social.github.url,
+    username: personalInfo.social.github.username,
+    icon: <Github size={20} />,
+    color: 'hover:text-gray-300',
+  },
+  {
+    name: 'DEV.to',
+    url: personalInfo.social.devto.url,
+    username: personalInfo.social.devto.username,
+    icon: <DevToIcon />,
+    color: 'hover:text-white',
+  },
+  {
+    name: 'Medium',
+    url: personalInfo.social.medium.url,
+    username: personalInfo.social.medium.username,
+    icon: <MediumIcon />,
+    color: 'hover:text-green-400',
+  },
+  {
+    name: 'YouTube',
+    url: personalInfo.social.youtube.url,
+    username: personalInfo.social.youtube.username,
+    icon: <Youtube size={20} />,
+    color: 'hover:text-red-500',
+  },
+  {
+    name: 'Instagram',
+    url: personalInfo.social.instagram.url,
+    username: personalInfo.social.instagram.username,
+    icon: <Instagram size={20} />,
+    color: 'hover:text-pink-500',
+  },
+  {
+    name: 'Email',
+    url: personalInfo.social.email,
+    username: 'work.sujeeth@gmail.com',
+    icon: <Mail size={20} />,
+    color: 'hover:text-primary',
+  },
+];
+
+const SocialLinks: React.FC = () => {
+  return (
+    <div className="glass-card p-6 rounded-xl">
+      <h3 className="text-lg font-semibold text-foreground mb-4">Follow Me</h3>
+      <div className="space-y-3">
+        {socialLinks.map((link) => (
+          <a
+            key={link.name}
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`flex items-center gap-3 text-muted-foreground ${link.color} transition-all duration-200 group`}
+          >
+            <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+              {link.icon}
+            </div>
+            <div>
+              <p className="text-sm font-medium text-foreground">{link.name}</p>
+              <p className="text-xs text-muted-foreground">{link.username}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default SocialLinks;
+
+=== src/components/contact/index.ts ===
+// Contact component exports
+export { default } from './Contact';
+export { default as ContactForm } from './ContactForm';
+export { default as ContactInfo } from './ContactInfo';
+export { default as SocialLinks } from './SocialLinks';
+
+=== src/components/education/Education.tsx ===
+// Server Component - No 'use client' directive for SEO benefits
+import React from 'react';
+import Image from 'next/image';
+import { Calendar, MapPin, GraduationCap } from 'lucide-react';
+import personalInfo from '@/data/personal-info.json';
+
+interface EducationItem {
+  id: number;
+  degree: string;
+  institution: string;
+  location: string;
+  duration: string;
+  gpa: string;
+  logo: string;
+  coursework?: string[];
+}
+
+const Education: React.FC = () => {
+  const education: EducationItem[] = personalInfo.education;
+
+  return (
+    <section
+      id="education"
+      className="py-20 bg-gradient-to-b from-background via-secondary/10 to-background relative overflow-hidden"
+    >
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/6 w-32 h-32 border border-primary/10 rotate-45 float-animation animate-delay-2000"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-24 h-24 border border-accent/10 rotate-12 float-animation animate-delay-4000"></div>
+        <div className="absolute top-2/3 left-1/3 w-16 h-16 border border-primary/5 -rotate-12 float-animation animate-delay-1000"></div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className="mb-8 lg:mb-16">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 text-center">
+            <div className="relative w-24 h-24 flex-shrink-0 animate-eduFloat flex items-center justify-center">
+              <GraduationCap
+                size={70}
+                strokeWidth={2.4}
+                className="text-primary drop-shadow-[0_0_20px_rgba(59,130,246,0.65)]"
+              />
+
+              <div className="absolute right-[19px] top-[38px] w-[3px] h-7 bg-yellow-400 rounded-full shadow-[0_0_10px_rgba(250,204,21,0.75)]" />
+
+              <div className="absolute right-[14px] top-[63px] w-3.5 h-3.5 rounded-full bg-yellow-400 shadow-[0_0_12px_rgba(250,204,21,0.85)]" />
+            </div>
+
+            <div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 lg:mb-6">
+                Academic <span className="gradient-text">Foundation</span>
+              </h2>
+
+              <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                Graduate and undergraduate studies in computer science with a focus on AI,
+                software engineering, data systems, and scalable application development.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative max-w-5xl mx-auto">
+          <div className="absolute left-4 md:left-6 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-primary/40 to-transparent"></div>
+
+          <div className="space-y-8 lg:space-y-12">
+            {education.map((edu) => (
+              <div key={edu.id} className="relative pl-12 md:pl-16">
+                <div className="absolute left-[9px] md:left-[17px] top-8 w-3.5 h-3.5 rounded-full bg-primary shadow-[0_0_18px_rgba(59,130,246,0.85)] z-10"></div>
+
+                <div className="absolute left-4 md:left-6 top-[38px] w-8 h-px bg-primary/40"></div>
+
+                <div className="glass-card rounded-xl border border-primary/20 bg-background/40 backdrop-blur-sm p-6 md:p-8 hover:border-primary/50 transition-all duration-300">
+                  <div className="flex flex-col md:flex-row md:items-start gap-5">
+                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-white flex items-center justify-center overflow-hidden flex-shrink-0">
+                      <Image
+                        src={edu.logo}
+                        alt={edu.institution}
+                        width={56}
+                        height={56}
+                        className="object-contain"
+                      />
+                    </div>
+
+                    <div className="flex-1 min-w-0">
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                        <div>
+                          <h3 className="text-lg md:text-xl font-bold text-foreground">
+                            {edu.degree}
+                          </h3>
+
+                          <p className="text-primary font-semibold mt-1">
+                            {edu.institution}
+                          </p>
+                        </div>
+
+                        <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-sm text-primary font-medium w-fit md:ml-4">
+                          <GraduationCap size={15} />
+                          GPA: {edu.gpa}
+                        </div>
+                      </div>
+
+                      <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-4 text-sm text-muted-foreground">
+                        <div className="flex items-center gap-2">
+                          <Calendar size={15} />
+                          <span>{edu.duration}</span>
+                        </div>
+
+                        <div className="flex items-center gap-2">
+                          <MapPin size={15} />
+                          <span>{edu.location}</span>
+                        </div>
+                      </div>
+
+                      {edu.coursework && edu.coursework.length > 0 && (
+                        <div className="mt-5">
+                          <p className="text-sm font-medium text-foreground mb-3">
+                            Relevant Coursework
+                          </p>
+
+                          <div className="flex flex-wrap gap-2">
+                            {edu.coursework.map((course) => (
+                              <span
+                                key={course}
+                                className="px-3 py-1 rounded-full border border-primary/20 bg-primary/10 text-primary text-xs font-medium"
+                              >
+                                {course}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Education;
+=== src/components/experience/Experience.tsx ===
+// Server Component - No 'use client' directive for SEO benefits
+import React from 'react';
+import Timeline from './Timeline';
+import ExperienceCard from './ExperienceCard';
+import personalInfo from '@/data/personal-info.json';
+
+interface ExperienceItem {
+  id: number;
+  title: string;
+  company: string;
+  location: string;
+  logo: string;
+  duration: string;
+  description: string;
+  achievements: string[];
+  technologies: string[];
+}
+
+const Experience: React.FC = () => {
+  const experiences: ExperienceItem[] = personalInfo.experience;
+
+  return (
+    <section id="experience" className="py-20 bg-gradient-to-b from-background via-secondary/10 to-background relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/6 w-32 h-32 border border-primary/10 rotate-45 float-animation animate-delay-2000"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-24 h-24 border border-accent/10 rotate-12 float-animation animate-delay-4000"></div>
+        <div className="absolute top-2/3 left-1/3 w-16 h-16 border border-primary/5 -rotate-12 float-animation animate-delay-1000"></div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        {/* Section Header */}
+        <div className="text-center mb-8 lg:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 lg:mb-6">
+            Professional <span className="gradient-text">Journey</span>
+          </h2>
+          <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            From enterprise solutions to tech innovation, building scalable systems and 
+            leading AI-driven initiatives across diverse technology stacks
+          </p>
+        </div>
+
+        {/* Timeline */}
+        <div className="relative">
+          <Timeline />
+          
+          {/* Experience Cards - ALL CONTENT SERVER-RENDERED FOR SEO */}
+          <div className="space-y-8 lg:space-y-12">
+            {experiences.map((experience, index) => (
+              <ExperienceCard
+                key={experience.id}
+                experience={experience}
+                index={index}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Experience;
+
+=== src/components/experience/ExperienceCard.tsx ===
+import React from 'react';
+import ExperienceHeader from './ExperienceHeader';
+import ExperienceContent from './ExperienceContent';
+
+interface ExperienceItem {
+  id: number;
+  title: string;
+  company: string;
+  location: string;
+  logo: string;
+  duration: string;
+  description: string;
+  achievements: string[];
+  technologies: string[];
+}
+
+interface ExperienceCardProps {
+  experience: ExperienceItem;
+  index: number;
+}
+
+const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience, index }) => {
+  return (
+    <div className="relative flex items-start group">
+      {/* Timeline dot - Responsive positioning */}
+      <div className="absolute left-2 md:left-6 w-3 h-3 md:w-4 md:h-4 bg-gradient-to-r from-primary to-accent rounded-full border-2 md:border-4 border-background shadow-lg group-hover:scale-125 transition-transform duration-300 z-10"></div>
+      
+      {/* Timeline connector - Responsive positioning */}
+      <div className="absolute left-4 md:left-8 top-6 md:top-8 w-4 md:w-8 h-0.5 bg-gradient-to-r from-primary/50 to-transparent"></div>
+      
+      {/* Experience Card - SERVER RENDERED */}
+      <div className="ml-8 md:ml-20 w-full">
+        <div className="glass-card p-4 md:p-6 rounded-xl md:rounded-2xl transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20">
+          {/* Card Header */}
+          <ExperienceHeader experience={experience} index={index} />
+          
+          {/* Card Content */}
+          <ExperienceContent experience={experience} index={index} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ExperienceCard;
+
+=== src/components/experience/ExperienceContent.tsx ===
+import React from 'react';
+import { Code, Zap } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+
+interface ExperienceContentProps {
+  experience: {
+    id: number;
+    description: string;
+    achievements: string[];
+    technologies: string[];
+  };
+  index: number;
+}
+
+const ExperienceContent: React.FC<ExperienceContentProps> = ({ experience }) => {
+  return (
+    <>
+      <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-4">
+        {experience.description}
+      </p>
+
+      <div id={`experience-details-${experience.id}`}>
+        <div className="mb-4 md:mb-6">
+          <h5 className="text-xs md:text-sm font-semibold text-foreground mb-3 flex items-center">
+            <Zap size={14} className="mr-2 text-accent flex-shrink-0" />
+            Key Achievements
+          </h5>
+
+          <ul className="space-y-2">
+            {experience.achievements.map((achievement) => (
+              <li
+                key={achievement}
+                className="flex items-start text-xs md:text-sm text-muted-foreground leading-relaxed"
+              >
+                <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span className="flex-1">{achievement}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h5 className="text-xs md:text-sm font-semibold text-foreground mb-3 flex items-center">
+            <Code size={14} className="mr-2 text-accent flex-shrink-0" />
+            Technologies Used
+          </h5>
+
+          <div className="flex flex-wrap gap-1.5 md:gap-2">
+            {experience.technologies.map((tech) => (
+              <Badge
+                key={tech}
+                variant="secondary"
+                className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 transition-colors duration-200 text-xs px-2 py-1"
+              >
+                {tech}
+              </Badge>
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default ExperienceContent;
+=== src/components/experience/ExperienceHeader.tsx ===
+import React from 'react';
+import Image from 'next/image';
+import { Calendar, MapPin } from 'lucide-react';
+
+interface ExperienceHeaderProps {
+  experience: {
+    id: number;
+    title: string;
+    company: string;
+    location: string;
+    logo: string;
+    duration: string;
+  };
+  index: number;
+}
+
+const ExperienceHeader: React.FC<ExperienceHeaderProps> = ({
+  experience,
+  index,
+}) => {
+  return (
+    <div className="flex flex-col sm:flex-row sm:items-start md:mb-4 md:gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 w-full">
+        
+        {/* Mobile: Company Logo + Meta Info Side by Side */}
+        <div className="flex items-start justify-between md:block w-full sm:w-auto">
+          
+          {/* Company Logo */}
+          <div className="w-12 h-12 md:w-16 md:h-16 rounded-lg md:rounded-xl bg-white backdrop-blur-sm border border-white/20 flex items-center justify-center shadow-lg flex-shrink-0 p-2">
+            <Image
+              src={experience.logo}
+              alt={`${experience.company} logo`}
+              width={48}
+              height={48}
+              className="w-full h-full object-contain"
+              priority={index === 0}
+            />
+          </div>
+
+          {/* Mobile Meta Info */}
+          <div className="flex flex-col gap-1 md:hidden text-xs text-muted-foreground">
+            <div className="flex items-center">
+              <Calendar size={10} className="mr-1 flex-shrink-0" />
+              <span className="truncate">{experience.duration}</span>
+            </div>
+
+            <div className="flex items-center">
+              <MapPin size={10} className="mr-1 flex-shrink-0" />
+              <span className="truncate">{experience.location}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Title and Company */}
+        <div className="flex-1 min-w-0">
+          <h3 className="text-lg md:text-xl font-bold text-foreground mb-1 leading-tight">
+            {experience.title}
+          </h3>
+
+          <h4 className="text-base md:text-lg font-semibold text-primary mb-2 leading-tight">
+            {experience.company}
+          </h4>
+
+          {/* Desktop Meta Info */}
+          <div className="hidden md:flex md:flex-wrap md:items-center gap-4 text-sm text-muted-foreground">
+            <div className="flex items-center">
+              <Calendar size={12} className="mr-2 flex-shrink-0" />
+              <span className="truncate">{experience.duration}</span>
+            </div>
+
+            <div className="flex items-center">
+              <MapPin size={12} className="mr-2 flex-shrink-0" />
+              <span className="truncate">{experience.location}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ExperienceHeader;
+=== src/components/experience/ExperiencePreview.tsx ===
+import Link from "next/link";
+
+const ExperiencePreview = () => {
+  return (
+    <section className="py-20 px-6">
+      <div className="max-w-4xl mx-auto text-center">
+        <h2 className="text-4xl font-bold mb-4">
+          Professional Experience
+        </h2>
+
+        <p className="text-muted-foreground mb-8">
+          A quick overview of my professional journey in AI engineering,
+          machine learning, software development, and cloud-based applications.
+        </p>
+
+        <Link
+          href="/experience"
+          className="inline-flex items-center rounded-xl px-6 py-3 bg-primary text-primary-foreground font-medium hover:opacity-90 transition"
+        >
+          View Full Experience
+        </Link>
+      </div>
+    </section>
+  );
+};
+
+export default ExperiencePreview;
+=== src/components/experience/ExperienceToggle.tsx ===
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { ChevronDown } from 'lucide-react';
+
+interface ExperienceToggleProps {
+  experienceId: number;
+  defaultExpanded?: boolean;
+}
+
+const ExperienceToggle: React.FC<ExperienceToggleProps> = ({ 
+  experienceId, 
+  defaultExpanded = false 
+}) => {
+  const [isExpanded, setIsExpanded] = useState(defaultExpanded);
+
+  const toggleExpanded = () => {
+    setIsExpanded(!isExpanded);
+  };
+
+  // Use CSS to control the expanded content visibility
+  useEffect(() => {
+    const expandedContent = document.getElementById(`experience-details-${experienceId}`);
+    if (expandedContent) {
+      if (isExpanded) {
+        expandedContent.style.maxHeight = expandedContent.scrollHeight + 'px';
+        expandedContent.style.opacity = '1';
+      } else {
+        expandedContent.style.maxHeight = '0';
+        expandedContent.style.opacity = '0';
+      }
+    }
+  }, [isExpanded, experienceId]);
+
+  return (
+    <button
+      onClick={toggleExpanded}
+      className="p-2 rounded-lg hover:bg-primary/10 transition-colors duration-200"
+      aria-expanded={isExpanded}
+      aria-controls={`experience-details-${experienceId}`}
+    >
+      <ChevronDown 
+        size={20} 
+        className={`text-muted-foreground transition-transform duration-300 ${
+          isExpanded ? 'rotate-180' : ''
+        }`}
+      />
+    </button>
+  );
+};
+
+export default ExperienceToggle;
+
+=== src/components/experience/Timeline.tsx ===
+import React from 'react';
+
+const Timeline: React.FC = () => {
+  return (
+    <>
+      {/* Timeline line - Responsive positioning */}
+      <div className="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary opacity-30"></div>
+    </>
+  );
+};
+
+export default Timeline;
+
+=== src/components/experience/index.ts ===
+// Experience component exports
+export { default } from './Experience';
+export { default as ExperienceCard } from './ExperienceCard';
+export { default as ExperienceHeader } from './ExperienceHeader';
+export { default as ExperienceContent } from './ExperienceContent';
+export { default as ExperienceToggle } from './ExperienceToggle';
+export { default as Timeline } from './Timeline';
+
+=== src/components/footer/BottomBar.tsx ===
+// Server Component - No 'use client' directive for SEO benefits
+import React from 'react';
+import { Cpu, Zap } from 'lucide-react';
+
+const BottomBar: React.FC = () => {
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-border/30 flex justify-center items-center">
+      <div className="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-1 text-center text-muted-foreground text-xs md:text-sm max-w-[320px] md:max-w-none">
+<span>© {currentYear} · </span>
+<span className="text-primary font-semibold">Sujeeth S R</span>
+        <span>· Powered by</span>
+        <Cpu size={13} className="text-primary animate-pulse" />
+        <span>AI &</span>
+        <Zap size={13} className="text-primary animate-pulse" />
+        <span>too much curiosity.</span>
+      </div>
+    </div>
+  );
+};
+
+export default BottomBar;
+=== src/components/footer/BrandSection.tsx ===
+// Server Component - No 'use client' directive for SEO benefits
+import React from 'react';
+import {
+  Github,
+  Instagram,
+  Linkedin,
+  Youtube,
+  Mail,
+  type LucideIcon,
+} from 'lucide-react';
+import { SiDevdotto, SiMedium } from 'react-icons/si';
+import ScrollButton from '@/components/ScrollButton';
+import personalInfo from '@/data/personal-info.json';
+
+interface SocialLink {
+  readonly icon: LucideIcon | typeof SiMedium;
+  readonly href: string;
+  readonly label: string;
+}
+
+const BrandSection: React.FC = () => {
+  const socialLinks: SocialLink[] = [
+    { icon: Github, href: personalInfo.social.github.url, label: 'GitHub' },
+    { icon: Linkedin, href: personalInfo.social.linkedin.url, label: 'LinkedIn' },
+    { icon: SiDevdotto, href: personalInfo.social.devto.url, label: 'Dev.to' },
+    { icon: Instagram, href: personalInfo.social.instagram.url, label: 'Instagram' },
+    { icon: Youtube, href: personalInfo.social.youtube.url, label: 'YouTube' },
+    { icon: Mail, href: personalInfo.social.email, label: 'Email' },
+    { icon: SiMedium, href: personalInfo.social.medium.url, label: 'Medium' },
+    
+  ];
+
+  return (
+    <div className="space-y-3 md:space-y-4 text-center md:text-left">
+      <ScrollButton
+        targetId="hero"
+        className="text-xl md:text-2xl font-bold gradient-text font-mono hover:scale-105 transition-transform duration-200 inline-block"
+        ariaLabel="Scroll to top"
+      >
+        {`<${personalInfo.personal.nickname}/>`}
+      </ScrollButton>
+
+      <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+        {personalInfo.personal.closingBio}
+      </p>
+
+      <div>
+        <p className="text-sm font-semibold text-primary mb-4 uppercase tracking-wider">
+          Follow Me
+        </p>
+
+        <div className="flex justify-center md:justify-start space-x-3 md:space-x-4">
+          {socialLinks.map((social) => {
+            const Icon = social.icon;
+
+            return (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-muted hover:bg-primary/20 hover:scale-110 transition-all duration-200 group"
+                aria-label={social.label}
+              >
+                <Icon
+                  size={18}
+                  className="text-muted-foreground group-hover:text-primary"
+                />
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default BrandSection;
+=== src/components/footer/ContactInfo.tsx ===
+// Server Component - No 'use client' directive for SEO benefits
+import React from "react";
+import personalInfo from "@/data/personal-info.json";
+
+const ContactInfo: React.FC = () => {
+  return (
+    <div className="space-y-3 md:space-y-4 text-center md:text-left md:mx-auto">
+      <h3 className="text-base md:text-lg font-semibold text-foreground">
+        Get In Touch
+      </h3>
+      <div className="space-y-2">
+        <p className="text-sm md:text-base text-muted-foreground">
+          Ready to work together?
+        </p>
+        <a
+          href="mailto:work.sujeeth@gmail.com"
+          className="block text-sm md:text-base text-primary hover:text-accent transition-colors duration-200 font-medium"
+        >
+          {personalInfo.personal.email}
+        </a>
+      </div>
+    </div>
+  );
+};
+
+export default ContactInfo;
+
+=== src/components/footer/Footer.tsx ===
+// Server Component - Static content rendered on server for SEO benefits
+import React from 'react';
+import BrandSection from './BrandSection';
+import QuickLinks from './QuickLinks';
+import ContactInfo from './ContactInfo';
+import BottomBar from './BottomBar';
+
+const Footer: React.FC = () => {
+  return (
+    <footer className="bg-gradient-to-b from-background via-secondary/10 to-background border-t border-border/50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {/* Brand & Description */}
+          <BrandSection />
+
+          {/* Quick Links */}
+          <QuickLinks />
+
+          {/* Contact Info */}
+          <ContactInfo />
+        </div>
+
+        {/* Bottom Bar */}
+        <BottomBar />
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
+
+=== src/components/footer/QuickLinks.tsx ===
+// Server Component - No 'use client' directive for SEO benefits
+import React from 'react';
+import ScrollButton from '@/components/ScrollButton';
+import personalInfo from '@/data/personal-info.json';
+
+const QuickLinks: React.FC = () => {
+  const quickLinks = [
+    { name: 'About', href: 'about', type: 'scroll' },
+    { name: 'Experience', href: 'experience', type: 'scroll' },
+    { name: 'Education', href: 'education', type: 'scroll' },
+    { name: 'Publications', href: 'publications', type: 'scroll' },
+    { name: 'Blog', href: '/blog', type: 'link' },
+  ];
+
+  return (
+    <div className="space-y-3 md:space-y-4 text-center md:text-left md:mx-auto">
+      <h3 className="text-base md:text-lg font-semibold text-foreground">Quick Links</h3>
+      <ul className="flex flex-wrap justify-center md:flex-col md:justify-start gap-x-6 gap-y-2 md:gap-x-0 md:space-y-2">
+        {quickLinks.map((link) => (
+          <li key={link.name}>
+            {link.type === 'scroll' ? (
+              <ScrollButton
+                targetId={link.href}
+                className="text-sm md:text-base text-muted-foreground hover:text-primary transition-colors duration-200 relative group"
+                ariaLabel={`Scroll to ${link.name} section`}
+              >
+                {link.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-gradient group-hover:w-full transition-all duration-300"></span>
+              </ScrollButton>
+            ) : (
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm md:text-base text-muted-foreground hover:text-primary transition-colors duration-200 relative group inline-flex items-center gap-1"
+                aria-label={`Open ${link.name} in new tab`}
+              >
+                {link.name}
+                <svg className="w-3 h-3 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-gradient group-hover:w-full transition-all duration-300"></span>
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default QuickLinks;
+
+=== src/components/footer/index.ts ===
+// Footer component exports
+export { default } from './Footer';
+export { default as BrandSection } from './BrandSection';
+export { default as QuickLinks } from './QuickLinks';
+export { default as ContactInfo } from './ContactInfo';
+export { default as BottomBar } from './BottomBar';
+
+=== src/components/hero/Hero.tsx ===
+'use client';
+
+import React, { useEffect, useRef } from "react";
+import { Github, Linkedin, Instagram, Youtube, Mail, ArrowDown, BadgeCheck } from "lucide-react";
+import { useTheme } from "next-themes";
+import ScrollButton from "../ScrollButton";
+import personalInfo from "@/data/personal-info.json";
+import Image from "next/image";
+
+const MediumIcon = () => (
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+    <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+  </svg>
+);
+
+const DevToIcon = () => (
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+    <path d="M7.42 10.05c-.18-.16-.46-.23-.84-.23H6l.02 2.44.04 2.45.56-.02c.41 0 .63-.07.83-.26.24-.24.26-.36.26-2.2 0-1.91-.02-1.96-.29-2.18zM0 4.94v14.12h24V4.94H0zM8.56 15.3c-.44.58-1.06.77-2.53.77H4.71V8.53h1.4c1.67 0 2.16.18 2.6.9.27.43.29.6.32 2.57.05 2.23-.02 2.73-.47 3.3zm5.09-5.47h-2.47v1.77h1.52v1.28l-.72.04-.75.03v1.77l1.22.03 1.2.04v1.28h-1.6c-1.53 0-1.6-.01-1.87-.3l-.3-.28v-3.16c0-3.02.01-3.18.25-3.48.23-.31.25-.31 1.88-.31h1.64v1.29zm4.68 5.45c-.17.43-.64.79-1 .79-.18 0-.45-.15-.67-.39-.32-.32-.45-.63-.82-2.08l-.9-3.39-.45-1.67h.76c.4 0 .75.02.75.05 0 .06 1.16 4.54 1.26 4.83.04.15.32-.7.73-2.3l.66-2.52.74-.04c.4-.02.73 0 .73.04 0 .14-1.67 6.38-1.8 6.68z"/>
+  </svg>
+);
+
+const ParticleBackground: React.FC = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particles: {
+      x: number; y: number; radius: number;
+      speedX: number; speedY: number; opacity: number;
+    }[] = [];
+
+    const count = 80;
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 2 + 0.5,
+        speedX: (Math.random() - 0.5) * 0.4,
+        speedY: (Math.random() - 0.5) * 0.4,
+        opacity: Math.random() * 0.5 + 0.1,
+      });
+    }
+
+    let animationId: number;
+
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const isDark = document.documentElement.classList.contains('dark');
+
+      particles.forEach((p, i) => {
+        p.x += p.speedX;
+        p.y += p.speedY;
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = isDark
+          ? `hsla(220, 90%, 85%, ${p.opacity + 0.3})`
+          : `hsla(220, 80%, 45%, ${p.opacity * 0.6})`;
+        ctx.fill();
+
+        particles.forEach((p2, j) => {
+          if (i === j) return;
+          const dx = p.x - p2.x;
+          const dy = p.y - p2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 100) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = isDark
+              ? `hsla(220, 90%, 85%, ${0.15 * (1 - dist / 100)})`
+              : `hsla(220, 80%, 45%, ${0.08 * (1 - dist / 100)})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        });
+      });
+
+      animationId = requestAnimationFrame(draw);
+    };
+
+    draw();
+
+    const handleResize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      cancelAnimationFrame(animationId);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [theme]);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 pointer-events-none"
+      style={{ opacity: 1 }}
+    />
+  );
+};
+
+const Hero: React.FC = () => {
+  return (
+    <section
+      id="hero"
+      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-4"
+    >
+      <ParticleBackground />
+
+      {/* Light mode background */}
+      <div className="absolute inset-0 pointer-events-none dark:hidden">
+        <div
+          className="absolute inset-0 opacity-[0.12]"
+          style={{
+            backgroundImage: 'radial-gradient(circle, #3b82f6 1px, transparent 1px)',
+            backgroundSize: '28px 28px',
+          }}
+        />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl opacity-20"
+          style={{ background: 'radial-gradient(circle, #93c5fd, transparent)' }} />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full blur-3xl opacity-15"
+          style={{ background: 'radial-gradient(circle, #bfdbfe, transparent)' }} />
+        <div className="absolute top-1/2 right-1/3 w-64 h-64 rounded-full blur-3xl opacity-10"
+          style={{ background: 'radial-gradient(circle, #60a5fa, transparent)' }} />
+      </div>
+
+      {/* Dark mode background */}
+      <div className="absolute inset-0 pointer-events-none hidden dark:block">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-3xl" />
+      </div>
+
+      {/* Content */}
+      <div className="flex flex-col items-center text-center space-y-6 z-10">
+        {/* Photo */}
+        <div className="w-40 h-52 sm:w-48 sm:h-64 rounded-2xl overflow-hidden border-2 border-primary/30 shadow-[0_0_40px_rgba(59,130,246,0.3)]">
+          <Image
+            src={personalInfo.personal.profileImage}
+            alt={personalInfo.personal.name}
+            width={192}
+            height={256}
+            className="w-full h-full object-cover object-top scale-110"
+            priority
+          />
+        </div>
+
+        {/* Name + Badge */}
+        <div className="space-y-2">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold flex items-center justify-center gap-2 sm:gap-3">
+            <span className="gradient-text">{personalInfo.personal.name}</span>
+            <span className="inline-flex items-center justify-center w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-green-500/15 border border-green-500/40 shadow-[0_0_18px_rgba(34,197,94,0.45)] flex-shrink-0">
+              <BadgeCheck size={18} className="sm:w-6 sm:h-6 text-green-500 stroke-[2.8]" />
+            </span>
+          </h1>
+          <p className="text-lg sm:text-xl text-muted-foreground font-medium">
+            {personalInfo.personal.tagline}
+          </p>
+        </div>
+
+        {/* Bio */}
+        <p className="text-sm sm:text-base text-muted-foreground max-w-xl leading-relaxed">
+          {personalInfo.personal.bio}
+        </p>
+
+        {/* Social icons */}
+        <div className="flex items-center gap-4 flex-wrap justify-center">
+          <a href={personalInfo.social.linkedin.url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110" aria-label="LinkedIn">
+            <Linkedin size={22} />
+          </a>
+          <a href={personalInfo.social.github.url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110" aria-label="GitHub">
+            <Github size={22} />
+          </a>
+          <a href={personalInfo.social.medium.url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110" aria-label="Medium">
+            <MediumIcon />
+          </a>
+          <a href={personalInfo.social.devto.url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110" aria-label="DEV.to">
+            <DevToIcon />
+          </a>
+          <a href={personalInfo.social.youtube.url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110" aria-label="YouTube">
+            <Youtube size={22} />
+          </a>
+          <a href={personalInfo.social.instagram.url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110" aria-label="Instagram">
+            <Instagram size={22} />
+          </a>
+          <a href={personalInfo.social.email} className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110" aria-label="Email">
+            <Mail size={22} />
+          </a>
+        </div>
+
+        {/* CTA */}
+        <ScrollButton
+          targetId="contact"
+          className="glow-button font-semibold px-8 py-3 inline-flex items-center justify-center rounded-lg text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 bg-primary text-primary-foreground hover:bg-primary/90"
+          ariaLabel="Scroll to contact section"
+        >
+          Get In Touch
+        </ScrollButton>
+      </div>
+
+      {/* Scroll arrow */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <ScrollButton
+          targetId="about"
+          className="text-muted-foreground hover:text-primary transition-colors duration-300"
+          ariaLabel="Scroll to about section"
+        >
+          <ArrowDown size={35} />
+        </ScrollButton>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
+
+=== src/components/hero/ProfileImage.tsx ===
+import React from "react";
+import Image from "next/image";
+import personalInfo from "@/data/personal-info.json";
+
+interface ProfileImageProps {
+  size: "small" | "large";
+  className?: string;
+}
+
+const ProfileImage: React.FC<ProfileImageProps> = ({
+  size,
+  className = "",
+}) => {
+  // Define size variants — passport-style (portrait rectangle, taller than wide)
+const sizeClasses = {
+  small: "w-40 h-52 md:w-56 md:h-72", // Mobile/Tablet sizes
+  large: "w-80 h-[28rem]", // Desktop size — bigger passport photo
+};
+
+  return (
+    <div className={`relative ${className}`}>
+      <div
+        className={`${sizeClasses[size]} rounded-2xl bg-slate-700 overflow-hidden glass-card p-2`}
+      >
+        <Image
+          src={personalInfo.personal.profileImage}
+          alt="Sujeeth S R - AI Engineer"
+          width={320}
+          height={400}
+          className="w-full h-full object-cover rounded-xl scale-110"
+          priority
+        />
+      </div>
+      {/* Glowing border accents */}
+      <div className="absolute -inset-2 rounded-2xl border-2 border-primary/20 pointer-events-none"></div>
+      <div className="absolute -inset-4 rounded-2xl border border-accent/10 pointer-events-none"></div>
+    </div>
+  );
+};
+
+export default ProfileImage;
+=== src/components/hero/index.ts ===
+// Hero component exports
+export { default } from './Hero';
+export { default as ProfileImage } from './ProfileImage';
+
+=== src/components/navigation/DesktopNavigation.tsx ===
+import React from 'react';
+
+interface NavItem {
+  readonly name: string;
+  readonly href: string;
+}
+
+interface DesktopNavigationProps {
+  readonly navItems: NavItem[];
+  readonly scrollToSection: (href: string) => void;
+}
+
+const DesktopNavigation: React.FC<DesktopNavigationProps> = ({ navItems, scrollToSection }) => {
+  return (
+    <div className="hidden lg:flex items-center space-x-6">
+      {navItems.map((item) => (
+        <button
+          key={item.name}
+          onClick={() => scrollToSection(item.href)}
+          className="text-sm text-foreground hover:text-primary transition-colors duration-200 relative group whitespace-nowrap"
+        >
+          {item.name}
+          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+        </button>
+      ))}
+    </div>
+  );
+};
+
+export default DesktopNavigation;
+
+=== src/components/navigation/Logo.tsx ===
+// Server Component - No 'use client' directive for SEO benefits
+import React from 'react';
+import Link from 'next/link';
+import personalInfo from '@/data/personal-info.json';
+
+const Logo: React.FC = () => {
+  return (
+    <div className="flex-shrink-0">
+      <Link
+        href="/"
+        className="text-xl font-bold gradient-text font-mono"
+      >
+        {`<${personalInfo.personal.nickname} />`}
+      </Link>
+    </div>
+  );
+};
+
+export default Logo;
+=== src/components/navigation/MobileMenuButton.tsx ===
+// Client Component - Needs 'use client' for interactive state
+'use client';
+
+import React from 'react';
+import { Menu, X } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+
+interface MobileMenuButtonProps {
+  readonly isOpen: boolean;
+  readonly setIsOpen: (isOpen: boolean) => void;
+}
+
+const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({ isOpen, setIsOpen }) => {
+  return (
+    <div className="lg:hidden">
+      <Button
+        variant="ghost"
+        size="sm"
+        onClick={() => setIsOpen(!isOpen)}
+        className="text-foreground"
+      >
+        {isOpen ? <X size={24} /> : <Menu size={24} />}
+      </Button>
+    </div>
+  );
+};
+
+export default MobileMenuButton;
+
+=== src/components/navigation/MobileNavigation.tsx ===
+// Server Component - No 'use client' directive for SEO benefits
+import React from 'react';
+
+interface NavItem {
+  readonly name: string;
+  readonly href: string;
+}
+
+interface MobileNavigationProps {
+  readonly navItems: NavItem[];
+  readonly isOpen: boolean;
+  readonly scrollToSection: (href: string) => void;
+}
+
+const MobileNavigation: React.FC<MobileNavigationProps> = ({ navItems, isOpen, scrollToSection }) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className="lg:hidden">
+      <div className="px-2 pt-2 pb-3 space-y-1 glass-card mt-2 rounded-lg">
+        {navItems.map((item) => (
+          <button
+            key={item.name}
+            onClick={() => scrollToSection(item.href)}
+            className="text-foreground hover:text-primary block px-3 py-2 text-base font-medium w-full text-left transition-colors duration-200"
+          >
+            {item.name}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default MobileNavigation;
+
+=== src/components/navigation/Navigation.tsx ===
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import Logo from './Logo';
+import DesktopNavigation from './DesktopNavigation';
+import MobileMenuButton from './MobileMenuButton';
+import MobileNavigation from './MobileNavigation';
+import ThemeToggle from './ThemeToggle';
+
+interface NavItem {
+  readonly name: string;
+  readonly href: string;
+}
+
+const Navigation: React.FC = () => {
+  const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navItems: NavItem[] = [
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Experience', href: '/experience' },
+    { name: 'Education', href: '/education' },
+    { name: 'Publications', href: '/publications' },
+    { name: 'Certifications', href: '/certifications' },
+    { name: 'Contact', href: '/contact' },
+  ];
+
+  const scrollToSection = (href: string) => {
+    setIsOpen(false);
+
+    if (href.startsWith('/')) {
+      router.push(href);
+      return;
+    }
+
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? 'glass-card backdrop-blur-md border-x-0' : 'bg-transparent'
+      }`}
+    >
+      <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-3 items-center h-16">
+          <div className="flex items-center">
+            <Logo />
+          </div>
+
+          <div className="flex justify-center">
+            <DesktopNavigation
+              navItems={navItems}
+              scrollToSection={scrollToSection}
+            />
+          </div>
+
+          <div className="flex items-center justify-end gap-2">
+            <ThemeToggle />
+            <MobileMenuButton isOpen={isOpen} setIsOpen={setIsOpen} />
+          </div>
+        </div>
+
+        <MobileNavigation
+          navItems={navItems}
+          isOpen={isOpen}
+          scrollToSection={scrollToSection}
+        />
+      </div>
+    </nav>
+  );
+};
+
+export default Navigation;
+=== src/components/navigation/ThemeToggle.tsx ===
+'use client';
+import React, { useEffect, useState } from 'react';
+import { useTheme } from 'next-themes';
+
+const ThemeToggle: React.FC = () => {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  const isDark = theme === 'dark';
+
+  return (
+    <button
+      onClick={() => setTheme(isDark ? 'light' : 'dark')}
+      aria-label="Toggle theme"
+      style={{
+        width: '52px',
+        height: '28px',
+        borderRadius: '999px',
+        border: 'none',
+        cursor: 'pointer',
+        padding: '3px',
+        position: 'relative',
+        transition: 'background 0.3s ease',
+        background: isDark
+          ? 'linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%)'
+          : 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
+        display: 'flex',
+        alignItems: 'center',
+      }}
+    >
+      {/* Track icons */}
+      <span style={{
+        position: 'absolute',
+        left: '6px',
+        fontSize: '11px',
+        transition: 'opacity 0.3s',
+        opacity: isDark ? 1 : 0,
+      }}>🌙</span>
+      <span style={{
+        position: 'absolute',
+        right: '6px',
+        fontSize: '11px',
+        transition: 'opacity 0.3s',
+        opacity: isDark ? 0 : 1,
+      }}>☀️</span>
+
+      {/* Thumb */}
+      <span style={{
+        width: '22px',
+        height: '22px',
+        borderRadius: '50%',
+        background: isDark ? '#e2e8f0' : '#ffffff',
+        position: 'absolute',
+        top: '3px',
+        left: isDark ? '27px' : '3px',
+        transition: 'left 0.3s ease, background 0.3s ease',
+        boxShadow: '0 1px 4px rgba(0,0,0,0.3)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: '11px',
+      }}>
+        {isDark ? '🌑' : '🌤'}
+      </span>
+    </button>
+  );
+};
+
+export default ThemeToggle;
+
+=== src/components/navigation/index.ts ===
+// Navigation component exports
+export { default } from './Navigation';
+export { default as Logo } from './Logo';
+export { default as DesktopNavigation } from './DesktopNavigation';
+export { default as MobileMenuButton } from './MobileMenuButton';
+export { default as MobileNavigation } from './MobileNavigation';
+
+=== src/components/projects/CallToAction.tsx ===
+import React from 'react';
+import ScrollButton from '@/components/ScrollButton';
+
+const CallToAction: React.FC = () => {
+  return (
+    <div className="text-center mt-16">
+      <p className="text-muted-foreground mb-6">
+        Interested in collaborating on innovative AI/ML projects?
+      </p>
+      <ScrollButton 
+        targetId="contact" 
+        className="glow-button inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-11 px-8"
+        ariaLabel="Scroll to contact section"
+      >
+        Let&apos;s Work Together
+      </ScrollButton>
+    </div>
+  );
+};
+
+export default CallToAction;
+
+=== src/components/projects/ProjectCard.tsx ===
+import React from 'react';
+import ProjectImage from './ProjectImage';
+import ProjectContent from './ProjectContent';
+
+interface Project {
+  readonly id: number;
+  readonly title: string;
+  readonly subtitle: string;
+  readonly description: string;
+  readonly longDescription: string;
+  readonly technologies: readonly string[];
+  readonly github: string;
+  readonly featured: boolean;
+  readonly categories: readonly string[];
+  readonly image: string;
+  readonly status: string;
+  readonly priority?: number;
+}
+
+interface ProjectCardProps {
+  project: Project;
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+  return (
+    <div 
+      data-project-categories={project.categories.join(',')}
+      className={`glass-card rounded-xl overflow-hidden group animate-fade-in-up ${
+        project.featured ? 'md:col-span-2 xl:col-span-1' : ''
+      }`}
+    >
+      {/* Project Image */}
+      <ProjectImage project={project} />
+
+      {/* Project Content */}
+      <ProjectContent project={project} />
+    </div>
+  );
+};
+
+export default ProjectCard;
+
+=== src/components/projects/ProjectContent.tsx ===
+import React from 'react';
+import { Github } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+
+interface ProjectContentProps {
+  project: {
+    id: number;
+    title: string;
+    subtitle: string;
+    description: string;
+    technologies: readonly string[];
+    github: string;
+    featured: boolean;
+    status: string;
+  };
+}
+
+const ProjectContent: React.FC<ProjectContentProps> = ({ project }) => {
+  return (
+    <div className="p-6">
+      <div className="flex items-center justify-between mb-3">
+        <Badge variant="secondary" className="text-xs">
+          {project.status}
+        </Badge>
+        {project.featured && (
+          <Badge variant="default" className="text-xs">
+            Featured
+          </Badge>
+        )}
+      </div>
+
+      <h3 className="text-xl font-bold text-foreground mb-2">
+        {project.title}
+      </h3>
+      
+      <p className="text-sm text-primary font-medium mb-3">
+        {project.subtitle}
+      </p>
+
+      <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+        {project.description}
+      </p>
+
+      {/* Technologies */}
+      <div className="flex flex-wrap gap-2 mb-4">
+        {project.technologies.slice(0, 4).map((tech, techIndex) => (
+          <Badge key={techIndex} variant="outline" className="text-xs bg-primary/10">
+            {tech}
+          </Badge>
+        ))}
+        {project.technologies.length > 4 && (
+          <Badge variant="outline" className="text-xs bg-primary/10">
+            +{project.technologies.length - 4} more
+          </Badge>
+        )}
+      </div>
+
+      {/* Action Buttons */}
+      <div className="flex space-x-3">
+        <Button size="sm" variant="outline" asChild className="flex-1 group/view-code">
+          <a href={project.github} target="_blank" rel="noopener noreferrer">
+            <Github className="w-4 h-4 mr-2 stroke-white group-hover/view-code:stroke-black" />
+            View Code
+          </a>
+        </Button>
+      </div>
+    </div>
+  );
+};
+
+export default ProjectContent;
+
+=== src/components/projects/ProjectFilter.tsx ===
+'use client';
+
+import React, { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { ChevronDown } from 'lucide-react';
+
+interface ProjectFilterProps {
+  categories: string[];
+  onCategoryChange?: (category: string) => void;
+}
+
+const ProjectFilter: React.FC<ProjectFilterProps> = ({ categories, onCategoryChange }) => {
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category);
+    if (onCategoryChange) {
+      onCategoryChange(category);
+    }
+  };
+
+  // Use CSS to control the visibility of project cards
+  React.useEffect(() => {
+    const projectCards = document.querySelectorAll('[data-project-categories]');
+    projectCards.forEach((card) => {
+      const cardElement = card as HTMLElement;
+      const cardCategories = cardElement.getAttribute('data-project-categories');
+      const categoriesArray = cardCategories ? cardCategories.split(',') : [];
+      
+      if (selectedCategory === 'All' || categoriesArray.includes(selectedCategory)) {
+        cardElement.style.display = 'block';
+      } else {
+        cardElement.style.display = 'none';
+      }
+    });
+  }, [selectedCategory]);
+
+  return (
+    <div className="mb-12">
+      {/* Mobile: Compact Dropdown */}
+      <div className="md:hidden">
+        <div className="relative">
+          <select
+            value={selectedCategory}
+            onChange={(e) => handleCategoryChange(e.target.value)}
+            className="w-full appearance-none bg-background border border-border rounded-full px-4 py-3 pr-10 text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
+          >
+            {categories.map((category) => (
+              <option key={category} value={category}>
+                {category === 'All' ? 'All Projects' : category}
+              </option>
+            ))}
+          </select>
+          <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted-foreground pointer-events-none" />
+        </div>
+      </div>
+
+      {/* Desktop: Button Layout */}
+      <div className="hidden md:flex flex-wrap justify-center gap-3">
+        {categories.map((category) => (
+          <Button
+            key={category}
+            variant={selectedCategory === category ? 'default' : 'outline'}
+            size="sm"
+            onClick={() => handleCategoryChange(category)}
+            className="transition-all duration-200 hover:scale-105"
+          >
+            {category === 'All' ? 'All Projects' : category}
+          </Button>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default ProjectFilter;
+
+=== src/components/projects/ProjectImage.tsx ===
+import React from 'react';
+import Image from 'next/image';
+import { Github } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+
+interface ProjectImageProps {
+  project: {
+    id: number;
+    title: string;
+    subtitle: string;
+    image: string;
+    github: string;
+  };
+}
+
+const ProjectImage: React.FC<ProjectImageProps> = ({ project }) => {
+  return (
+    <div className="relative overflow-hidden">
+      <div className="aspect-video relative bg-gradient-to-br from-primary/20 to-accent/20">
+        <Image
+          src={project.image}
+          alt={`${project.title} - ${project.subtitle}`}
+          fill
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
+      </div>
+      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        <div className="flex space-x-4">
+          <Button size="sm" variant="secondary" asChild>
+            <a href={project.github} target="_blank" rel="noopener noreferrer">
+              <Github className="w-4 h-4 mr-2" />
+              Code
+            </a>
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProjectImage;
+
+=== src/components/projects/Projects.tsx ===
+// Server Component - No 'use client' directive for SEO benefits
+import React from 'react';
+import ProjectFilter from './ProjectFilter';
+import ProjectCard from './ProjectCard';
+import CallToAction from './CallToAction';
+import personalInfo from '@/data/personal-info.json';
+
+interface Project {
+  readonly id: number;
+  readonly title: string;
+  readonly subtitle: string;
+  readonly description: string;
+  readonly longDescription: string;
+  readonly technologies: readonly string[];
+  readonly github: string;
+  readonly featured: boolean;
+  readonly categories: readonly string[];
+  readonly image: string;
+  readonly status: string;
+  readonly priority?: number;
+}
+
+const Projects: React.FC = () => {
+  // Use actual projects from personal data and sort by priority
+  const projects: readonly Project[] = personalInfo.projects
+    .slice() // Create a copy to avoid mutating the original array
+    .sort((a, b) => {
+      // Sort by priority (lower number = higher priority)
+      // Projects without priority go to the end
+      const priorityA = a.priority ?? 999;
+      const priorityB = b.priority ?? 999;
+      return priorityA - priorityB;
+    });
+
+  // Dynamically generate categories from all project categories
+  const allCategories = projects.flatMap(project => project.categories);
+  const uniqueCategories = Array.from(new Set(allCategories)).sort((a, b) => a.localeCompare(b));
+  const categories = ['All', ...uniqueCategories];
+
+  return (
+    <section id="projects" className="py-20 bg-muted/30">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Featured <span className="gradient-text">Projects</span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Innovative solutions that bridge AI/ML technology with real-world impact
+          </p>
+        </div>
+
+        {/* Category Filter - CLIENT COMPONENT FOR INTERACTIVITY */}
+        <ProjectFilter categories={categories} />
+
+        {/* Projects Grid - ALL PROJECTS SERVER-RENDERED FOR SEO */}
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
+
+        {/* Call to Action */}
+        <CallToAction />
+      </div>
+    </section>
+  );
+};
+
+export default Projects;
+
+=== src/components/projects/index.ts ===
+// Projects component exports
+export { default } from './Projects';
+export { default as ProjectCard } from './ProjectCard';
+export { default as ProjectImage } from './ProjectImage';
+export { default as ProjectContent } from './ProjectContent';
+export { default as ProjectFilter } from './ProjectFilter';
+export { default as CallToAction } from './CallToAction';
+
+=== src/components/providers/QueryProvider.tsx ===
+'use client';
+
+import * as React from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 60 * 1000, // 1 minute
+      gcTime: 10 * 60 * 1000, // 10 minutes
+    },
+  },
+});
+
+interface QueryProviderProps {
+  readonly children: React.ReactNode;
+}
+
+export const QueryProvider: React.FC<QueryProviderProps> = ({ children }) => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      {children}
+    </QueryClientProvider>
+  );
+};
+
+=== src/components/providers/ThemeProvider.tsx ===
+'use client';
+
+import * as React from 'react';
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import { type ThemeProviderProps } from 'next-themes/dist/types';
+
+export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, ...props }) => {
+  return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
+};
+
+=== src/components/providers/ToastProvider.tsx ===
+'use client';
+
+import { Toaster } from '@/components/ui/toaster';
+import { Toaster as Sonner } from '@/components/ui/sonner';
+
+export const ToastProvider: React.FC = () => {
+  return (
+    <>
+      <Toaster />
+      <Sonner />
+    </>
+  );
+};
+
+=== src/components/publications/EmptyState.tsx ===
+import React from 'react';
+
+const EmptyState: React.FC = () => {
+  return (
+    <div className="text-center py-12 hidden" id="blog-empty-state">
+      <p className="text-muted-foreground">
+        Blog posts coming soon!
+      </p>
+    </div>
+  );
+};
+
+export default EmptyState;
+
+=== src/components/publications/PublicationCard.tsx ===
+import React from 'react';
+import { BookOpen, ExternalLink, Calendar, Award, PenTool } from 'lucide-react';
+
+interface Publication {
+  title: string;
+  description: string;
+  venue: string;
+  date: string;
+  category: string;
+  status?: string;
+  doi?: string;
+  url?: string;
+}
+
+interface PublicationCardProps {
+  publication: Publication;
+}
+
+const getCategoryIcon = (category: string) => {
+  return category === 'blog' ? (
+    <PenTool size={20} className="text-accent" />
+  ) : (
+    <BookOpen size={20} className="text-accent" />
+  );
+};
+
+const PublicationCard: React.FC<PublicationCardProps> = ({ publication }) => {
+  return (
+    <div
+      className="glass-card p-6 rounded-xl group hover:scale-[1.02] transition-all duration-300"
+      data-category={publication.category}
+    >
+      <div className="flex items-start space-x-4">
+        <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-1">
+          {getCategoryIcon(publication.category)}
+        </div>
+
+        <div className="flex-1 space-y-3">
+          <div>
+            <h3 className="text-md font-bold text-foreground mb-2 group-hover:text-accent transition-colors duration-300 line-clamp-2">
+              {publication.title}
+            </h3>
+
+            <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
+              {publication.description}
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-3 text-xs">
+            <div className="flex items-center space-x-1">
+              <Award size={12} className="text-accent" />
+              <span className="font-medium text-foreground">
+                {publication.venue}
+              </span>
+            </div>
+
+            <div className="flex items-center space-x-1">
+              <Calendar size={12} className="text-accent" />
+              <span className="text-muted-foreground">
+                {publication.date}
+              </span>
+            </div>
+
+            {publication.status && (
+              <div className="px-2 py-1 bg-green-500/10 text-green-500 border border-green-500/20 rounded-full text-xs font-medium">
+                {publication.status.split(',')[0]}
+              </div>
+            )}
+
+            {publication.doi && !publication.status && (
+              <div className="px-2 py-1 bg-green-500/10 text-green-500 border border-green-500/20 rounded-full text-xs font-medium">
+                Published
+              </div>
+            )}
+          </div>
+
+          {(publication.url || publication.doi) && (
+            <div className="pt-2">
+              {publication.url && (
+                <a
+                  href={publication.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-1 text-accent hover:text-accent/80 transition-colors duration-300 text-sm font-medium"
+                >
+                  <ExternalLink size={14} />
+                  <span>View</span>
+                </a>
+              )}
+
+              {publication.doi && !publication.url && (
+                <a
+                  href={`https://doi.org/${publication.doi}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-1 text-accent hover:text-accent/80 transition-colors duration-300 text-sm font-medium"
+                >
+                  <ExternalLink size={14} />
+                  <span>DOI</span>
+                </a>
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default PublicationCard;
+=== src/components/publications/PublicationCategoryFilter.tsx ===
+'use client';
+import React, { useState, useEffect } from 'react';
+import { ChevronDown } from 'lucide-react';
+
+type Category = 'all' | 'research' | 'blog';
+
+interface Publication {
+  title: string;
+  venue: string;
+  status?: string;
+  date: string;
+  description: string;
+  category: string;
+  doi?: string;
+  url?: string;
+}
+
+interface PublicationCategoryFilterProps {
+  publications: Publication[];
+}
+
+const PublicationCategoryFilter: React.FC<PublicationCategoryFilterProps> = ({ publications }) => {
+  const [activeCategory, setActiveCategory] = useState<Category>('all');
+
+  useEffect(() => {
+    const grid = document.getElementById('publications-grid');
+    const emptyState = document.getElementById('blog-empty-state');
+    if (!grid || !emptyState) return;
+
+    const cards = grid.querySelectorAll('[data-category]');
+    let visibleCount = 0;
+
+    cards.forEach((card) => {
+      const cardElement = card as HTMLElement;
+      const category = cardElement.getAttribute('data-category');
+      if (activeCategory === 'all' || category === activeCategory) {
+        cardElement.style.display = '';
+        visibleCount++;
+      } else {
+        cardElement.style.display = 'none';
+      }
+    });
+
+    if (activeCategory === 'blog' && visibleCount === 0) {
+      emptyState.classList.remove('hidden');
+    } else {
+      emptyState.classList.add('hidden');
+    }
+  }, [activeCategory]);
+
+  const categories = [
+    { id: 'all' as Category, label: 'All Publications' },
+    { id: 'research' as Category, label: 'Research' },
+    { id: 'blog' as Category, label: 'Blog Posts' },
+  ];
+
+  return (
+    <div className="mb-8">
+      <div className="md:hidden">
+        <div className="relative max-w-xs mx-auto">
+          <select
+            aria-label="Filter publications by category"
+            value={activeCategory}
+            onChange={(e) => setActiveCategory(e.target.value as Category)}
+            className="w-full appearance-none bg-background border border-border rounded-full px-4 py-3 pr-10 text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200"
+          >
+            {categories.map((category) => (
+              <option key={category.id} value={category.id}>
+                {category.label}
+              </option>
+            ))}
+          </select>
+          <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted-foreground pointer-events-none" />
+        </div>
+      </div>
+
+      <div className="hidden md:flex justify-center">
+        <div className="inline-flex bg-secondary/30 rounded-full p-1 backdrop-blur-sm border border-border/50">
+          {categories.map((category) => (
+            <button
+              key={category.id}
+              onClick={() => setActiveCategory(category.id)}
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                activeCategory === category.id
+                  ? 'bg-accent text-accent-foreground shadow-sm'
+                  : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
+              }`}
+            >
+              {category.label}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default PublicationCategoryFilter;
+=== src/components/publications/Publications.tsx ===
+import React from 'react';
+import PublicationCategoryFilter from './PublicationCategoryFilter';
+import PublicationCard from './PublicationCard';
+import EmptyState from './EmptyState';
+import personalInfo from '@/data/personal-info.json';
+
+const Publications: React.FC = () => {
+  return (
+    <section
+      id="publications"
+      className="py-16 bg-gradient-to-b from-secondary/20 to-background"
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-8 lg:mb-16">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 text-center">
+            <div className="relative w-28 h-28 flex-shrink-0 animate-researchFloat">
+              <div className="absolute inset-2 rounded-2xl bg-background/70 border border-primary/30 shadow-[0_0_30px_rgba(59,130,246,0.25)]" />
+
+              <div className="absolute top-6 left-8 w-12 h-2 rounded-full bg-primary/80" />
+              <div className="absolute top-11 left-8 w-16 h-1.5 rounded-full bg-muted-foreground/45" />
+              <div className="absolute top-[60px] left-8 w-10 h-1.5 rounded-full bg-muted-foreground/35" />
+
+              <div className="absolute bottom-6 left-8 flex items-end gap-1">
+                <span className="w-1.5 h-4 bg-primary animate-typingBar" />
+                <span className="w-1.5 h-4 bg-primary/70 animate-typingBar delay-100" />
+                <span className="w-1.5 h-4 bg-primary/40 animate-typingBar delay-200" />
+              </div>
+
+              <div className="absolute -top-1 right-2 w-3 h-3 rounded-full bg-primary animate-orbitOne" />
+              <div className="absolute bottom-2 -left-1 w-2.5 h-2.5 rounded-full bg-accent animate-orbitTwo" />
+              <div className="absolute -right-1 bottom-8 w-2 h-2 rounded-full bg-green-400 animate-orbitThree" />
+
+              <div className="absolute -right-2 -bottom-1 text-2xl animate-ideaPop">
+                💡
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 lg:mb-6">
+                Publications & <span className="gradient-text">Writing</span>
+              </h2>
+
+              <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                Research contributions and technical insights
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <PublicationCategoryFilter publications={personalInfo.publications} />
+
+        <div
+          className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto"
+          id="publications-grid"
+        >
+          {personalInfo.publications.map((publication) => (
+            <PublicationCard
+              key={publication.title}
+              publication={publication}
+            />
+          ))}
+        </div>
+
+        <EmptyState />
+      </div>
+    </section>
+  );
+};
+
+export default Publications;
+=== src/components/publications/index.ts ===
+// Publications component exports
+export { default } from './Publications';
+export { default as PublicationCard } from './PublicationCard';
+export { default as PublicationCategoryFilter } from './PublicationCategoryFilter';
+export { default as EmptyState } from './EmptyState';
+
+=== src/components/ui/badge.tsx ===
+import * as React from "react"
+import { cva, type VariantProps } from "class-variance-authority"
+
+import { cn } from "@/lib/utils"
+
+const badgeVariants = cva(
+  "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  {
+    variants: {
+      variant: {
+        default:
+          "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
+        secondary:
+          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        destructive:
+          "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
+        outline: "text-foreground",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  }
+)
+
+export interface BadgeProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof badgeVariants> {}
+
+function Badge({ className, variant, ...props }: BadgeProps) {
+  return (
+    <div className={cn(badgeVariants({ variant }), className)} {...props} />
+  )
+}
+
+export { Badge, badgeVariants }
+
+=== src/components/ui/button.tsx ===
+import * as React from "react"
+import { Slot } from "@radix-ui/react-slot"
+import { cva, type VariantProps } from "class-variance-authority"
+
+import { cn } from "@/lib/utils"
+
+const buttonVariants = cva(
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  {
+    variants: {
+      variant: {
+        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        destructive:
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline:
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
+        glow: "bg-accent-gradient text-background shadow-[0_0_40px_hsl(var(--primary)/0.3)] hover:shadow-[0_0_60px_hsl(var(--primary)/0.5)] hover:scale-105 transition-all duration-300",
+      },
+      size: {
+        default: "h-10 px-4 py-2",
+        sm: "h-9 rounded-md px-3",
+        lg: "h-11 rounded-md px-8",
+        icon: "h-10 w-10",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  }
+)
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean
+}
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : "button"
+    return (
+      <Comp
+        className={cn(buttonVariants({ variant, size, className }))}
+        ref={ref}
+        {...props}
+      />
+    )
+  }
+)
+Button.displayName = "Button"
+
+export { Button, buttonVariants }
+
+=== src/components/ui/dialog.tsx ===
+import * as React from "react"
+import * as DialogPrimitive from "@radix-ui/react-dialog"
+import { X } from "lucide-react"
+
+import { cn } from "@/lib/utils"
+
+const Dialog = DialogPrimitive.Root
+
+const DialogTrigger = DialogPrimitive.Trigger
+
+const DialogPortal = DialogPrimitive.Portal
+
+const DialogClose = DialogPrimitive.Close
+
+const DialogOverlay = React.forwardRef<
+  React.ElementRef<typeof DialogPrimitive.Overlay>,
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
+>(({ className, ...props }, ref) => (
+  <DialogPrimitive.Overlay
+    ref={ref}
+    className={cn(
+      "fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+      className
+    )}
+    {...props}
+  />
+))
+DialogOverlay.displayName = DialogPrimitive.Overlay.displayName
+
+const DialogContent = React.forwardRef<
+  React.ElementRef<typeof DialogPrimitive.Content>,
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
+>(({ className, children, ...props }, ref) => (
+  <DialogPortal>
+    <DialogOverlay />
+    <DialogPrimitive.Content
+      ref={ref}
+      className={cn(
+        "fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg",
+        className
+      )}
+      {...props}
+    >
+      {children}
+      <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+        <X className="h-4 w-4" />
+        <span className="sr-only">Close</span>
+      </DialogPrimitive.Close>
+    </DialogPrimitive.Content>
+  </DialogPortal>
+))
+DialogContent.displayName = DialogPrimitive.Content.displayName
+
+const DialogHeader = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
+  <div
+    className={cn(
+      "flex flex-col space-y-1.5 text-center sm:text-left",
+      className
+    )}
+    {...props}
+  />
+)
+DialogHeader.displayName = "DialogHeader"
+
+const DialogFooter = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
+  <div
+    className={cn(
+      "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
+      className
+    )}
+    {...props}
+  />
+)
+DialogFooter.displayName = "DialogFooter"
+
+const DialogTitle = React.forwardRef<
+  React.ElementRef<typeof DialogPrimitive.Title>,
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
+>(({ className, ...props }, ref) => (
+  <DialogPrimitive.Title
+    ref={ref}
+    className={cn(
+      "text-lg font-semibold leading-none tracking-tight",
+      className
+    )}
+    {...props}
+  />
+))
+DialogTitle.displayName = DialogPrimitive.Title.displayName
+
+const DialogDescription = React.forwardRef<
+  React.ElementRef<typeof DialogPrimitive.Description>,
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
+>(({ className, ...props }, ref) => (
+  <DialogPrimitive.Description
+    ref={ref}
+    className={cn("text-sm text-muted-foreground", className)}
+    {...props}
+  />
+))
+DialogDescription.displayName = DialogPrimitive.Description.displayName
+
+export {
+  Dialog,
+  DialogPortal,
+  DialogOverlay,
+  DialogClose,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogFooter,
+  DialogTitle,
+  DialogDescription,
+}
+
+=== src/components/ui/input.tsx ===
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
+  ({ className, type, ...props }, ref) => {
+    return (
+      <input
+        type={type}
+        className={cn(
+          "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+          className
+        )}
+        ref={ref}
+        {...props}
+      />
+    )
+  }
+)
+Input.displayName = "Input"
+
+export { Input }
+
+=== src/components/ui/label.tsx ===
+import * as React from "react"
+import * as LabelPrimitive from "@radix-ui/react-label"
+import { cva, type VariantProps } from "class-variance-authority"
+
+import { cn } from "@/lib/utils"
+
+const labelVariants = cva(
+  "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+)
+
+const Label = React.forwardRef<
+  React.ElementRef<typeof LabelPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> &
+    VariantProps<typeof labelVariants>
+>(({ className, ...props }, ref) => (
+  <LabelPrimitive.Root
+    ref={ref}
+    className={cn(labelVariants(), className)}
+    {...props}
+  />
+))
+Label.displayName = LabelPrimitive.Root.displayName
+
+export { Label }
+
+=== src/components/ui/separator.tsx ===
+import * as React from "react"
+import * as SeparatorPrimitive from "@radix-ui/react-separator"
+
+import { cn } from "@/lib/utils"
+
+const Separator = React.forwardRef<
+  React.ElementRef<typeof SeparatorPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root>
+>(
+  (
+    { className, orientation = "horizontal", decorative = true, ...props },
+    ref
+  ) => (
+    <SeparatorPrimitive.Root
+      ref={ref}
+      decorative={decorative}
+      orientation={orientation}
+      className={cn(
+        "shrink-0 bg-border",
+        orientation === "horizontal" ? "h-[1px] w-full" : "h-full w-[1px]",
+        className
+      )}
+      {...props}
+    />
+  )
+)
+Separator.displayName = SeparatorPrimitive.Root.displayName
+
+export { Separator }
+
+=== src/components/ui/sonner.tsx ===
+import { useTheme } from "next-themes"
+import { Toaster as Sonner, toast } from "sonner"
+
+type ToasterProps = React.ComponentProps<typeof Sonner>
+
+const Toaster = ({ ...props }: ToasterProps) => {
+  const { theme = "system" } = useTheme()
+
+  return (
+    <Sonner
+      theme={theme as ToasterProps["theme"]}
+      className="toaster group"
+      toastOptions={{
+        classNames: {
+          toast:
+            "group toast group-[.toaster]:bg-background group-[.toaster]:text-foreground group-[.toaster]:border-border group-[.toaster]:shadow-lg",
+          description: "group-[.toast]:text-muted-foreground",
+          actionButton:
+            "group-[.toast]:bg-primary group-[.toast]:text-primary-foreground",
+          cancelButton:
+            "group-[.toast]:bg-muted group-[.toast]:text-muted-foreground",
+        },
+      }}
+      {...props}
+    />
+  )
+}
+
+export { Toaster, toast }
+
+=== src/components/ui/textarea.tsx ===
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+export interface TextareaProps
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+
+const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
+  ({ className, ...props }, ref) => {
+    return (
+      <textarea
+        className={cn(
+          "flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+          className
+        )}
+        ref={ref}
+        {...props}
+      />
+    )
+  }
+)
+Textarea.displayName = "Textarea"
+
+export { Textarea }
+
+=== src/components/ui/toast.tsx ===
+import * as React from "react"
+import * as ToastPrimitives from "@radix-ui/react-toast"
+import { cva, type VariantProps } from "class-variance-authority"
+import { X } from "lucide-react"
+
+import { cn } from "@/lib/utils"
+
+const ToastProvider = ToastPrimitives.Provider
+
+const ToastViewport = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Viewport>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Viewport>
+>(({ className, ...props }, ref) => (
+  <ToastPrimitives.Viewport
+    ref={ref}
+    className={cn(
+      "fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]",
+      className
+    )}
+    {...props}
+  />
+))
+ToastViewport.displayName = ToastPrimitives.Viewport.displayName
+
+const toastVariants = cva(
+  "group pointer-events-auto relative flex w-full items-center justify-between space-x-4 overflow-hidden rounded-md border p-6 pr-8 shadow-lg transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:transition-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full data-[state=open]:sm:slide-in-from-bottom-full",
+  {
+    variants: {
+      variant: {
+        default: "border-2 border-primary/30 bg-background text-foreground shadow-lg shadow-primary/10",
+        destructive:
+          "destructive group border-2 border-destructive bg-destructive text-destructive-foreground",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  }
+)
+
+const Toast = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Root>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root> &
+    VariantProps<typeof toastVariants>
+>(({ className, variant, ...props }, ref) => {
+  return (
+    <ToastPrimitives.Root
+      ref={ref}
+      className={cn(toastVariants({ variant }), className)}
+      {...props}
+    />
+  )
+})
+Toast.displayName = ToastPrimitives.Root.displayName
+
+const ToastAction = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Action>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Action>
+>(({ className, ...props }, ref) => (
+  <ToastPrimitives.Action
+    ref={ref}
+    className={cn(
+      "inline-flex h-8 shrink-0 items-center justify-center rounded-md border bg-transparent px-3 text-sm font-medium ring-offset-background transition-colors hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 group-[.destructive]:border-muted/40 group-[.destructive]:hover:border-destructive/30 group-[.destructive]:hover:bg-destructive group-[.destructive]:hover:text-destructive-foreground group-[.destructive]:focus:ring-destructive",
+      className
+    )}
+    {...props}
+  />
+))
+ToastAction.displayName = ToastPrimitives.Action.displayName
+
+const ToastClose = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Close>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Close>
+>(({ className, ...props }, ref) => (
+  <ToastPrimitives.Close
+    ref={ref}
+    className={cn(
+      "absolute right-2 top-2 rounded-md p-1 text-foreground/50 opacity-0 transition-opacity hover:text-foreground focus:opacity-100 focus:outline-none focus:ring-2 group-hover:opacity-100 group-[.destructive]:text-red-300 group-[.destructive]:hover:text-red-50 group-[.destructive]:focus:ring-red-400 group-[.destructive]:focus:ring-offset-red-600",
+      className
+    )}
+    toast-close=""
+    {...props}
+  >
+    <X className="h-4 w-4" />
+  </ToastPrimitives.Close>
+))
+ToastClose.displayName = ToastPrimitives.Close.displayName
+
+const ToastTitle = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Title>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Title>
+>(({ className, ...props }, ref) => (
+  <ToastPrimitives.Title
+    ref={ref}
+    className={cn("text-sm font-semibold", className)}
+    {...props}
+  />
+))
+ToastTitle.displayName = ToastPrimitives.Title.displayName
+
+const ToastDescription = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Description>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Description>
+>(({ className, ...props }, ref) => (
+  <ToastPrimitives.Description
+    ref={ref}
+    className={cn("text-sm opacity-90", className)}
+    {...props}
+  />
+))
+ToastDescription.displayName = ToastPrimitives.Description.displayName
+
+type ToastProps = React.ComponentPropsWithoutRef<typeof Toast>
+
+type ToastActionElement = React.ReactElement<typeof ToastAction>
+
+export {
+  type ToastProps,
+  type ToastActionElement,
+  ToastProvider,
+  ToastViewport,
+  Toast,
+  ToastTitle,
+  ToastDescription,
+  ToastClose,
+  ToastAction,
+}
+
+=== src/components/ui/toaster.tsx ===
+import { useToast } from "@/hooks/use-toast"
+import {
+  Toast,
+  ToastClose,
+  ToastDescription,
+  ToastProvider,
+  ToastTitle,
+  ToastViewport,
+} from "@/components/ui/toast"
+
+export function Toaster() {
+  const { toasts } = useToast()
+
+  return (
+    <ToastProvider>
+      {toasts.map(function ({ id, title, description, action, ...props }) {
+        return (
+          <Toast key={id} {...props}>
+            <div className="grid gap-1">
+              {title && <ToastTitle>{title}</ToastTitle>}
+              {description && (
+                <ToastDescription>{description}</ToastDescription>
+              )}
+            </div>
+            {action}
+            <ToastClose />
+          </Toast>
+        )
+      })}
+      <ToastViewport />
+    </ToastProvider>
+  )
+}
+
+=== src/components/ui/tooltip.tsx ===
+import * as React from "react"
+import * as TooltipPrimitive from "@radix-ui/react-tooltip"
+
+import { cn } from "@/lib/utils"
+
+const TooltipProvider = TooltipPrimitive.Provider
+
+const Tooltip = TooltipPrimitive.Root
+
+const TooltipTrigger = TooltipPrimitive.Trigger
+
+const TooltipContent = React.forwardRef<
+  React.ElementRef<typeof TooltipPrimitive.Content>,
+  React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content>
+>(({ className, sideOffset = 4, ...props }, ref) => (
+  <TooltipPrimitive.Content
+    ref={ref}
+    sideOffset={sideOffset}
+    className={cn(
+      "z-50 overflow-hidden rounded-md border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+      className
+    )}
+    {...props}
+  />
+))
+TooltipContent.displayName = TooltipPrimitive.Content.displayName
+
+export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider }
+
+=== src/components/ui/use-toast.ts ===
+import { useToast, toast } from "@/hooks/use-toast";
+
+export { useToast, toast };
+
+=== src/hooks/use-toast.ts ===
+import * as React from "react"
+
+import type {
+  ToastActionElement,
+  ToastProps,
+} from "@/components/ui/toast"
+
+const TOAST_LIMIT = 1
+const TOAST_REMOVE_DELAY = 1000000
+
+type ToasterToast = ToastProps & {
+  id: string
+  title?: React.ReactNode
+  description?: React.ReactNode
+  action?: ToastActionElement
+}
+
+const actionTypes = {
+  ADD_TOAST: "ADD_TOAST",
+  UPDATE_TOAST: "UPDATE_TOAST",
+  DISMISS_TOAST: "DISMISS_TOAST",
+  REMOVE_TOAST: "REMOVE_TOAST",
+} as const
+
+let count = 0
+
+function genId() {
+  count = (count + 1) % Number.MAX_SAFE_INTEGER
+  return count.toString()
+}
+
+type ActionType = typeof actionTypes
+
+type Action =
+  | {
+      type: ActionType["ADD_TOAST"]
+      toast: ToasterToast
+    }
+  | {
+      type: ActionType["UPDATE_TOAST"]
+      toast: Partial<ToasterToast>
+    }
+  | {
+      type: ActionType["DISMISS_TOAST"]
+      toastId?: ToasterToast["id"]
+    }
+  | {
+      type: ActionType["REMOVE_TOAST"]
+      toastId?: ToasterToast["id"]
+    }
+
+interface State {
+  toasts: ToasterToast[]
+}
+
+const toastTimeouts = new Map<string, ReturnType<typeof setTimeout>>()
+
+const addToRemoveQueue = (toastId: string) => {
+  if (toastTimeouts.has(toastId)) {
+    return
+  }
+
+  const timeout = setTimeout(() => {
+    toastTimeouts.delete(toastId)
+    dispatch({
+      type: "REMOVE_TOAST",
+      toastId: toastId,
+    })
+  }, TOAST_REMOVE_DELAY)
+
+  toastTimeouts.set(toastId, timeout)
+}
+
+export const reducer = (state: State, action: Action): State => {
+  switch (action.type) {
+    case "ADD_TOAST":
+      return {
+        ...state,
+        toasts: [action.toast, ...state.toasts].slice(0, TOAST_LIMIT),
+      }
+
+    case "UPDATE_TOAST":
+      return {
+        ...state,
+        toasts: state.toasts.map((t) =>
+          t.id === action.toast.id ? { ...t, ...action.toast } : t
+        ),
+      }
+
+    case "DISMISS_TOAST": {
+      const { toastId } = action
+
+      // ! Side effects ! - This could be extracted into a dismissToast() action,
+      // but I'll keep it here for simplicity
+      if (toastId) {
+        addToRemoveQueue(toastId)
+      } else {
+        state.toasts.forEach((toast) => {
+          addToRemoveQueue(toast.id)
+        })
+      }
+
+      return {
+        ...state,
+        toasts: state.toasts.map((t) =>
+          t.id === toastId || toastId === undefined
+            ? {
+                ...t,
+                open: false,
+              }
+            : t
+        ),
+      }
+    }
+    case "REMOVE_TOAST":
+      if (action.toastId === undefined) {
+        return {
+          ...state,
+          toasts: [],
+        }
+      }
+      return {
+        ...state,
+        toasts: state.toasts.filter((t) => t.id !== action.toastId),
+      }
+  }
+}
+
+const listeners: Array<(state: State) => void> = []
+
+let memoryState: State = { toasts: [] }
+
+function dispatch(action: Action) {
+  memoryState = reducer(memoryState, action)
+  listeners.forEach((listener) => {
+    listener(memoryState)
+  })
+}
+
+type Toast = Omit<ToasterToast, "id">
+
+function toast({ ...props }: Toast) {
+  const id = genId()
+
+  const update = (props: ToasterToast) =>
+    dispatch({
+      type: "UPDATE_TOAST",
+      toast: { ...props, id },
+    })
+  const dismiss = () => dispatch({ type: "DISMISS_TOAST", toastId: id })
+
+  dispatch({
+    type: "ADD_TOAST",
+    toast: {
+      ...props,
+      id,
+      open: true,
+      onOpenChange: (open) => {
+        if (!open) dismiss()
+      },
+    },
+  })
+
+  return {
+    id: id,
+    dismiss,
+    update,
+  }
+}
+
+function useToast() {
+  const [state, setState] = React.useState<State>(memoryState)
+
+  React.useEffect(() => {
+    listeners.push(setState)
+    return () => {
+      const index = listeners.indexOf(setState)
+      if (index > -1) {
+        listeners.splice(index, 1)
+      }
+    }
+  }, [state])
+
+  return {
+    ...state,
+    toast,
+    dismiss: (toastId?: string) => dispatch({ type: "DISMISS_TOAST", toastId }),
+  }
+}
+
+export { useToast, toast }
+
+=== src/lib/actions/contact.ts ===
+'use server';
+
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+export interface ContactFormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
+export interface ContactFormResult {
+  success: boolean;
+  message: string;
+  error?: string;
+}
+
+export async function sendContactEmail(formData: ContactFormData): Promise<ContactFormResult> {
+  try {
+    // Validate required fields
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      return {
+        success: false,
+        message: 'All fields are required.',
+        error: 'MISSING_FIELDS'
+      };
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      return {
+        success: false,
+        message: 'Please enter a valid email address.',
+        error: 'INVALID_EMAIL'
+      };
+    }
+
+    // Get recipient email from environment variables
+    const recipientEmail = process.env.CONTACT_EMAIL;
+    if (!recipientEmail) {
+      console.error('CONTACT_EMAIL environment variable is not set');
+      return {
+        success: false,
+        message: 'Server configuration error. Please try again later.',
+        error: 'CONFIG_ERROR'
+      };
+    }
+
+    // Send email using Resend
+    const { data, error } = await resend.emails.send({
+      from: 'Portfolio Contact <noreply@resend.dev>', // Using Resend's default domain
+      to: [recipientEmail],
+      replyTo: formData.email,
+      subject: `Portfolio Contact: ${formData.subject}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9;">
+          <div style="background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <h2 style="color: #333; margin-bottom: 20px; border-bottom: 2px solid #007bff; padding-bottom: 10px;">
+              New Contact Form Submission
+            </h2>
+            
+            <div style="margin-bottom: 20px;">
+              <h3 style="color: #555; margin-bottom: 5px;">From:</h3>
+              <p style="margin: 0; padding: 10px; background-color: #f8f9fa; border-left: 4px solid #007bff;">
+                <strong>${formData.name}</strong><br>
+                <a href="mailto:${formData.email}" style="color: #007bff; text-decoration: none;">${formData.email}</a>
+              </p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+              <h3 style="color: #555; margin-bottom: 5px;">Subject:</h3>
+              <p style="margin: 0; padding: 10px; background-color: #f8f9fa; border-left: 4px solid #28a745;">
+                ${formData.subject}
+              </p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+              <h3 style="color: #555; margin-bottom: 5px;">Message:</h3>
+              <div style="padding: 15px; background-color: #f8f9fa; border-left: 4px solid #ffc107; border-radius: 5px;">
+                ${formData.message.replace(/\n/g, '<br>')}
+              </div>
+            </div>
+
+            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; font-size: 12px; color: #666;">
+              <p>This message was sent from your portfolio contact form.</p>
+              <p>Sent at: ${new Date().toLocaleString()}</p>
+            </div>
+          </div>
+        </div>
+      `,
+      text: `
+New Contact Form Submission
+
+From: ${formData.name} (${formData.email})
+Subject: ${formData.subject}
+
+Message:
+${formData.message}
+
+---
+This message was sent from your portfolio contact form.
+Sent at: ${new Date().toLocaleString()}
+      `
+    });
+
+    if (error) {
+      console.error('Resend error:', error);
+      return {
+        success: false,
+        message: 'Failed to send email. Please try again later.',
+        error: 'SEND_ERROR'
+      };
+    }
+
+    console.log('Email sent successfully:', data);
+    return {
+      success: true,
+      message: 'Thank you for your message! I\'ll get back to you soon.'
+    };
+
+  } catch (error) {
+    console.error('Contact form error:', error);
+    return {
+      success: false,
+      message: 'An unexpected error occurred. Please try again later.',
+      error: 'UNKNOWN_ERROR'
+    };
+  }
+}
+
+=== src/lib/utils.ts ===
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+
+=== tailwind.config.ts ===
+import type { Config } from "tailwindcss";
+
+export default {
+	darkMode: ["class"],
+	content: [
+		"./pages/**/*.{ts,tsx}",
+		"./components/**/*.{ts,tsx}",
+		"./app/**/*.{ts,tsx}",
+		"./src/**/*.{ts,tsx}",
+	],
+	prefix: "",
+	theme: {
+		container: {
+			center: true,
+			padding: '2rem',
+			screens: {
+				'2xl': '1400px'
+			}
+		},
+		extend: {
+			colors: {
+				border: 'hsl(var(--border))',
+				input: 'hsl(var(--input))',
+				ring: 'hsl(var(--ring))',
+				background: 'hsl(var(--background))',
+				foreground: 'hsl(var(--foreground))',
+				primary: {
+					DEFAULT: 'hsl(var(--primary))',
+					foreground: 'hsl(var(--primary-foreground))'
+				},
+				secondary: {
+					DEFAULT: 'hsl(var(--secondary))',
+					foreground: 'hsl(var(--secondary-foreground))'
+				},
+				destructive: {
+					DEFAULT: 'hsl(var(--destructive))',
+					foreground: 'hsl(var(--destructive-foreground))'
+				},
+				muted: {
+					DEFAULT: 'hsl(var(--muted))',
+					foreground: 'hsl(var(--muted-foreground))'
+				},
+				accent: {
+					DEFAULT: 'hsl(var(--accent))',
+					foreground: 'hsl(var(--accent-foreground))'
+				},
+				popover: {
+					DEFAULT: 'hsl(var(--popover))',
+					foreground: 'hsl(var(--popover-foreground))'
+				},
+				card: {
+					DEFAULT: 'hsl(var(--card))',
+					foreground: 'hsl(var(--card-foreground))'
+				},
+				sidebar: {
+					DEFAULT: 'hsl(var(--sidebar-background))',
+					foreground: 'hsl(var(--sidebar-foreground))',
+					primary: 'hsl(var(--sidebar-primary))',
+					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+					accent: 'hsl(var(--sidebar-accent))',
+					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+					border: 'hsl(var(--sidebar-border))',
+					ring: 'hsl(var(--sidebar-ring))'
+				}
+			},
+			backgroundImage: {
+				'hero-gradient': 'var(--hero-gradient)',
+				'card-gradient': 'var(--card-gradient)', 
+				'accent-gradient': 'var(--accent-gradient)'
+			},
+			fontFamily: {
+				'mono': ['JetBrains Mono', 'Fira Code', 'monospace'],
+			},
+			borderRadius: {
+				lg: 'var(--radius)',
+				md: 'calc(var(--radius) - 2px)',
+				sm: 'calc(var(--radius) - 4px)'
+			},
+			keyframes: {
+				'accordion-down': {
+					from: {
+						height: '0'
+					},
+					to: {
+						height: 'var(--radix-accordion-content-height)'
+					}
+				},
+				'accordion-up': {
+					from: {
+						height: 'var(--radix-accordion-content-height)'
+					},
+					to: {
+						height: '0'
+					}
+				}
+			},
+			animation: {
+				"accordion-down": "accordion-down 0.2s ease-out",
+				"accordion-up": "accordion-up 0.2s ease-out",
+				"caret-blink": "caret-blink 1.25s ease-out infinite",
+				"fade-in-up": "fadeInUp 0.6s ease-out both",
+				"delay-2000": "2s",
+				"delay-4000": "4s",
+				"duration-8000": "8s",
+				"duration-12000": "12s",
+			}
+		}
+	},
+	plugins: [require("tailwindcss-animate")],
+} satisfies Config;
+
+=== tsconfig.json ===
+{
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "es6"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "target": "ES2017"
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
+
+=== package.json ===
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.2",
+    "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-separator": "^1.1.0",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-toast": "^1.2.1",
+    "@radix-ui/react-tooltip": "^1.1.4",
+    "@tanstack/react-query": "^5.56.2",
+    "@vercel/analytics": "^1.6.1",
+    "@vercel/speed-insights": "^2.0.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.462.0",
+    "next": "^15.5.18",
+    "next-themes": "^0.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.6.0",
+    "resend": "^4.7.0",
+    "sonner": "^1.5.0",
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.15",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^22.5.5",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^15.0.0",
+    "jest": "^30.4.2",
+    "jest-environment-jsdom": "^30.4.1",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.11",
+    "ts-jest": "^29.4.11",
+    "typescript": "^5.5.3"
+  }
+}
+
+=== next.config.js ===
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  typescript: {
+    ignoreBuildErrors: false,
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
+  },
+  experimental: {
+    optimizePackageImports: ['lucide-react'],
+  },
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Accept-Ranges',
+            value: 'none',
+          },
+        ],
+      },
+    ];
+  },
+  webpack: (config, { dev, isServer }) => {
+    if (dev && !isServer) {
+      config.output.chunkLoadTimeout = 120000;
+      config.optimization = {
+        ...config.optimization,
+        splitChunks: {
+          ...config.optimization.splitChunks,
+          chunks: 'all',
+          cacheGroups: {
+            ...config.optimization.splitChunks?.cacheGroups,
+            default: {
+              minChunks: 2,
+              priority: -20,
+              reuseExistingChunk: true,
+            },
+            vendor: {
+              test: /[\\/]node_modules[\\/]/,
+              name: 'vendors',
+              priority: -10,
+              chunks: 'all',
+            },
+          },
+        },
+      };
+    }
+    return config;
+  },
+  ...(process.env.NODE_ENV === 'development' && {
+    devIndicators: false,
+    onDemandEntries: {
+      maxInactiveAge: 60 * 1000,
+      pagesBufferLength: 2,
+    },
+  }),
+};
+
+module.exports = nextConfig;

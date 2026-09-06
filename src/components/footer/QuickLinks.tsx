@@ -5,10 +5,10 @@ import personalInfo from '@/data/personal-info.json';
 
 const QuickLinks: React.FC = () => {
   const quickLinks = [
-    { name: 'About', href: 'about', type: 'scroll' },
     { name: 'Experience', href: 'experience', type: 'scroll' },
     { name: 'Education', href: 'education', type: 'scroll' },
     { name: 'Publications', href: 'publications', type: 'scroll' },
+    { name: 'Projects', href: 'projects', type: 'scroll' },
     { name: 'Blog', href: '/blog', type: 'link' },
   ];
 
