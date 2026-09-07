@@ -27,6 +27,7 @@ const nextConfig = {
       },
     ];
   },
+  turbopack: {},
   webpack: (config, { dev, isServer }) => {
     if (dev && !isServer) {
       config.output.chunkLoadTimeout = 120000;
