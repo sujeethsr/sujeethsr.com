@@ -15,30 +15,52 @@ interface ProjectContentProps {
   };
 }
 
+// Status → color mapping. Add new synonyms to these lists any time —
+// no need to touch the badge markup below.
+const STATUS_COLORS = {
+  green: ['live', 'completed', 'shipped'],
+  yellow: ['in progress', 'in development', 'active'],
+  orange: ['paused', 'on hold'],
+  blue: ['planned', 'upcoming'],
+  // Anything not listed above (including "archived", "discontinued")
+  // falls through to red automatically.
+} as const;
+
+function getStatusColor(status: string): 'green' | 'yellow' | 'orange' | 'blue' | 'red' {
+  const normalized = status.toLowerCase();
+  if (STATUS_COLORS.green.includes(normalized as any)) return 'green';
+  if (STATUS_COLORS.yellow.includes(normalized as any)) return 'yellow';
+  if (STATUS_COLORS.orange.includes(normalized as any)) return 'orange';
+  if (STATUS_COLORS.blue.includes(normalized as any)) return 'blue';
+  return 'red';
+}
+
+const BADGE_CLASSES: Record<string, string> = {
+  green: 'bg-green-500/10 text-green-400 border-green-500/30',
+  yellow: 'bg-yellow-500/10 text-yellow-400 border-yellow-500/30',
+  orange: 'bg-orange-500/10 text-orange-400 border-orange-500/30',
+  blue: 'bg-blue-500/10 text-blue-400 border-blue-500/30',
+  red: 'bg-red-500/10 text-red-400 border-red-500/30',
+};
+
+const DOT_CLASSES: Record<string, string> = {
+  green: 'bg-green-400',
+  yellow: 'bg-yellow-400',
+  orange: 'bg-orange-400',
+  blue: 'bg-blue-400',
+  red: 'bg-red-400',
+};
+
 const ProjectContent: React.FC<ProjectContentProps> = ({ project }) => {
+  const statusColor = getStatusColor(project.status);
+
   return (
     <div className="p-6">
       <div className="mb-3">
         <span
-          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border ${
-            project.status.toLowerCase() === 'live' ||
-            project.status.toLowerCase() === 'completed'
-              ? 'bg-green-500/10 text-green-400 border-green-500/30'
-              : project.status.toLowerCase() === 'in development'
-                ? 'bg-yellow-500/10 text-yellow-400 border-yellow-500/30'
-                : 'bg-red-500/10 text-red-400 border-red-500/30'
-          }`}
+          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border ${BADGE_CLASSES[statusColor]}`}
         >
-          <span
-            className={`w-1.5 h-1.5 rounded-full ${
-              project.status.toLowerCase() === 'live' ||
-              project.status.toLowerCase() === 'completed'
-                ? 'bg-green-400'
-                : project.status.toLowerCase() === 'in development'
-                  ? 'bg-yellow-400'
-                  : 'bg-red-400'
-            }`}
-          />
+          <span className={`w-1.5 h-1.5 rounded-full ${DOT_CLASSES[statusColor]}`} />
           {project.status}
         </span>
       </div>
