@@ -212,7 +212,35 @@
       "image": "",
       "status": "Paused",
       "priority": 1
-    }
+    },
+    {
+  "id": 2,
+  "title": "AI Job Assistant",
+  "subtitle": "AI-Powered Job Application Assistant",
+  "description": "An AI-powered Chrome extension that analyzes job postings, detects duplicate applications, and generates tailored ATS-optimized resumes using the user's master resume and LLMs.",
+  "longDescription": "AI Job Assistant is a Chrome extension designed to streamline manual job applications while keeping the applicant in control. It automatically extracts job posting information from career websites, supports review and editing, detects duplicate applications, stores a master resume, and provides an AI architecture for generating truthful, ATS-optimized resumes tailored to individual job descriptions.",
+  "technologies": [
+    "React",
+    "TypeScript",
+    "Vite",
+    "Chrome Extensions",
+    "Manifest V3",
+    "OpenAI",
+    "LLM",
+    "AI/ML"
+  ],
+  "github": "https://github.com/sujeethsr/ai-job-assistant",
+  "liveUrl": "",
+  "featured": true,
+  "categories": [
+    "LLM Applications",
+    "AI/ML",
+    "Fullstack Development"
+  ],
+  "image": "",
+  "status": "In Progress",
+  "priority": 1
+}
   ],
   "publications": [
     {
