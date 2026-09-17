@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 import Logo from './Logo';
 import DesktopNavigation from './DesktopNavigation';
 import MobileMenuButton from './MobileMenuButton';
@@ -14,7 +13,6 @@ interface NavItem {
 }
 
 const Navigation: React.FC = () => {
-  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -35,20 +33,6 @@ const Navigation: React.FC = () => {
     { name: 'Contact', href: '/contact' },
   ];
 
-  const scrollToSection = (href: string) => {
-    setIsOpen(false);
-
-    if (href.startsWith('/')) {
-      router.push(href);
-      return;
-    }
-
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -64,7 +48,6 @@ const Navigation: React.FC = () => {
           <div className="flex justify-center">
             <DesktopNavigation
               navItems={navItems}
-              scrollToSection={scrollToSection}
             />
           </div>
 
@@ -77,7 +60,6 @@ const Navigation: React.FC = () => {
         <MobileNavigation
           navItems={navItems}
           isOpen={isOpen}
-          scrollToSection={scrollToSection}
         />
       </div>
     </nav>
